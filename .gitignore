@@ -1,0 +1,10 @@
+
+# Build output and dependencies
+/bindings/
+/binding.gyp
+/build/
+/Cargo.toml
+/node_modules/
+
+# Local config
+/.envrc

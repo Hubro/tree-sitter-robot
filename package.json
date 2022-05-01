@@ -1,0 +1,31 @@
+{
+  "name": "tree-sitter-robot",
+  "version": "1.0.0",
+  "description": "Tree-sitter parser for Robot Framework files",
+  "main": "bindings/node",
+  "scripts": {
+    "build": "tree-sitter generate",
+    "test": "tree-sitter test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hubro/tree-sitter-robot.git"
+  },
+  "keywords": [
+    "tree-sitter",
+    "robot"
+  ],
+  "author": "Tomas Sandven",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hubro/tree-sitter-robot/issues"
+  },
+  "homepage": "https://github.com/Hubro/tree-sitter-robot#readme",
+  "dependencies": {
+    "nan": "^2.15.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.6.2",
+    "tree-sitter-cli": "^0.20.6"
+  }
+}

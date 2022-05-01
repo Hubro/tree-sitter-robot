@@ -1,0 +1,71 @@
+{
+  "name": "robot",
+  "rules": {
+    "source_file": {
+      "type": "REPEAT",
+      "content": {
+        "type": "SYMBOL",
+        "name": "statement"
+      }
+    },
+    "statement": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "section"
+        }
+      ]
+    },
+    "section": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "***"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "[sS][eE][tT][tT][iI][nN][gG][sS]"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[vV][aA][rR][iI][aA][bB][lL][eE][sS]"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[kK][eE][yY][wW][oO][rR][dD][sS]"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[tT][eE][sS][tT][sS]"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[tT][aA][sS][kK][sS]"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "***"
+        }
+      ]
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "\\s"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": []
+}
+
