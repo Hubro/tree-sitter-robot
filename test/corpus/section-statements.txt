@@ -1,0 +1,67 @@
+==================
+Properly formatted
+==================
+
+*** Settings ***
+*** Variables ***
+*** Keywords ***
+*** Tests ***
+*** Tasks ***
+
+---
+
+(source_file
+  (statement
+    (section))
+  (statement
+    (section))
+  (statement
+    (section))
+  (statement
+    (section))
+  (statement
+    (section)))
+
+==================
+Horribly formatted
+==================
+
+***Settings***
+***variables***
+*** KEYWORDS ***
+*** Tests***
+***TASKS ***
+
+---
+
+(source_file
+  (statement
+    (section))
+  (statement
+    (section))
+  (statement
+    (section))
+  (statement
+    (section))
+  (statement
+    (section)))
+
+=======
+Invalid
+=======
+
+** Settings ***
+***Variables**
+*** LOLWHAT ***
+
+---
+
+(source_file
+  (ERROR
+    (UNEXPECTED ' '))
+  (statement
+    (section
+      (ERROR
+        (UNEXPECTED '\n'))))
+  (ERROR
+    (UNEXPECTED 'L')))
