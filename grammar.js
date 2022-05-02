@@ -2,9 +2,10 @@
 const SECTION_NAMES = [
   "Settings",
   "Variables",
-  "Keywords",
-  "Tests",
+  "Test Cases",
   "Tasks",
+  "Keywords",
+  "Comments",
 ]
 
 const SETTINGS_KEYWORDS = [

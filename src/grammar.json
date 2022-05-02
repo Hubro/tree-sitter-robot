@@ -53,15 +53,19 @@
             },
             {
               "type": "PATTERN",
-              "value": "[kK][eE][yY][wW][oO][rR][dD][sS]"
-            },
-            {
-              "type": "PATTERN",
-              "value": "[tT][eE][sS][tT][sS]"
+              "value": "[tT][eE][sS][tT][  ][cC][aA][sS][eE][sS]"
             },
             {
               "type": "PATTERN",
               "value": "[tT][aA][sS][kK][sS]"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[kK][eE][yY][wW][oO][rR][dD][sS]"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[cC][oO][mM][mM][eE][nN][tT][sS]"
             }
           ]
         },

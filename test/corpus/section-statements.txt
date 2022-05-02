@@ -5,7 +5,7 @@ Properly formatted
 *** Settings ***
 *** Variables ***
 *** Keywords ***
-*** Tests ***
+*** Test Cases ***
 *** Tasks ***
 
 --------------------------------------------------------------------------------
@@ -29,7 +29,7 @@ Horribly formatted
 ***Settings***
 ***variables***
 *** KEYWORDS ***
-*** Tests***
+*** Test cases***
 ***TASKS ***
 
 --------------------------------------------------------------------------------
@@ -50,7 +50,7 @@ Horribly formatted
 Extra text after a section name
 ================================================================================
 
-*** Tests ***         I'm a header       So am I
+*** Test Cases ***      I'm a header      So am I
 
 --------------------------------------------------------------------------------
 
