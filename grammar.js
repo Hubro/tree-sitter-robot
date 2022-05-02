@@ -37,29 +37,29 @@ function caseInsensitive(keyword) {
   );
 }
 
+/**
+ * Shortcut for defining a section header
+ */
+function section_header(name) {
+  return seq("***", name, "***")
+}
+
 module.exports = grammar({
   name: "robot",
 
   rules: {
-    source_file: $ => repeat($.statement),
+    source_file: $ => repeat($.section),
 
-    statement: $ => choice(
-      $.section_statement,
-      $.setting_statement,
+    section: $ => choice(
+      $.settings_section,
     ),
 
-    section_statement: $ =>
-      seq(
-        "***",
-        optional(" "),
-        choice(...SECTION_NAMES.map(caseInsensitive)),
-        optional(" "),
-        "***",
-        repeat(seq(
-          $._separator,
-          alias($.argument, $.extra_section_text),
-        )),
-      ),
+    settings_section_header: $ => section_header("Settings"),
+    settings_section: $ => seq(
+      alias($.settings_section_header, $.section_header),
+      $._line_break,
+      repeat($.setting_statement)
+    ),
 
     setting_statement: $ => seq(
       choice(...SETTINGS_KEYWORDS.map(caseInsensitive)),

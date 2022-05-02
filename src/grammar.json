@@ -5,23 +5,19 @@
       "type": "REPEAT",
       "content": {
         "type": "SYMBOL",
-        "name": "statement"
+        "name": "section"
       }
     },
-    "statement": {
+    "section": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "section_statement"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "setting_statement"
+          "name": "settings_section"
         }
       ]
     },
-    "section_statement": {
+    "settings_section_header": {
       "type": "SEQ",
       "members": [
         {
@@ -29,81 +25,36 @@
           "value": "***"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": " "
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "PATTERN",
-              "value": "[sS][eE][tT][tT][iI][nN][gG][sS]"
-            },
-            {
-              "type": "PATTERN",
-              "value": "[vV][aA][rR][iI][aA][bB][lL][eE][sS]"
-            },
-            {
-              "type": "PATTERN",
-              "value": "[tT][eE][sS][tT][  ][cC][aA][sS][eE][sS]"
-            },
-            {
-              "type": "PATTERN",
-              "value": "[tT][aA][sS][kK][sS]"
-            },
-            {
-              "type": "PATTERN",
-              "value": "[kK][eE][yY][wW][oO][rR][dD][sS]"
-            },
-            {
-              "type": "PATTERN",
-              "value": "[cC][oO][mM][mM][eE][nN][tT][sS]"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": " "
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "STRING",
+          "value": "Settings"
         },
         {
           "type": "STRING",
           "value": "***"
+        }
+      ]
+    },
+    "settings_section": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "settings_section_header"
+          },
+          "named": true,
+          "value": "section_header"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_line_break"
         },
         {
           "type": "REPEAT",
           "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "_separator"
-              },
-              {
-                "type": "ALIAS",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "argument"
-                },
-                "named": true,
-                "value": "extra_section_text"
-              }
-            ]
+            "type": "SYMBOL",
+            "name": "setting_statement"
           }
         }
       ]

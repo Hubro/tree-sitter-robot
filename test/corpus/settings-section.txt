@@ -1,0 +1,114 @@
+================================================================================
+Empty settings section
+================================================================================
+
+*** Settings ***
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (settings_section
+      (section_header))))
+
+================================================================================
+Simple, single line settings
+================================================================================
+
+*** Settings ***
+
+Library           mytestlibrary.MyTestLibrary   foo=bar
+Resource          ../common.resource
+Variables         ../data/variables.py
+Documentation     This is some documentation text
+Metadata          This is some metadata text    This is some more metadata text
+Suite Setup       My Test Suite Setup Keyword
+Suite Teardown    My Test Suite Teardown Keyword
+Force Tags        tag1  tag2
+Default Tags      tag3  tag4
+Test Setup        My Test Setup Keyword
+Test Teardown     My Test Teardown Keyword
+Test Template     My Test Template
+Test Timeout      2 minutes
+Task Setup        My Task Setup Keyword
+Task Teardown     My Task Teardown Keyword
+Task Template     My Task Template
+Task Timeout      5 minutes
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (settings_section
+      (section_header)
+      (setting_statement
+        (argument)
+        (argument))
+      (setting_statement
+        (argument))
+      (setting_statement
+        (argument))
+      (setting_statement
+        (argument))
+      (setting_statement
+        (argument)
+        (argument))
+      (setting_statement
+        (argument))
+      (setting_statement
+        (argument))
+      (setting_statement
+        (argument)
+        (argument))
+      (setting_statement
+        (argument)
+        (argument))
+      (setting_statement
+        (argument))
+      (setting_statement
+        (argument))
+      (setting_statement
+        (argument))
+      (setting_statement
+        (argument))
+      (setting_statement
+        (argument))
+      (setting_statement
+        (argument))
+      (setting_statement
+        (argument))
+      (setting_statement
+        (argument)))))
+
+================================================================================
+Settings with line continuations
+================================================================================
+
+*** Settings ***
+Library           mytestlibrary.MyTestLibrary
+...               foo=bar
+...               moo=meow
+Documentation     This is some documentation text
+...
+...               The text continues over multiple lines, since this
+...               is a very well documented Robot file
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (settings_section
+      (section_header)
+      (setting_statement
+        (argument)
+        (continuation
+          (argument))
+        (continuation
+          (argument)))
+      (setting_statement
+        (argument)
+        (continuation)
+        (continuation
+          (argument))
+        (continuation
+          (argument))))))
