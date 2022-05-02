@@ -1,8 +1,23 @@
 [
   {
-    "type": "section",
+    "type": "section_statement",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "setting_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "argument",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "source_file",
@@ -28,14 +43,26 @@
       "required": true,
       "types": [
         {
-          "type": "section",
+          "type": "section_statement",
+          "named": true
+        },
+        {
+          "type": "setting_statement",
           "named": true
         }
       ]
     }
   },
   {
+    "type": " ",
+    "named": false
+  },
+  {
     "type": "***",
     "named": false
+  },
+  {
+    "type": "argument",
+    "named": true
   }
 ]

@@ -13,16 +13,32 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "section"
+          "name": "section_statement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "setting_statement"
         }
       ]
     },
-    "section": {
+    "section_statement": {
       "type": "SEQ",
       "members": [
         {
           "type": "STRING",
           "value": "***"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": " "
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "CHOICE",
@@ -50,10 +66,124 @@
           ]
         },
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": " "
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "STRING",
           "value": "***"
         }
       ]
+    },
+    "setting_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "[lL][iI][bB][rR][aA][rR][yY]"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[rR][eE][sS][oO][uU][rR][cC][eE]"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[vV][aA][rR][iI][aA][bB][lL][eE][sS]"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[dD][oO][cC][uU][mM][eE][nN][tT][aA][tT][iI][oO][nN]"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[mM][eE][tT][aA][dD][aA][tT][aA]"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[sS][uU][iI][tT][eE][  ][sS][eE][tT][uU][pP]"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[sS][uU][iI][tT][eE][  ][tT][eE][aA][rR][dD][oO][wW][nN]"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[fF][oO][rR][cC][eE][  ][tT][aA][gG][sS]"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[dD][eE][fF][aA][uU][lL][tT][  ][tT][aA][gG][sS]"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[tT][eE][sS][tT][  ][sS][eE][tT][uU][pP]"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[tT][eE][sS][tT][  ][tT][eE][aA][rR][dD][oO][wW][nN]"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[tT][eE][sS][tT][  ][tT][eE][mM][pP][lL][aA][tT][eE]"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[tT][eE][sS][tT][  ][tT][iI][mM][eE][oO][uU][tT]"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[tT][aA][sS][kK][  ][sS][eE][tT][uU][pP]"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[tT][aA][sS][kK][  ][tT][eE][aA][rR][dD][oO][wW][nN]"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[tT][aA][sS][kK][  ][tT][eE][mM][pP][lL][aA][tT][eE]"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[tT][aA][sS][kK][  ][tT][iI][mM][eE][oO][uU][tT]"
+            }
+          ]
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_separator"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "argument"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "argument": {
+      "type": "PATTERN",
+      "value": "[^\\s]+([ ][^\\s]+)*"
+    },
+    "_separator": {
+      "type": "PATTERN",
+      "value": "[ ]{2,}|\\\\t+"
     }
   },
   "extras": [

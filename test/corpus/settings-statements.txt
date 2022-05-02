@@ -1,0 +1,79 @@
+================================================================================
+Simple, single line settings
+================================================================================
+
+Library           mytestlibrary.MyTestLibrary   foo=bar
+Resource          ../common.resource
+Variables         ../data/variables.py
+Documentation     This is some documentation text
+Metadata          This is some metadata text
+Suite Setup       My Test Suite Setup Keyword
+Suite Teardown    My Test Suite Teardown Keyword
+Force Tags        tag1  tag2
+Default Tags      tag3  tag4
+Test Setup        My Test Setup Keyword
+Test Teardown     My Test Teardown Keyword
+Test Template     My Test Template
+Test Timeout      2 minutes
+Task Setup        My Task Setup Keyword
+Task Teardown     My Task Teardown Keyword
+Task Template     My Task Template
+Task Timeout      5 minutes
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (statement
+    (setting_statement
+      (argument)
+      (argument)))
+  (statement
+    (setting_statement
+      (argument)))
+  (statement
+    (setting_statement
+      (argument)))
+  (statement
+    (setting_statement
+      (argument)))
+  (statement
+    (setting_statement
+      (argument)))
+  (statement
+    (setting_statement
+      (argument)))
+  (statement
+    (setting_statement
+      (argument)))
+  (statement
+    (setting_statement
+      (argument)
+      (argument)))
+  (statement
+    (setting_statement
+      (argument)
+      (argument)))
+  (statement
+    (setting_statement
+      (argument)))
+  (statement
+    (setting_statement
+      (argument)))
+  (statement
+    (setting_statement
+      (argument)))
+  (statement
+    (setting_statement
+      (argument)))
+  (statement
+    (setting_statement
+      (argument)))
+  (statement
+    (setting_statement
+      (argument)))
+  (statement
+    (setting_statement
+      (argument)))
+  (statement
+    (setting_statement
+      (argument))))

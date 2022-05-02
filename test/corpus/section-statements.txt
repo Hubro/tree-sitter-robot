@@ -1,6 +1,6 @@
-==================
+================================================================================
 Properly formatted
-==================
+================================================================================
 
 *** Settings ***
 *** Variables ***
@@ -8,23 +8,23 @@ Properly formatted
 *** Tests ***
 *** Tasks ***
 
----
+--------------------------------------------------------------------------------
 
 (source_file
   (statement
-    (section))
+    (section_statement))
   (statement
-    (section))
+    (section_statement))
   (statement
-    (section))
+    (section_statement))
   (statement
-    (section))
+    (section_statement))
   (statement
-    (section)))
+    (section_statement)))
 
-==================
+================================================================================
 Horribly formatted
-==================
+================================================================================
 
 ***Settings***
 ***variables***
@@ -32,36 +32,36 @@ Horribly formatted
 *** Tests***
 ***TASKS ***
 
----
+--------------------------------------------------------------------------------
 
 (source_file
   (statement
-    (section))
+    (section_statement))
   (statement
-    (section))
+    (section_statement))
   (statement
-    (section))
+    (section_statement))
   (statement
-    (section))
+    (section_statement))
   (statement
-    (section)))
+    (section_statement)))
 
-=======
+================================================================================
 Invalid
-=======
+================================================================================
 
 ** Settings ***
 ***Variables**
 *** LOLWHAT ***
 
----
+--------------------------------------------------------------------------------
 
 (source_file
   (ERROR
     (UNEXPECTED ' '))
   (statement
-    (section
+    (section_statement
       (ERROR
         (UNEXPECTED '\n'))))
   (ERROR
-    (UNEXPECTED 'L')))
+    (UNEXPECTED 'O')))
