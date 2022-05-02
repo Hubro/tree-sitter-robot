@@ -45,3 +45,17 @@ Horribly formatted
     (section_statement))
   (statement
     (section_statement)))
+
+================================================================================
+Extra text after a section name
+================================================================================
+
+*** Tests ***         I'm a header       So am I
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (statement
+    (section_statement
+      (extra_section_text)
+      (extra_section_text))))

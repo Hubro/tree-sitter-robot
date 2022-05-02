@@ -53,7 +53,11 @@ module.exports = grammar({
         optional(" "),
         choice(...SECTION_NAMES.map(caseInsensitive)),
         optional(" "),
-        "***"
+        "***",
+        repeat(seq(
+          $._separator,
+          alias($.argument, $.extra_section_text),
+        )),
       ),
 
     setting_statement: $ => seq(

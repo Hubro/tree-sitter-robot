@@ -20,9 +20,24 @@
     }
   },
   {
-    "type": "section_statement",
+    "type": "extra_section_text",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "section_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "extra_section_text",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "setting_statement",

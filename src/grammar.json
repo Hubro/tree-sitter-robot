@@ -80,6 +80,27 @@
         {
           "type": "STRING",
           "value": "***"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_separator"
+              },
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "argument"
+                },
+                "named": true,
+                "value": "extra_section_text"
+              }
+            ]
+          }
         }
       ]
     },
