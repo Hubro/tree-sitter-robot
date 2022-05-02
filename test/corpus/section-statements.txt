@@ -45,23 +45,3 @@ Horribly formatted
     (section_statement))
   (statement
     (section_statement)))
-
-================================================================================
-Invalid
-================================================================================
-
-** Settings ***
-***Variables**
-*** LOLWHAT ***
-
---------------------------------------------------------------------------------
-
-(source_file
-  (ERROR
-    (UNEXPECTED ' '))
-  (statement
-    (section_statement
-      (ERROR
-        (UNEXPECTED '\n'))))
-  (ERROR
-    (UNEXPECTED 'O')))
