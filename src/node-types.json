@@ -1,5 +1,25 @@
 [
   {
+    "type": "argument",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "continuation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "argument",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "section_statement",
     "named": true,
     "fields": {}
@@ -14,6 +34,10 @@
       "types": [
         {
           "type": "argument",
+          "named": true
+        },
+        {
+          "type": "continuation",
           "named": true
         }
       ]
@@ -54,6 +78,18 @@
     }
   },
   {
+    "type": "\n",
+    "named": false
+  },
+  {
+    "type": "\r",
+    "named": false
+  },
+  {
+    "type": "\r\n",
+    "named": false
+  },
+  {
     "type": " ",
     "named": false
   },
@@ -62,7 +98,7 @@
     "named": false
   },
   {
-    "type": "argument",
-    "named": true
+    "type": "...",
+    "named": false
   }
 ]

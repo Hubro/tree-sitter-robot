@@ -6,7 +6,7 @@ Library           mytestlibrary.MyTestLibrary   foo=bar
 Resource          ../common.resource
 Variables         ../data/variables.py
 Documentation     This is some documentation text
-Metadata          This is some metadata text
+Metadata          This is some metadata text    This is some more metadata text
 Suite Setup       My Test Suite Setup Keyword
 Suite Teardown    My Test Suite Teardown Keyword
 Force Tags        tag1  tag2
@@ -38,6 +38,7 @@ Task Timeout      5 minutes
       (argument)))
   (statement
     (setting_statement
+      (argument)
       (argument)))
   (statement
     (setting_statement
@@ -77,3 +78,35 @@ Task Timeout      5 minutes
   (statement
     (setting_statement
       (argument))))
+
+================================================================================
+Settings with line continuations
+================================================================================
+
+Library           mytestlibrary.MyTestLibrary
+...               foo=bar
+...               moo=meow
+
+Documentation     This is some documentation text
+...
+...               The text continues over multiple lines, since this
+...               is a very well documented Robot file
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (statement
+    (setting_statement
+      (argument)
+      (continuation
+        (argument))
+      (continuation
+        (argument))))
+  (statement
+    (setting_statement
+      (argument)
+      (continuation)
+      (continuation
+        (argument))
+      (continuation
+        (argument)))))

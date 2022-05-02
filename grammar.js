@@ -40,14 +40,14 @@ module.exports = grammar({
   name: "robot",
 
   rules: {
-    source_file: ($) => repeat($.statement),
+    source_file: $ => repeat($.statement),
 
-    statement: ($) => choice(
+    statement: $ => choice(
       $.section_statement,
       $.setting_statement,
     ),
 
-    section_statement: ($) =>
+    section_statement: $ =>
       seq(
         "***",
         optional(" "),
@@ -56,16 +56,33 @@ module.exports = grammar({
         "***"
       ),
 
-    setting_statement: ($) => seq(
+    setting_statement: $ => seq(
       choice(...SETTINGS_KEYWORDS.map(caseInsensitive)),
       repeat(seq(
           $._separator,
           $.argument,
-      ))
+      )),
+      repeat(seq(
+        $._line_break,
+        $.continuation,
+      )),
+      $._line_break
     ),
 
-    argument: ($) => /[^\s]+([ ][^\s]+)*/,
+    continuation: $ => seq(
+      "...",
+      repeat(seq(
+        $._separator,
+        $.argument,
+      )),
+    ),
 
-    _separator: ($) => /[ ]{2,}|\\t+/,
+    argument: $ => $._token,
+
+    _token: $ => /[^\s]+([ ][^\s]+)*/,
+
+    _separator: $ => /[ ]{2,}|\t+/,
+
+    _line_break: $ => choice("\r\n", "\r", "\n"),
   },
 });
