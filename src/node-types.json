@@ -5,15 +5,38 @@
     "fields": {}
   },
   {
+    "type": "arguments",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "argument",
+          "named": true
+        },
+        {
+          "type": "continuation",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "continuation",
     "named": true,
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "argument",
+          "named": true
+        },
+        {
+          "type": "ellipses",
           "named": true
         }
       ]
@@ -30,6 +53,10 @@
         {
           "type": "settings_section",
           "named": true
+        },
+        {
+          "type": "variables_section",
+          "named": true
         }
       ]
     }
@@ -44,15 +71,11 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
-      "required": false,
+      "multiple": false,
+      "required": true,
       "types": [
         {
-          "type": "argument",
-          "named": true
-        },
-        {
-          "type": "continuation",
+          "type": "arguments",
           "named": true
         }
       ]
@@ -93,15 +116,53 @@
     }
   },
   {
-    "type": "\n",
+    "type": "variable_definition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "arguments",
+          "named": true
+        },
+        {
+          "type": "variable_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "variables_section",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "section_header",
+          "named": true
+        },
+        {
+          "type": "variable_definition",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": " ",
     "named": false
   },
   {
-    "type": "\r",
+    "type": " =",
     "named": false
   },
   {
-    "type": "\r\n",
+    "type": "${",
     "named": false
   },
   {
@@ -109,11 +170,27 @@
     "named": false
   },
   {
-    "type": "...",
+    "type": "=",
     "named": false
   },
   {
     "type": "Settings",
+    "named": false
+  },
+  {
+    "type": "Variables",
+    "named": false
+  },
+  {
+    "type": "ellipses",
+    "named": true
+  },
+  {
+    "type": "variable_name",
+    "named": true
+  },
+  {
+    "type": "}",
     "named": false
   }
 ]

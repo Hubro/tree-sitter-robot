@@ -42,43 +42,60 @@ Task Timeout      5 minutes
     (settings_section
       (section_header)
       (setting_statement
-        (argument)
-        (argument))
+        (arguments
+          (argument)
+          (argument)))
       (setting_statement
-        (argument))
+        (arguments
+          (argument)))
       (setting_statement
-        (argument))
+        (arguments
+          (argument)))
       (setting_statement
-        (argument))
+        (arguments
+          (argument)))
       (setting_statement
-        (argument)
-        (argument))
+        (arguments
+          (argument)
+          (argument)))
       (setting_statement
-        (argument))
+        (arguments
+          (argument)))
       (setting_statement
-        (argument))
+        (arguments
+          (argument)))
       (setting_statement
-        (argument)
-        (argument))
+        (arguments
+          (argument)
+          (argument)))
       (setting_statement
-        (argument)
-        (argument))
+        (arguments
+          (argument)
+          (argument)))
       (setting_statement
-        (argument))
+        (arguments
+          (argument)))
       (setting_statement
-        (argument))
+        (arguments
+          (argument)))
       (setting_statement
-        (argument))
+        (arguments
+          (argument)))
       (setting_statement
-        (argument))
+        (arguments
+          (argument)))
       (setting_statement
-        (argument))
+        (arguments
+          (argument)))
       (setting_statement
-        (argument))
+        (arguments
+          (argument)))
       (setting_statement
-        (argument))
+        (arguments
+          (argument)))
       (setting_statement
-        (argument)))))
+        (arguments
+          (argument))))))
 
 ================================================================================
 Settings with line continuations
@@ -100,15 +117,22 @@ Documentation     This is some documentation text
     (settings_section
       (section_header)
       (setting_statement
-        (argument)
-        (continuation
-          (argument))
-        (continuation
-          (argument)))
+        (arguments
+          (argument)
+          (continuation
+            (ellipses)
+            (argument))
+          (continuation
+            (ellipses)
+            (argument))))
       (setting_statement
-        (argument)
-        (continuation)
-        (continuation
-          (argument))
-        (continuation
-          (argument))))))
+        (arguments
+          (argument)
+          (continuation
+            (ellipses))
+          (continuation
+            (ellipses)
+            (argument))
+          (continuation
+            (ellipses)
+            (argument)))))))
