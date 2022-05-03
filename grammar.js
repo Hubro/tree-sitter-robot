@@ -58,6 +58,7 @@ module.exports = grammar({
     section: $ => choice(
       $.settings_section,
       $.variables_section,
+      $.keywords_section,
     ),
 
     //
@@ -102,10 +103,48 @@ module.exports = grammar({
     ),
 
     //
+    // Keywords section
+    //
+
+    keywords_section: $ => seq(
+      alias($.keywords_section_header, $.section_header),
+      $._line_break,
+      repeat(choice(
+        $.keyword_definition,
+        $._empty_line,
+      )),
+    ),
+    keywords_section_header: $ => section_header("Keywords"),
+    keyword_definition: $ => seq(
+      alias($._token, $.name),
+      $._line_break,
+      alias($.keyword_definition_body, $.body),
+    ),
+    keyword_definition_body: $ => prec.right(repeat1(
+      choice(
+        $.statement,
+        $._empty_line,
+      )
+    )),
+
+    //
     // Reusable rules
     //
 
-    arguments: $ => seq(
+    // A "statement" is any line inside of a test case or user defined keyword
+    statement: $ => prec.right(seq(
+      $._separator,
+      alias($._token, $.keyword),
+      choice(
+        seq(
+          $._separator,
+          $.arguments,
+        ),
+        $._line_break,
+      ),
+    )),
+
+    arguments: $ => prec.right(seq(
       $.argument,
       repeat(seq(
         $._separator,
@@ -113,11 +152,13 @@ module.exports = grammar({
       )),
       $._line_break,
       repeat($.continuation),
-    ),
+    )),
 
     continuation: $ => seq(
-      optional($._separator),
-      $.ellipses,
+      choice(
+        $.ellipses,
+        alias($.indented_ellipses, $.ellipses),
+      ),
       repeat(seq(
         $._separator,
         $.argument,
@@ -126,6 +167,8 @@ module.exports = grammar({
     ),
 
     ellipses: $ => "...",
+
+    indented_ellipses: $ => token(seq(/[ ]{2}|\t/, optional(/[ \t]+/), "...")),
 
     argument: $ => $._token,
 

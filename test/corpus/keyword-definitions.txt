@@ -1,0 +1,57 @@
+================================================================================
+Simple keyword definitions
+================================================================================
+
+*** Keywords ***
+
+I Am A User Defined Keyword
+    Foo Bar
+    Do Something    foo=bar
+    ...             Another argument
+    Do More Stuff   pow=123
+
+    Empty Lines Should Be Allowed
+
+I Am Another User Defined Keyword
+
+    Do Something Cool     with=123
+    ...                   and=234
+
+    Expect Everything To Work
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (keywords_section
+      (section_header)
+      (keyword_definition
+        (name)
+        (body
+          (statement
+            (keyword))
+          (statement
+            (keyword)
+            (arguments
+              (argument)
+              (continuation
+                (ellipses)
+                (argument))))
+          (statement
+            (keyword)
+            (arguments
+              (argument)))
+          (statement
+            (keyword))))
+      (keyword_definition
+        (name)
+        (body
+          (statement
+            (keyword)
+            (arguments
+              (argument)
+              (continuation
+                (ellipses)
+                (argument))))
+          (statement
+            (keyword)))))))

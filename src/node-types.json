@@ -24,6 +24,21 @@
     }
   },
   {
+    "type": "body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "continuation",
     "named": true,
     "fields": {},
@@ -43,6 +58,44 @@
     }
   },
   {
+    "type": "keyword_definition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "body",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "keywords_section",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "keyword_definition",
+          "named": true
+        },
+        {
+          "type": "section_header",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "section",
     "named": true,
     "fields": {},
@@ -50,6 +103,10 @@
       "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "keywords_section",
+          "named": true
+        },
         {
           "type": "settings_section",
           "named": true
@@ -116,6 +173,25 @@
     }
   },
   {
+    "type": "statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "arguments",
+          "named": true
+        },
+        {
+          "type": "keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "variable_definition",
     "named": true,
     "fields": {},
@@ -174,6 +250,10 @@
     "named": false
   },
   {
+    "type": "Keywords",
+    "named": false
+  },
+  {
     "type": "Settings",
     "named": false
   },
@@ -183,6 +263,14 @@
   },
   {
     "type": "ellipses",
+    "named": true
+  },
+  {
+    "type": "keyword",
+    "named": true
+  },
+  {
+    "type": "name",
     "named": true
   },
   {
