@@ -702,6 +702,14 @@
             {
               "type": "SYMBOL",
               "name": "scalar_variable"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "list_variable"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "dictionary_variable"
             }
           ]
         },
@@ -781,6 +789,88 @@
         }
       ]
     },
+    "list_variable": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@{"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": " "
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "variable_name"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": " "
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "dictionary_variable": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "&{"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": " "
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "variable_name"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": " "
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
     "variable_name": {
       "type": "PATTERN",
       "value": "[^{}]+"
@@ -797,15 +887,15 @@
               "members": [
                 {
                   "type": "PATTERN",
-                  "value": "[^\\s${]"
+                  "value": "[^\\s$@&{]"
                 },
                 {
                   "type": "PATTERN",
-                  "value": "\\$[^{]"
+                  "value": "[$@&][^{]"
                 },
                 {
                   "type": "PATTERN",
-                  "value": "[^$]\\{"
+                  "value": "[^$@&]\\{"
                 }
               ]
             }
@@ -826,15 +916,15 @@
                     "members": [
                       {
                         "type": "PATTERN",
-                        "value": "[^\\s${]"
+                        "value": "[^\\s$@&{]"
                       },
                       {
                         "type": "PATTERN",
-                        "value": "\\$[^{]"
+                        "value": "[$@&][^{]"
                       },
                       {
                         "type": "PATTERN",
-                        "value": "[^$]\\{"
+                        "value": "[^$@&]\\{"
                       }
                     ]
                   }

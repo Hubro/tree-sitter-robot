@@ -87,7 +87,39 @@ Test Keyword
                     (text_chunk)))))))))))
 
 ================================================================================
-Scalar value interpolation
+Scalar variables, list variables, dictionary variables
+================================================================================
+
+*** Keywords ***
+
+Test Keyword
+  Simple Statement    ${SOME_VARIABLE}    @{LIST_VARIABLE}    &{DICT_VARIABLE}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (keywords_section
+      (section_header)
+      (keyword_definition
+        (name)
+        (body
+          (statement
+            (keyword_invocation
+              (keyword)
+              (arguments
+                (argument
+                  (scalar_variable
+                    (variable_name)))
+                (argument
+                  (list_variable
+                    (variable_name)))
+                (argument
+                  (dictionary_variable
+                    (variable_name)))))))))))
+
+================================================================================
+Scalar variable interpolation
 ================================================================================
 
 *** Keywords ***

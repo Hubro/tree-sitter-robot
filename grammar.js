@@ -204,6 +204,8 @@ module.exports = grammar({
       choice(
         $.text_chunk,
         $.scalar_variable,
+        $.list_variable,
+        $.dictionary_variable,
       ),
       repeat(seq(
         optional(" "),
@@ -222,20 +224,36 @@ module.exports = grammar({
       "}"
     ),
 
+    list_variable: $ => seq(
+      "@{",
+      optional(" "),
+      $.variable_name,
+      optional(" "),
+      "}"
+    ),
+
+    dictionary_variable: $ => seq(
+      "&{",
+      optional(" "),
+      $.variable_name,
+      optional(" "),
+      "}"
+    ),
+
     variable_name: $ => /[^{}]+/,
 
     text_chunk: $ => token(seq(
       repeat1(choice(
-        /[^\s${]/,
-        /\$[^{]/,
-        /[^$]\{/,
+        /[^\s$@&{]/,
+        /[$@&][^{]/,
+        /[^$@&]\{/,
       )),
       repeat(seq(
         " ",
         repeat1(choice(
-          /[^\s${]/,
-          /\$[^{]/,
-          /[^$]\{/,
+          /[^\s$@&{]/,
+          /[$@&][^{]/,
+          /[^$@&]\{/,
         )),
       )),
     )),
