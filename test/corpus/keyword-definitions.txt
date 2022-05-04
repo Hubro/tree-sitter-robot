@@ -29,29 +29,40 @@ I Am Another User Defined Keyword
         (name)
         (body
           (statement
-            (keyword))
+            (keyword_invocation
+              (keyword)))
           (statement
-            (keyword)
-            (arguments
-              (argument)
-              (continuation
-                (ellipses)
-                (argument))))
+            (keyword_invocation
+              (keyword)
+              (arguments
+                (argument
+                  (text_chunk))
+                (continuation
+                  (ellipses)
+                  (argument
+                    (text_chunk))))))
           (statement
-            (keyword)
-            (arguments
-              (argument)))
+            (keyword_invocation
+              (keyword)
+              (arguments
+                (argument
+                  (text_chunk)))))
           (statement
-            (keyword))))
+            (keyword_invocation
+              (keyword)))))
       (keyword_definition
         (name)
         (body
           (statement
-            (keyword)
-            (arguments
-              (argument)
-              (continuation
-                (ellipses)
-                (argument))))
+            (keyword_invocation
+              (keyword)
+              (arguments
+                (argument
+                  (text_chunk))
+                (continuation
+                  (ellipses)
+                  (argument
+                    (text_chunk))))))
           (statement
-            (keyword)))))))
+            (keyword_invocation
+              (keyword))))))))

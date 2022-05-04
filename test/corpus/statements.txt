@@ -1,0 +1,172 @@
+================================================================================
+Basic keyword invocations
+================================================================================
+
+*** Keywords ***
+
+Test Keyword
+  I Am A Simple Statement
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (keywords_section
+      (section_header)
+      (keyword_definition
+        (name)
+        (body
+          (statement
+            (keyword_invocation
+              (keyword))))))))
+
+================================================================================
+Keyword invocations with arguments
+================================================================================
+
+*** Keywords ***
+
+Test Keyword
+  I Am A Simple Statement     First argument    Second argument
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (keywords_section
+      (section_header)
+      (keyword_definition
+        (name)
+        (body
+          (statement
+            (keyword_invocation
+              (keyword)
+              (arguments
+                (argument
+                  (text_chunk))
+                (argument
+                  (text_chunk))))))))))
+
+================================================================================
+Keyword invocations with line continuations
+================================================================================
+
+*** Keywords ***
+
+Test Keyword
+  I Am A Simple Statement     First argument    Second argument
+  ...                         Third argument    Fourth argument
+  ...                         And so on
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (keywords_section
+      (section_header)
+      (keyword_definition
+        (name)
+        (body
+          (statement
+            (keyword_invocation
+              (keyword)
+              (arguments
+                (argument
+                  (text_chunk))
+                (argument
+                  (text_chunk))
+                (continuation
+                  (ellipses)
+                  (argument
+                    (text_chunk))
+                  (argument
+                    (text_chunk)))
+                (continuation
+                  (ellipses)
+                  (argument
+                    (text_chunk)))))))))))
+
+================================================================================
+Scalar value interpolation
+================================================================================
+
+*** Keywords ***
+
+Test Keyword
+  Simple Statement    ${SOME_VARIABLE}
+
+  Simple Statement    Interpolation ${VARIABLE} example
+
+  Simple Statement    no${VARIABLE}space
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (keywords_section
+      (section_header)
+      (keyword_definition
+        (name)
+        (body
+          (statement
+            (keyword_invocation
+              (keyword)
+              (arguments
+                (argument
+                  (scalar_variable
+                    (variable_name))))))
+          (statement
+            (keyword_invocation
+              (keyword)
+              (arguments
+                (argument
+                  (text_chunk)
+                  (scalar_variable
+                    (variable_name))
+                  (text_chunk)))))
+          (statement
+            (keyword_invocation
+              (keyword)
+              (arguments
+                (argument
+                  (text_chunk)
+                  (scalar_variable
+                    (variable_name))
+                  (text_chunk))))))))))
+
+================================================================================
+Simple variable assignment
+================================================================================
+
+*** Keywords ***
+
+Test Keyword
+  ${My Variable}        Some Keyword    Some Argument   ${Foo}
+  ${Second Variable} =  The Equals Symbol Is Optional
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (keywords_section
+      (section_header)
+      (keyword_definition
+        (name)
+        (body
+          (statement
+            (variable_assignment
+              (variable_name)
+              (arguments
+                (argument
+                  (text_chunk))
+                (argument
+                  (text_chunk))
+                (argument
+                  (scalar_variable
+                    (variable_name))))))
+          (statement
+            (variable_assignment
+              (variable_name)
+              (arguments
+                (argument
+                  (text_chunk))))))))))

@@ -116,7 +116,7 @@ module.exports = grammar({
     ),
     keywords_section_header: $ => section_header("Keywords"),
     keyword_definition: $ => seq(
-      alias($._token, $.name),
+      alias($.text_chunk, $.name),
       $._line_break,
       alias($.keyword_definition_body, $.body),
     ),
@@ -128,13 +128,25 @@ module.exports = grammar({
     )),
 
     //
-    // Reusable rules
+    // Statements
+    //
+    // These are the lines that appear within test cases, tasks and user
+    // defined keywords
     //
 
-    // A "statement" is any line inside of a test case or user defined keyword
-    statement: $ => prec.right(seq(
-      $._separator,
-      alias($._token, $.keyword),
+    statement: $ => seq(
+      $._separator,   // The initial indentation
+      choice(
+        $.variable_assignment,
+        $.keyword_invocation,
+      ),
+    ),
+
+    variable_assignment: $ => seq(
+      seq("${", $.variable_name, "}"),
+      optional(
+        choice("=", " =")
+      ),
       choice(
         seq(
           $._separator,
@@ -142,7 +154,22 @@ module.exports = grammar({
         ),
         $._line_break,
       ),
-    )),
+    ),
+
+    keyword_invocation: $ => seq(
+      alias($.text_chunk, $.keyword),
+      choice(
+        seq(
+          $._separator,
+          $.arguments,
+        ),
+        $._line_break,
+      ),
+    ),
+
+    //
+    // Reusable rules
+    //
 
     arguments: $ => prec.right(seq(
       $.argument,
@@ -167,14 +194,51 @@ module.exports = grammar({
     ),
 
     ellipses: $ => "...",
+    indented_ellipses: $ => token(seq(
+      /[ ]{2}|\t/,
+      optional(/[ \t]+/),
+      "..."
+    )),
 
-    indented_ellipses: $ => token(seq(/[ ]{2}|\t/, optional(/[ \t]+/), "...")),
+    argument: $ => seq(
+      choice(
+        $.text_chunk,
+        $.scalar_variable,
+      ),
+      repeat(seq(
+        optional(" "),
+        choice(
+          $.text_chunk,
+          $.scalar_variable,
+        )
+      ))
+    ),
 
-    argument: $ => $._token,
+    scalar_variable: $ => seq(
+      "${",
+      optional(" "),
+      $.variable_name,
+      optional(" "),
+      "}"
+    ),
 
     variable_name: $ => /[^{}]+/,
 
-    _token: $ => /[^\s]+([ ][^\s]+)*/,
+    text_chunk: $ => token(seq(
+      repeat1(choice(
+        /[^\s${]/,
+        /\$[^{]/,
+        /[^$]\{/,
+      )),
+      repeat(seq(
+        " ",
+        repeat1(choice(
+          /[^\s${]/,
+          /\$[^{]/,
+          /[^$]\{/,
+        )),
+      )),
+    )),
 
     _separator: $ => token(seq(/[ ]{2}|\t/, optional(/[ \t]+/))),
 

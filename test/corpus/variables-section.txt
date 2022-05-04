@@ -31,23 +31,31 @@ ${Name / with $ symbols} =  I am a string!    I am another string!
       (variable_definition
         (variable_name)
         (arguments
-          (argument)
-          (argument)))
+          (argument
+            (text_chunk))
+          (argument
+            (text_chunk))))
       (variable_definition
         (variable_name)
         (arguments
-          (argument)
-          (argument)))
+          (argument
+            (text_chunk))
+          (argument
+            (text_chunk))))
       (variable_definition
         (variable_name)
         (arguments
-          (argument)
-          (argument)))
+          (argument
+            (text_chunk))
+          (argument
+            (text_chunk))))
       (variable_definition
         (variable_name)
         (arguments
-          (argument)
-          (argument))))))
+          (argument
+            (text_chunk))
+          (argument
+            (text_chunk)))))))
 
 ================================================================================
 Multi-line variable definitions
@@ -73,24 +81,31 @@ ${FOO} =    I am a very long text string
       (variable_definition
         (variable_name)
         (arguments
-          (argument)
+          (argument
+            (text_chunk))
           (continuation
             (ellipses)
-            (argument))
+            (argument
+              (text_chunk)))
           (continuation
             (ellipses)
-            (argument))
+            (argument
+              (text_chunk)))
           (continuation
             (ellipses))
           (continuation
             (ellipses)
-            (argument))
+            (argument
+              (text_chunk)))
           (continuation
             (ellipses)
-            (argument))
+            (argument
+              (text_chunk)))
           (continuation
             (ellipses)
-            (argument))
+            (argument
+              (text_chunk)))
           (continuation
             (ellipses)
-            (argument)))))))
+            (argument
+              (text_chunk))))))))

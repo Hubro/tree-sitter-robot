@@ -2,7 +2,21 @@
   {
     "type": "argument",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "scalar_variable",
+          "named": true
+        },
+        {
+          "type": "text_chunk",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "arguments",
@@ -77,6 +91,25 @@
     }
   },
   {
+    "type": "keyword_invocation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "arguments",
+          "named": true
+        },
+        {
+          "type": "keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "keywords_section",
     "named": true,
     "fields": {},
@@ -90,6 +123,21 @@
         },
         {
           "type": "section_header",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "scalar_variable",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "variable_name",
           "named": true
         }
       ]
@@ -177,6 +225,25 @@
     "named": true,
     "fields": {},
     "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "keyword_invocation",
+          "named": true
+        },
+        {
+          "type": "variable_assignment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "variable_assignment",
+    "named": true,
+    "fields": {},
+    "children": {
       "multiple": true,
       "required": true,
       "types": [
@@ -185,7 +252,7 @@
           "named": true
         },
         {
-          "type": "keyword",
+          "type": "variable_name",
           "named": true
         }
       ]
@@ -271,6 +338,10 @@
   },
   {
     "type": "name",
+    "named": true
+  },
+  {
+    "type": "text_chunk",
     "named": true
   },
   {
