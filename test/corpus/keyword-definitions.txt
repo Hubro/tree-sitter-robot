@@ -66,3 +66,82 @@ I Am Another User Defined Keyword
           (statement
             (keyword_invocation
               (keyword))))))))
+
+================================================================================
+Keyword settings
+================================================================================
+
+*** Keywords ***
+
+I Am A User Defined Keyword
+    [Documentation]   I am keyword documentation
+    ...
+    ...               I often span multiple lines
+    [Tags]            foo   bar
+    [Arguments]       ${First argument}   ${Second argument}    ${Default}=value
+    [Return]          ${Return value}
+    [Teardown]        I Am A Teardown Keyword     With    Arguments
+    [Timeout]         1 minute
+
+    Log To Console    Test!
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (keywords_section
+      (section_header)
+      (keyword_definition
+        (name)
+        (body
+          (keyword_setting
+            (arguments
+              (argument
+                (text_chunk))
+              (continuation
+                (ellipses))
+              (continuation
+                (ellipses)
+                (argument
+                  (text_chunk)))))
+          (keyword_setting
+            (arguments
+              (argument
+                (text_chunk))
+              (argument
+                (text_chunk))))
+          (keyword_setting
+            (arguments
+              (argument
+                (scalar_variable
+                  (variable_name)))
+              (argument
+                (scalar_variable
+                  (variable_name)))
+              (argument
+                (scalar_variable
+                  (variable_name))
+                (text_chunk))))
+          (keyword_setting
+            (arguments
+              (argument
+                (scalar_variable
+                  (variable_name)))))
+          (keyword_setting
+            (arguments
+              (argument
+                (text_chunk))
+              (argument
+                (text_chunk))
+              (argument
+                (text_chunk))))
+          (keyword_setting
+            (arguments
+              (argument
+                (text_chunk))))
+          (statement
+            (keyword_invocation
+              (keyword)
+              (arguments
+                (argument
+                  (text_chunk))))))))))

@@ -44,6 +44,15 @@ function section_header(name) {
   return seq("***", optional(" "), name, optional(" "), "***")
 }
 
+/**
+ * Shortcut for defining a setting token
+ */
+function setting(name) {
+  return token(
+    seq("[", optional(" "), caseInsensitive(name), optional(" "), "]")
+  )
+}
+
 module.exports = grammar({
   name: "robot",
 
@@ -122,10 +131,25 @@ module.exports = grammar({
     ),
     keyword_definition_body: $ => prec.right(repeat1(
       choice(
+        $.keyword_setting,
         $.statement,
         $._empty_line,
       )
     )),
+    // Ref: http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#keyword-section-1
+    keyword_setting: $ => seq(
+      $._separator,
+      choice(
+        setting("Documentation"),
+        setting("Tags"),
+        setting("Arguments"),
+        setting("Return"),
+        setting("Teardown"),
+        setting("Timeout"),
+      ),
+      $._separator,
+      $.arguments,
+    ),
 
     //
     // Statements
