@@ -164,6 +164,10 @@
       "required": true,
       "types": [
         {
+          "type": "extra_text",
+          "named": true
+        },
+        {
           "type": "keyword_definition",
           "named": true
         },
@@ -254,6 +258,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "extra_text",
+          "named": true
+        },
         {
           "type": "section_header",
           "named": true
@@ -406,6 +414,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "extra_text",
+          "named": true
+        },
         {
           "type": "section_header",
           "named": true

@@ -40,9 +40,16 @@ function caseInsensitive(keyword) {
 /**
  * Shortcut for defining a section header
  */
-function section_header(name) {
-  return token(
-    seq("***", optional(" "), caseInsensitive(name), optional(" "), "***")
+function section_header($, name) {
+  return seq(
+    alias(
+      token(
+        seq("***", optional(" "), caseInsensitive(name), optional(" "), "***")
+      ),
+      $.section_header
+    ),
+    optional(alias(/[^\r\n]+/, $.extra_text)),
+    $._line_break,
   )
 }
 
@@ -78,14 +85,12 @@ module.exports = grammar({
     //
 
     settings_section: $ => seq(
-      alias($.settings_section_header, $.section_header),
-      $._line_break,
+      section_header($, "Settings"),
       repeat(choice(
         $.setting_statement,
         $._empty_line,
       )),
     ),
-    settings_section_header: $ => section_header("Settings"),
     setting_statement: $ => seq(
       choice(...SETTINGS_KEYWORDS.map(caseInsensitive)),
       $._separator,
@@ -97,14 +102,12 @@ module.exports = grammar({
     //
 
     variables_section: $ => seq(
-      alias($.variables_section_header, $.section_header),
-      $._line_break,
+      section_header($, "Variables"),
       repeat(choice(
         $.variable_definition,
         $._empty_line,
       )),
     ),
-    variables_section_header: $ => section_header("Variables"),
     variable_definition: $ => seq(
       seq("${", $.variable_name, "}"),
       optional(
@@ -119,14 +122,12 @@ module.exports = grammar({
     //
 
     keywords_section: $ => seq(
-      alias($.keywords_section_header, $.section_header),
-      $._line_break,
+      section_header($, "Keywords"),
       repeat(choice(
         $.keyword_definition,
         $._empty_line,
       )),
     ),
-    keywords_section_header: $ => section_header("Keywords"),
     keyword_definition: $ => seq(
       alias($.text_chunk, $.name),
       $._line_break,
@@ -159,16 +160,12 @@ module.exports = grammar({
     //
 
     test_cases_section: $ => seq(
-      alias($.test_cases_section_header, $.section_header),
-      optional(alias($.section_header_extra_text, $.extra_text)),
-      $._line_break,
+      section_header($, "Test Cases"),
       repeat(choice(
         $.test_case_definition,
         $._empty_line,
       )),
     ),
-    section_header_extra_text: $ => /[^\r\n]+/,
-    test_cases_section_header: $ => section_header("Test Cases"),
     test_case_definition: $ => seq(
       alias($.text_chunk, $.name),
       choice(
