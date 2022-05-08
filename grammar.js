@@ -41,7 +41,9 @@ function caseInsensitive(keyword) {
  * Shortcut for defining a section header
  */
 function section_header(name) {
-  return seq("***", optional(" "), name, optional(" "), "***")
+  return token(
+    seq("***", optional(" "), caseInsensitive(name), optional(" "), "***")
+  )
 }
 
 /**
@@ -68,6 +70,7 @@ module.exports = grammar({
       $.settings_section,
       $.variables_section,
       $.keywords_section,
+      $.test_cases_section,
     ),
 
     //
@@ -145,6 +148,59 @@ module.exports = grammar({
         setting("Arguments"),
         setting("Return"),
         setting("Teardown"),
+        setting("Timeout"),
+      ),
+      $._separator,
+      $.arguments,
+    ),
+
+    //
+    // Test cases / Tasks section
+    //
+
+    test_cases_section: $ => seq(
+      alias($.test_cases_section_header, $.section_header),
+      optional(alias($.section_header_extra_text, $.extra_text)),
+      $._line_break,
+      repeat(choice(
+        $.test_case_definition,
+        $._empty_line,
+      )),
+    ),
+    section_header_extra_text: $ => /[^\r\n]+/,
+    test_cases_section_header: $ => section_header("Test Cases"),
+    test_case_definition: $ => seq(
+      alias($.text_chunk, $.name),
+      choice(
+        // Data-driven tests have arguments
+        seq(
+          $._separator,
+          $.arguments,
+        ),
+
+        // Regular tests have bodies
+        seq(
+          $._line_break,
+          alias($.test_case_definition_body, $.body),
+        )
+      )
+    ),
+    test_case_definition_body: $ => prec.right(repeat1(
+      choice(
+        $.test_case_setting,
+        $.statement,
+        $._empty_line,
+      )
+    )),
+    // Ref: http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#test-case-section
+    test_case_setting: $ => seq(
+      $._separator,
+      choice(
+        setting("Documentation"),
+        setting("Tags"),
+        setting("Setup"),
+        setting("Teardown"),
+        setting("Template"),
         setting("Timeout"),
       ),
       $._separator,
