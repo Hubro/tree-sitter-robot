@@ -904,10 +904,6 @@
         }
       ]
     },
-    "section_header_extra_text": {
-      "type": "PATTERN",
-      "value": "[^\\r\\n]+"
-    },
     "test_case_definition": {
       "type": "SEQ",
       "members": [
@@ -1698,7 +1694,24 @@
         "type": "SEQ",
         "members": [
           {
-            "type": "REPEAT1",
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "[^\\s$@&{#]"
+              },
+              {
+                "type": "PATTERN",
+                "value": "[$@&][^{]"
+              },
+              {
+                "type": "PATTERN",
+                "value": "[^$@&]\\{"
+              }
+            ]
+          },
+          {
+            "type": "REPEAT",
             "content": {
               "type": "CHOICE",
               "members": [
@@ -1748,6 +1761,34 @@
                 }
               ]
             }
+          }
+        ]
+      }
+    },
+    "comment": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "[ \\t]+"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
+            "type": "STRING",
+            "value": "#"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[^\\n]+"
           }
         ]
       }
@@ -1806,7 +1847,12 @@
       ]
     }
   },
-  "extras": [],
+  "extras": [
+    {
+      "type": "SYMBOL",
+      "name": "comment"
+    }
+  ],
   "conflicts": [],
   "precedences": [],
   "externals": [],

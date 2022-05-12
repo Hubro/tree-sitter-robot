@@ -65,7 +65,7 @@ function setting(name) {
 module.exports = grammar({
   name: "robot",
 
-  extras: $ => [],
+  extras: $ => [$.comment],
 
   rules: {
     source_file: $ => seq(
@@ -320,7 +320,12 @@ module.exports = grammar({
     variable_name: $ => /[^{}]+/,
 
     text_chunk: $ => token(seq(
-      repeat1(choice(
+      choice(
+        /[^\s$@&{#]/,   // Can't start with a #, since that would be a comment
+        /[$@&][^{]/,
+        /[^$@&]\{/,
+      ),
+      repeat(choice(
         /[^\s$@&{]/,
         /[$@&][^{]/,
         /[^$@&]\{/,
@@ -334,6 +339,8 @@ module.exports = grammar({
         )),
       )),
     )),
+
+    comment: $ => token(seq(optional(/[ \t]+/), "#", /[^\n]+/)),
 
     _separator: $ => token(seq(/[ ]{2}|\t/, optional(/[ \t]+/))),
 

@@ -1,0 +1,27 @@
+================================================================================
+Comments
+================================================================================
+
+*** Settings ***    # Can I comment here?
+
+Documentation       I am just text, # not a comment   # But I am a comment
+...                 # I am also a comment           I should still be the comment
+
+# Hello, it's a comment!
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (settings_section
+      (section_header)
+      (extra_text)
+      (setting_statement
+        (arguments
+          (argument
+            (text_chunk))
+          (comment)
+          (continuation
+            (ellipses)
+            (comment))))
+      (comment))))
