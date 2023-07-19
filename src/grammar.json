@@ -527,7 +527,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_separator"
+          "name": "_indentation"
         },
         {
           "type": "CHOICE",
@@ -1269,7 +1269,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_separator"
+          "name": "_indentation"
         },
         {
           "type": "CHOICE",
@@ -1816,6 +1816,10 @@
           }
         ]
       }
+    },
+    "_indentation": {
+      "type": "SYMBOL",
+      "name": "_separator"
     },
     "_whitespace": {
       "type": "PATTERN",

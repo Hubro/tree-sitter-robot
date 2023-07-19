@@ -142,7 +142,7 @@ module.exports = grammar({
     )),
     // Ref: http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#keyword-section-1
     keyword_setting: $ => seq(
-      $._separator,
+      $._indentation,
       choice(
         setting("Documentation"),
         setting("Tags"),
@@ -212,7 +212,7 @@ module.exports = grammar({
     //
 
     statement: $ => seq(
-      $._separator,   // The initial indentation
+      $._indentation,
       choice(
         $.variable_assignment,
         $.keyword_invocation,
@@ -343,6 +343,7 @@ module.exports = grammar({
     comment: $ => token(seq(optional(/[ \t]+/), "#", /[^\n]*/)),
 
     _separator: $ => token(seq(/[ ]{2}|\t/, optional(/[ \t]+/))),
+    _indentation: $ => $._separator,
 
     _whitespace: $ => /[ \t]+/,
 
