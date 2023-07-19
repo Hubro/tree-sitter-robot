@@ -340,7 +340,7 @@ module.exports = grammar({
       )),
     )),
 
-    comment: $ => token(seq(optional(/[ \t]+/), "#", /[^\n]+/)),
+    comment: $ => token(seq(optional(/[ \t]+/), "#", /[^\n]*/)),
 
     _separator: $ => token(seq(/[ ]{2}|\t/, optional(/[ \t]+/))),
 

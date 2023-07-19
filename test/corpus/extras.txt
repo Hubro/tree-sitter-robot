@@ -8,6 +8,9 @@ Documentation       I am just text, # not a comment   # But I am a comment
 ...                 # I am also a comment           I should still be the comment
 
 # Hello, it's a comment!
+#
+#
+# Empty comment lines work too
 
 --------------------------------------------------------------------------------
 
@@ -24,4 +27,7 @@ Documentation       I am just text, # not a comment   # But I am a comment
           (continuation
             (ellipses)
             (comment))))
+      (comment)
+      (comment)
+      (comment)
       (comment))))
