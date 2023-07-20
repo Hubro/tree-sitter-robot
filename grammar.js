@@ -213,8 +213,21 @@ module.exports = grammar({
       choice(
         $.variable_assignment,
         $.keyword_invocation,
+        $.return_statement,
         $.if_statement,
       ),
+    ),
+
+    return_statement: $ => seq(
+      "RETURN",
+      optional(
+        seq(
+          $._separator,
+          alias($.argument, $.return_value),
+        )
+      ),
+      optional($._whitespace),
+      $._line_break,
     ),
 
     variable_assignment: $ => seq(

@@ -12,6 +12,8 @@ I Am A User Defined Keyword
 
     Empty Lines Should Be Allowed
 
+    RETURN    123
+
 I Am Another User Defined Keyword
 
     Do Something Cool     with=123
@@ -49,7 +51,11 @@ I Am Another User Defined Keyword
                   (text_chunk)))))
           (statement
             (keyword_invocation
-              (keyword)))))
+              (keyword)))
+          (statement
+            (return_statement
+              (return_value
+                (text_chunk))))))
       (keyword_definition
         (name)
         (body
