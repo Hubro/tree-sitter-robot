@@ -1,0 +1,131 @@
+================================================================================
+Conditional statements
+================================================================================
+
+*** Keywords ***
+
+# These are all examples from the official documentation:
+#
+# http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#if-else-syntax
+
+Example
+    ${foo} =    123
+
+    Keyword Execution
+
+    IF    ${rc} > 0
+        Some keyword
+        Another keyword
+    END
+
+    IF    ${rc} > 0
+        Some keyword
+    ELSE
+        Another keyword
+    END
+
+    IF        $rc > 0
+        Positive keyword
+    ELSE IF   $rc < 0
+        Negative keyword
+    ELSE IF   $rc == 0
+        Zero keyword
+    ELSE
+        Fail  Unexpected rc: ${rc}
+    END
+
+    # IF    $condition1   Keyword     argument
+    # IF    $condition2   RETURN
+    # IF    $condition    Keyword     argument  ELSE    Another Keyword
+    # IF    $cond1        Keyword 1   ELSE IF   $cond2  Keyword 2   ELSE IF   $cond3  Keyword 3   ELSE  Keyword 4
+
+    # ${var} =            IF    $condition    Keyword  argument       ELSE    Another Keyword
+    # ${host}  ${port} =  IF    $production   Get Production Config   ELSE    Get Testing Config
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (keywords_section
+      (section_header)
+      (comment)
+      (comment)
+      (comment)
+      (keyword_definition
+        (name)
+        (body
+          (statement
+            (variable_assignment
+              (variable_name)
+              (arguments
+                (argument
+                  (text_chunk)))))
+          (statement
+            (keyword_invocation
+              (keyword)))
+          (statement
+            (if_statement
+              condition: (argument
+                (scalar_variable
+                  (variable_name))
+                (text_chunk))
+              consequence: (block
+                (statement
+                  (keyword_invocation
+                    (keyword)))
+                (statement
+                  (keyword_invocation
+                    (keyword))))))
+          (statement
+            (if_statement
+              condition: (argument
+                (scalar_variable
+                  (variable_name))
+                (text_chunk))
+              consequence: (block
+                (statement
+                  (keyword_invocation
+                    (keyword))))
+              alternative: (else_statement
+                (block
+                  (statement
+                    (keyword_invocation
+                      (keyword)))))))
+          (statement
+            (if_statement
+              condition: (argument
+                (text_chunk))
+              consequence: (block
+                (statement
+                  (keyword_invocation
+                    (keyword))))
+              alternative: (elseif_statement
+                condition: (argument
+                  (text_chunk))
+                consequence: (block
+                  (statement
+                    (keyword_invocation
+                      (keyword)))))
+              alternative: (elseif_statement
+                condition: (argument
+                  (text_chunk))
+                consequence: (block
+                  (statement
+                    (keyword_invocation
+                      (keyword)))))
+              alternative: (else_statement
+                (block
+                  (statement
+                    (keyword_invocation
+                      (keyword)
+                      (arguments
+                        (argument
+                          (text_chunk)
+                          (scalar_variable
+                            (variable_name))))))))))
+          (comment)
+          (comment)
+          (comment)
+          (comment)
+          (comment)
+          (comment))))))

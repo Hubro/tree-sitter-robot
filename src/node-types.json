@@ -46,6 +46,21 @@
     }
   },
   {
+    "type": "block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "body",
     "named": true,
     "fields": {},
@@ -100,6 +115,87 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "else_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "elseif_statement",
+    "named": true,
+    "fields": {
+      "condition": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "argument",
+            "named": true
+          }
+        ]
+      },
+      "consequence": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "block",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "if_statement",
+    "named": true,
+    "fields": {
+      "alternative": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "else_statement",
+            "named": true
+          },
+          {
+            "type": "elseif_statement",
+            "named": true
+          }
+        ]
+      },
+      "condition": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "argument",
+            "named": true
+          }
+        ]
+      },
+      "consequence": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "block",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -297,6 +393,10 @@
       "required": true,
       "types": [
         {
+          "type": "if_statement",
+          "named": true
+        },
+        {
           "type": "keyword_invocation",
           "named": true
         },
@@ -451,6 +551,22 @@
   },
   {
     "type": "@{",
+    "named": false
+  },
+  {
+    "type": "ELSE",
+    "named": false
+  },
+  {
+    "type": "ELSE IF",
+    "named": false
+  },
+  {
+    "type": "END",
+    "named": false
+  },
+  {
+    "type": "IF",
     "named": false
   },
   {

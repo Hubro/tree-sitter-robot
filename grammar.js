@@ -1,12 +1,12 @@
 
-const SECTION_NAMES = [
-  "Settings",
-  "Variables",
-  "Test Cases",
-  "Tasks",
-  "Keywords",
-  "Comments",
-]
+// const SECTION_NAMES = [
+//   "Settings",
+//   "Variables",
+//   "Test Cases",
+//   "Tasks",
+//   "Keywords",
+//   "Comments",
+// ]
 
 const SETTINGS_KEYWORDS = [
   "Library",
@@ -135,14 +135,13 @@ module.exports = grammar({
     ),
     keyword_definition_body: $ => prec.right(repeat1(
       choice(
-        $.keyword_setting,
-        $.statement,
+        seq($._indentation, $.keyword_setting),
+        seq($._indentation, $.statement),
         $._empty_line,
       )
     )),
     // Ref: http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#keyword-section-1
     keyword_setting: $ => seq(
-      $._indentation,
       choice(
         setting("Documentation"),
         setting("Tags"),
@@ -184,14 +183,13 @@ module.exports = grammar({
     ),
     test_case_definition_body: $ => prec.right(repeat1(
       choice(
-        $.test_case_setting,
-        $.statement,
+        seq($._indentation, $.test_case_setting),
+        seq($._indentation, $.statement),
         $._empty_line,
       )
     )),
     // Ref: http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#test-case-section
     test_case_setting: $ => seq(
-      $._separator,
       choice(
         setting("Documentation"),
         setting("Tags"),
@@ -212,10 +210,10 @@ module.exports = grammar({
     //
 
     statement: $ => seq(
-      $._indentation,
       choice(
         $.variable_assignment,
         $.keyword_invocation,
+        $.if_statement,
       ),
     ),
 
@@ -244,11 +242,52 @@ module.exports = grammar({
       ),
     ),
 
+    if_statement: $ => seq(
+      "IF",
+      $._separator,
+      field("condition", $.argument),
+      $._line_break,
+      $._indentation,
+
+      optional(field("consequence", $.block)),
+
+      repeat(field("alternative", $.elseif_statement)),
+
+      optional(field("alternative", $.else_statement)),
+
+      "END",
+    ),
+
+    elseif_statement: $ => seq(
+      "ELSE IF",
+      $._separator,
+      field("condition", $.argument),
+      $._line_break,
+      $._indentation,
+      field("consequence", $.block),
+    ),
+
+    else_statement: $ => seq(
+      "ELSE",
+      seq(
+        $._line_break,
+        $._indentation,
+        $.block,
+      )
+    ),
+
+    block: $ => repeat1(
+      choice(
+        $._line_break,
+        seq($.statement, $._indentation),
+      )
+    ),
+
     //
     // Reusable rules
     //
 
-    arguments: $ => prec.right(seq(
+    arguments: $ => seq(
       $.argument,
       repeat(seq(
         $._separator,
@@ -256,7 +295,7 @@ module.exports = grammar({
       )),
       $._line_break,
       repeat($.continuation),
-    )),
+    ),
 
     continuation: $ => seq(
       choice(
