@@ -73,6 +73,11 @@ module.exports = grammar({
 
     // Because of the $._line_break in IF/ELSE/WHILE/FOR etc.
     [$.block],
+
+    // Because of inline IF/ELSE statements
+    [$.keyword_invocation],
+    [$.variable_assignment],
+    [$.continuation],
   ],
 
   rules: {
@@ -228,20 +233,19 @@ module.exports = grammar({
         $.keyword_invocation,
         $.return_statement,
         $.if_statement,
+        $.inline_if_statement,
       ),
     ),
 
-    return_statement: $ => seq(
+    return_statement: $ => prec.right(seq(
       "RETURN",
       optional(
         seq(
           $._separator,
           alias($.argument, $.return_value),
         )
-      ),
-      optional($._whitespace),
-      $._line_break,
-    ),
+      )
+    )),
 
     variable_assignment: $ => seq(
       seq("${", $.variable_name, "}"),
@@ -277,8 +281,7 @@ module.exports = grammar({
       seq($._indentation, "END"),
     ),
 
-    // Conflicts with parent structures because of $._line_break
-    elseif_statement: $ => prec.dynamic(100, seq(
+    elseif_statement: $ => prec.dynamic(100, seq(   // Conflicts with parent structures because of $._line_break
       $._indentation,
       "ELSE IF",
       $._separator,
@@ -287,19 +290,51 @@ module.exports = grammar({
       field("consequence", $.block),
     )),
 
-    // Conflicts with parent structures because of $._line_break
-    else_statement: $ => prec.dynamic(100, seq(
+    else_statement: $ => prec.dynamic(100, seq(   // Conflicts with parent structures because of $._line_break
       $._indentation,
       "ELSE",
       $._line_break,
       field("consequence", $.block),
     )),
 
+    inline_if_statement: $ => seq(
+      "IF",
+      $._separator,
+      $.argument,
+      $._separator,
+      $.inline_statement,
+      repeat(seq($._separator, $.inline_elseif_statement)),
+      optional(seq($._separator, $.inline_else_statement)),
+    ),
+
     block: $ => repeat1(
       choice(
         $._empty_line,
         seq($._indentation, $.statement, $._line_break),
       )
+    ),
+
+    inline_elseif_statement: $ => prec.dynamic(100, seq(   // Conflicts with $.arguments
+      "ELSE IF",
+      $._separator,
+      $.argument,
+      $._separator,
+      $.inline_statement,
+    )),
+    
+    inline_else_statement: $ => prec.dynamic(100, seq(   // Conflicts with $.arguments
+      "ELSE",
+      $._separator,
+      $.inline_statement,
+    )),
+
+    // Any statement that can occur inside an inline if/else statement
+    inline_statement: $ => seq(
+      choice(
+        $.variable_assignment,
+        $.keyword_invocation,
+        $.return_statement,
+      ),
     ),
 
     //
@@ -411,7 +446,7 @@ module.exports = grammar({
 
     _whitespace: $ => /[ \t]+/,
 
-    _line_break: $ => /\s*\r\n|\r|\n/,
+    _line_break: $ => /\s*(\r?\n)/,
 
     _empty_line: $ => seq(optional(/[ \t]+/), $._line_break),
   },

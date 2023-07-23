@@ -1346,61 +1346,53 @@
             {
               "type": "SYMBOL",
               "name": "if_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "inline_if_statement"
             }
           ]
         }
       ]
     },
     "return_statement": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "RETURN"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "_separator"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "RETURN"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SEQ",
+                "members": [
+                  {
                     "type": "SYMBOL",
-                    "name": "argument"
+                    "name": "_separator"
                   },
-                  "named": true,
-                  "value": "return_value"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "_whitespace"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_line_break"
-        }
-      ]
+                  {
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "argument"
+                    },
+                    "named": true,
+                    "value": "return_value"
+                  }
+                ]
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        ]
+      }
     },
     "variable_assignment": {
       "type": "SEQ",
@@ -1652,6 +1644,68 @@
         ]
       }
     },
+    "inline_if_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "IF"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_separator"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "argument"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_separator"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "inline_statement"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_separator"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "inline_elseif_statement"
+              }
+            ]
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_separator"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "inline_else_statement"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
     "block": {
       "type": "REPEAT1",
       "content": {
@@ -1680,6 +1734,78 @@
           }
         ]
       }
+    },
+    "inline_elseif_statement": {
+      "type": "PREC_DYNAMIC",
+      "value": 100,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "ELSE IF"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_separator"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "argument"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_separator"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "inline_statement"
+          }
+        ]
+      }
+    },
+    "inline_else_statement": {
+      "type": "PREC_DYNAMIC",
+      "value": 100,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "ELSE"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_separator"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "inline_statement"
+          }
+        ]
+      }
+    },
+    "inline_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "variable_assignment"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "keyword_invocation"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "return_statement"
+            }
+          ]
+        }
+      ]
     },
     "arguments": {
       "type": "SEQ",
@@ -2140,7 +2266,7 @@
     },
     "_line_break": {
       "type": "PATTERN",
-      "value": "\\s*\\r\\n|\\r|\\n"
+      "value": "\\s*(\\r?\\n)"
     },
     "_empty_line": {
       "type": "SEQ",
@@ -2176,6 +2302,15 @@
     ],
     [
       "block"
+    ],
+    [
+      "keyword_invocation"
+    ],
+    [
+      "variable_assignment"
+    ],
+    [
+      "continuation"
     ]
   ],
   "precedences": [],
