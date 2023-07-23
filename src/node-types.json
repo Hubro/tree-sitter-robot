@@ -160,6 +160,25 @@
     }
   },
   {
+    "type": "except_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "arguments",
+          "named": true
+        },
+        {
+          "type": "block",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "if_statement",
     "named": true,
     "fields": {
@@ -536,6 +555,10 @@
           "named": true
         },
         {
+          "type": "try_statement",
+          "named": true
+        },
+        {
           "type": "variable_assignment",
           "named": true
         }
@@ -598,6 +621,25 @@
         },
         {
           "type": "test_case_definition",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "try_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "except_statement",
           "named": true
         }
       ]
@@ -701,11 +743,19 @@
     "named": false
   },
   {
+    "type": "EXCEPT",
+    "named": false
+  },
+  {
     "type": "IF",
     "named": false
   },
   {
     "type": "RETURN",
+    "named": false
+  },
+  {
+    "type": "TRY",
     "named": false
   },
   {

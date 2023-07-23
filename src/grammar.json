@@ -1350,6 +1350,10 @@
             {
               "type": "SYMBOL",
               "name": "inline_if_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "try_statement"
             }
           ]
         }
@@ -1806,6 +1810,100 @@
           ]
         }
       ]
+    },
+    "try_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "TRY"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_line_break"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "block"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "except_statement"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_indentation"
+        },
+        {
+          "type": "STRING",
+          "value": "END"
+        }
+      ]
+    },
+    "except_statement": {
+      "type": "PREC_DYNAMIC",
+      "value": 100,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_indentation"
+          },
+          {
+            "type": "STRING",
+            "value": "EXCEPT"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "_separator"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "arguments"
+                  }
+                ]
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_line_break"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "block"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        ]
+      }
     },
     "arguments": {
       "type": "SEQ",
@@ -2298,19 +2396,22 @@
   ],
   "conflicts": [
     [
-      "arguments"
-    ],
-    [
-      "block"
-    ],
-    [
       "keyword_invocation"
     ],
     [
       "variable_assignment"
     ],
     [
+      "arguments"
+    ],
+    [
       "continuation"
+    ],
+    [
+      "block"
+    ],
+    [
+      "except_statement"
     ]
   ],
   "precedences": [],

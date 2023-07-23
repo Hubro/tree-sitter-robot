@@ -68,16 +68,12 @@ module.exports = grammar({
   extras: $ => [$.comment],
 
   conflicts: $ => [
-    // Because of the $._line_break in $.continuation
-    [$.arguments],   
-
-    // Because of the $._line_break in IF/ELSE/WHILE/FOR etc.
-    [$.block],
-
-    // Because of inline IF/ELSE statements
     [$.keyword_invocation],
     [$.variable_assignment],
+    [$.arguments],   
     [$.continuation],
+    [$.block],
+    [$.except_statement],
   ],
 
   rules: {
@@ -234,6 +230,7 @@ module.exports = grammar({
         $.return_statement,
         $.if_statement,
         $.inline_if_statement,
+        $.try_statement,
       ),
     ),
 
@@ -336,6 +333,23 @@ module.exports = grammar({
         $.return_statement,
       ),
     ),
+
+    try_statement: $ => seq(
+      "TRY",
+      $._line_break,
+      optional($.block),
+      repeat($.except_statement),
+      $._indentation,
+      "END",
+    ),
+
+    except_statement: $ => prec.dynamic(100, seq(
+      $._indentation,
+      "EXCEPT",
+      optional(seq($._separator, $.arguments)),
+      $._line_break,
+      optional($.block),
+    )),
 
     //
     // Reusable rules
