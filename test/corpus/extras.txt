@@ -25,8 +25,8 @@ Documentation       I am just text, # not a comment   # But I am a comment
             (text_chunk))
           (comment)
           (continuation
-            (ellipses)
-            (comment))))
+            (ellipses)))
+        (comment))
       (comment)
       (comment)
       (comment)

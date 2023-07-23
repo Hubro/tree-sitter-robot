@@ -59,7 +59,7 @@ Test
                   (keyword_invocation
                     (keyword))))
               alternative: (else_statement
-                (block
+                consequence: (block
                   (statement
                     (keyword_invocation
                       (keyword)))))))
@@ -86,7 +86,7 @@ Test
                     (keyword_invocation
                       (keyword)))))
               alternative: (else_statement
-                (block
+                consequence: (block
                   (statement
                     (keyword_invocation
                       (keyword)
@@ -166,23 +166,21 @@ Test
                                   (variable_name))
                                 (text_chunk))))))
                       alternative: (else_statement
-                        (block
+                        consequence: (block
                           (statement
                             (keyword_invocation
                               (keyword)
                               (arguments
                                 (argument
-                                  (text_chunk)))))))))
-                  (ERROR)))
+                                  (text_chunk)))))))))))
               alternative: (else_statement
-                (block
+                consequence: (block
                   (statement
                     (keyword_invocation
                       (keyword)
                       (arguments
                         (argument
                           (text_chunk)))))
-                  (ERROR)
                   (statement
                     (if_statement
                       condition: (argument
@@ -205,12 +203,4 @@ Test
                                         (variable_name))
                                       (text_chunk)
                                       (scalar_variable
-                                        (variable_name)))))))))
-                        (ERROR))))
-                  (ERROR))))))))))
-
-          (comment)
-          (comment)
-          (comment)
-          (comment)
-          (comment))))))
+                                        (variable_name)))))))))))))))))))))

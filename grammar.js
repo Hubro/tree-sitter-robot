@@ -67,6 +67,14 @@ module.exports = grammar({
 
   extras: $ => [$.comment],
 
+  conflicts: $ => [
+    // Because of the $._line_break in $.continuation
+    [$.arguments],   
+
+    // Because of the $._line_break in IF/ELSE/WHILE/FOR etc.
+    [$.block],
+  ],
+
   rules: {
     source_file: $ => seq(
       optional(/\s+/), // Allows whitespace before the first section
@@ -95,6 +103,7 @@ module.exports = grammar({
       choice(...SETTINGS_KEYWORDS.map(caseInsensitive)),
       $._separator,
       $.arguments,
+      $._line_break,
     ),
 
     //
@@ -115,6 +124,7 @@ module.exports = grammar({
       ),
       $._separator,
       $.arguments,
+      $._line_break,
     ),
 
     //
@@ -133,10 +143,11 @@ module.exports = grammar({
       $._line_break,
       alias($.keyword_definition_body, $.body),
     ),
+    // prec.right is needed to capture $._empty_line more strongly than $.keywords_section
     keyword_definition_body: $ => prec.right(repeat1(
       choice(
-        seq($._indentation, $.keyword_setting),
-        seq($._indentation, $.statement),
+        seq($._indentation, $.keyword_setting, $._line_break),
+        seq($._indentation, $.statement, $._line_break),
         $._empty_line,
       )
     )),
@@ -171,7 +182,8 @@ module.exports = grammar({
         // Data-driven tests have arguments
         seq(
           $._separator,
-          $.arguments,
+          alias($.arguments_without_continuation, $.arguments),
+          $._line_break,
         ),
 
         // Regular tests have bodies
@@ -181,10 +193,11 @@ module.exports = grammar({
         )
       )
     ),
+    // prec.right is needed to capture $._empty_line more strongly than $.test_case_section
     test_case_definition_body: $ => prec.right(repeat1(
       choice(
-        seq($._indentation, $.test_case_setting),
-        seq($._indentation, $.statement),
+        seq($._indentation, $.test_case_setting, $._line_break),
+        seq($._indentation, $.statement, $._line_break),
         $._empty_line,
       )
     )),
@@ -235,24 +248,18 @@ module.exports = grammar({
       optional(
         choice("=", " =")
       ),
-      choice(
-        seq(
-          $._separator,
-          $.arguments,
-        ),
-        $._line_break,
-      ),
+      optional(seq(
+        $._separator,
+        $.arguments,
+      )),
     ),
 
     keyword_invocation: $ => seq(
       alias($.text_chunk, $.keyword),
-      choice(
-        seq(
-          $._separator,
-          $.arguments,
-        ),
-        $._line_break,
-      ),
+      optional(seq(
+        $._separator,
+        $.arguments,
+      )),
     ),
 
     if_statement: $ => seq(
@@ -260,7 +267,6 @@ module.exports = grammar({
       $._separator,
       field("condition", $.argument),
       $._line_break,
-      $._indentation,
 
       optional(field("consequence", $.block)),
 
@@ -268,31 +274,31 @@ module.exports = grammar({
 
       optional(field("alternative", $.else_statement)),
 
-      "END",
+      seq($._indentation, "END"),
     ),
 
-    elseif_statement: $ => seq(
+    // Conflicts with parent structures because of $._line_break
+    elseif_statement: $ => prec.dynamic(100, seq(
+      $._indentation,
       "ELSE IF",
       $._separator,
       field("condition", $.argument),
       $._line_break,
-      $._indentation,
       field("consequence", $.block),
-    ),
+    )),
 
-    else_statement: $ => seq(
+    // Conflicts with parent structures because of $._line_break
+    else_statement: $ => prec.dynamic(100, seq(
+      $._indentation,
       "ELSE",
-      seq(
-        $._line_break,
-        $._indentation,
-        $.block,
-      )
-    ),
+      $._line_break,
+      field("consequence", $.block),
+    )),
 
     block: $ => repeat1(
       choice(
-        $._line_break,
-        seq($.statement, $._indentation),
+        $._empty_line,
+        seq($._indentation, $.statement, $._line_break),
       )
     ),
 
@@ -306,21 +312,27 @@ module.exports = grammar({
         $._separator,
         $.argument,
       )),
-      $._line_break,
       repeat($.continuation),
     ),
 
-    continuation: $ => seq(
-      choice(
-        $.ellipses,
-        alias($.indented_ellipses, $.ellipses),
-      ),
+    arguments_without_continuation: $ => seq(
+      $.argument,
       repeat(seq(
         $._separator,
         $.argument,
       )),
-      $._line_break,
     ),
+
+    // Conflicts with parent structures because of $._line_break
+    continuation: $ => prec.dynamic(100, seq(
+      $._line_break,
+      optional($._indentation),
+      $.ellipses,
+      repeat(seq(
+        $._separator,
+        $.argument,
+      )),
+    )),
 
     ellipses: $ => "...",
     indented_ellipses: $ => token(seq(
@@ -399,7 +411,7 @@ module.exports = grammar({
 
     _whitespace: $ => /[ \t]+/,
 
-    _line_break: $ => /\r\n|\r|\n/,
+    _line_break: $ => /\s*\r\n|\r|\n/,
 
     _empty_line: $ => seq(optional(/[ \t]+/), $._line_break),
   },
