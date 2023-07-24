@@ -1959,17 +1959,22 @@
             "type": "CHOICE",
             "members": [
               {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "IN"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "arguments"
-                  }
-                ]
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_for_in"
+                },
+                "named": true,
+                "value": "in"
+              },
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_for_in_range"
+                },
+                "named": true,
+                "value": "in_range"
               }
             ]
           }
@@ -1993,6 +1998,83 @@
         {
           "type": "STRING",
           "value": "END"
+        }
+      ]
+    },
+    "_for_in": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "IN"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "arguments"
+            }
+          ]
+        }
+      ]
+    },
+    "_for_in_range": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "IN RANGE"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_separator"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "argument"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_separator"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "argument"
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "_separator"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "argument"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },

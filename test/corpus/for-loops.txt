@@ -35,11 +35,12 @@ Example
               left: (variable_list
                 (scalar_variable
                   (variable_name)))
-              right: (arguments
-                (argument
-                  (text_chunk))
-                (argument
-                  (text_chunk)))
+              right: (in
+                (arguments
+                  (argument
+                    (text_chunk))
+                  (argument
+                    (text_chunk))))
               body: (block
                 (statement
                   (keyword_invocation
@@ -68,32 +69,33 @@ Example
               left: (variable_list
                 (scalar_variable
                   (variable_name)))
-              right: (arguments
-                (argument
-                  (text_chunk))
-                (argument
-                  (text_chunk))
-                (argument
-                  (scalar_variable
-                    (variable_name)))
-                (argument
-                  (text_chunk))
-                (argument
-                  (scalar_variable
-                    (variable_name)))
-                (continuation
-                  (ellipses)
-                  (argument
-                    (text_chunk))
-                  (argument
-                    (text_chunk))
+              right: (in
+                (arguments
                   (argument
                     (text_chunk))
                   (argument
                     (text_chunk))
                   (argument
                     (scalar_variable
-                      (variable_name)))))
+                      (variable_name)))
+                  (argument
+                    (text_chunk))
+                  (argument
+                    (scalar_variable
+                      (variable_name)))
+                  (continuation
+                    (ellipses)
+                    (argument
+                      (text_chunk))
+                    (argument
+                      (text_chunk))
+                    (argument
+                      (text_chunk))
+                    (argument
+                      (text_chunk))
+                    (argument
+                      (scalar_variable
+                        (variable_name))))))
               body: (block
                 (statement
                   (keyword_invocation
@@ -110,10 +112,11 @@ Example
               left: (variable_list
                 (scalar_variable
                   (variable_name)))
-              right: (arguments
-                (argument
-                  (list_variable
-                    (variable_name))))
+              right: (in
+                (arguments
+                  (argument
+                    (list_variable
+                      (variable_name)))))
               body: (block
                 (statement
                   (keyword_invocation
@@ -156,35 +159,38 @@ Multiple nesting levels
               left: (variable_list
                 (scalar_variable
                   (variable_name)))
-              right: (arguments
-                (argument
-                  (text_chunk))
-                (argument
-                  (text_chunk)))
+              right: (in
+                (arguments
+                  (argument
+                    (text_chunk))
+                  (argument
+                    (text_chunk))))
               body: (block
                 (statement
                   (for_statement
                     left: (variable_list
                       (scalar_variable
                         (variable_name)))
-                    right: (arguments
-                      (argument
-                        (text_chunk))
-                      (argument
-                        (text_chunk))
-                      (argument
-                        (text_chunk)))
+                    right: (in
+                      (arguments
+                        (argument
+                          (text_chunk))
+                        (argument
+                          (text_chunk))
+                        (argument
+                          (text_chunk))))
                     body: (block
                       (statement
                         (for_statement
                           left: (variable_list
                             (scalar_variable
                               (variable_name)))
-                          right: (arguments
-                            (argument
-                              (text_chunk))
-                            (argument
-                              (text_chunk)))
+                          right: (in
+                            (arguments
+                              (argument
+                                (text_chunk))
+                              (argument
+                                (text_chunk))))
                           body: (block
                             (statement
                               (keyword_invocation
@@ -204,13 +210,14 @@ Multiple nesting levels
                     left: (variable_list
                       (scalar_variable
                         (variable_name)))
-                    right: (arguments
-                      (argument
-                        (text_chunk))
-                      (argument
-                        (text_chunk))
-                      (argument
-                        (text_chunk)))
+                    right: (in
+                      (arguments
+                        (argument
+                          (text_chunk))
+                        (argument
+                          (text_chunk))
+                        (argument
+                          (text_chunk))))
                     body: (block
                       (statement
                         (if_statement
@@ -265,31 +272,32 @@ Multiple loop variables
                   (variable_name))
                 (scalar_variable
                   (variable_name)))
-              right: (arguments
-                (continuation
-                  (ellipses)
-                  (argument
-                    (text_chunk))
-                  (argument
-                    (text_chunk))
-                  (argument
-                    (text_chunk)))
-                (continuation
-                  (ellipses)
-                  (argument
-                    (text_chunk))
-                  (argument
-                    (text_chunk))
-                  (argument
-                    (text_chunk)))
-                (continuation
-                  (ellipses)
-                  (argument
-                    (text_chunk))
-                  (argument
-                    (text_chunk))
-                  (argument
-                    (text_chunk))))
+              right: (in
+                (arguments
+                  (continuation
+                    (ellipses)
+                    (argument
+                      (text_chunk))
+                    (argument
+                      (text_chunk))
+                    (argument
+                      (text_chunk)))
+                  (continuation
+                    (ellipses)
+                    (argument
+                      (text_chunk))
+                    (argument
+                      (text_chunk))
+                    (argument
+                      (text_chunk)))
+                  (continuation
+                    (ellipses)
+                    (argument
+                      (text_chunk))
+                    (argument
+                      (text_chunk))
+                    (argument
+                      (text_chunk)))))
               body: (block
                 (statement
                   (keyword_invocation
@@ -311,10 +319,11 @@ Multiple loop variables
                   (variable_name))
                 (scalar_variable
                   (variable_name)))
-              right: (arguments
-                (argument
-                  (list_variable
-                    (variable_name))))
+              right: (in
+                (arguments
+                  (argument
+                    (list_variable
+                      (variable_name)))))
               body: (block
                 (statement
                   (keyword_invocation
@@ -323,6 +332,112 @@ Multiple loop variables
                       (argument
                         (scalar_variable
                           (variable_name)))
+                      (argument
+                        (scalar_variable
+                          (variable_name))))))))))))))
+
+================================================================================
+FOR IN syntax
+================================================================================
+
+*** Keywords ***
+
+Only upper limit
+    [Documentation]    Loops over values from 0 to 9.
+    FOR    ${index}    IN RANGE    10
+        Log    ${index}
+    END
+
+Start and end
+    [Documentation]    Loops over values from 1 to 10.
+    FOR    ${index}    IN RANGE    1    11
+        Log    ${index}
+    END
+
+Also step given
+    [Documentation]    Loops over values 5, 15, and 25.
+    FOR    ${index}    IN RANGE    5    26    10
+        Log    ${index}
+    END
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (keywords_section
+      (section_header)
+      (keyword_definition
+        (name)
+        (body
+          (keyword_setting
+            (arguments
+              (argument
+                (text_chunk))))
+          (statement
+            (for_statement
+              left: (variable_list
+                (scalar_variable
+                  (variable_name)))
+              right: (in_range
+                (argument
+                  (text_chunk)))
+              body: (block
+                (statement
+                  (keyword_invocation
+                    (keyword)
+                    (arguments
+                      (argument
+                        (scalar_variable
+                          (variable_name)))))))))))
+      (keyword_definition
+        (name)
+        (body
+          (keyword_setting
+            (arguments
+              (argument
+                (text_chunk))))
+          (statement
+            (for_statement
+              left: (variable_list
+                (scalar_variable
+                  (variable_name)))
+              right: (in_range
+                (argument
+                  (text_chunk))
+                (argument
+                  (text_chunk)))
+              body: (block
+                (statement
+                  (keyword_invocation
+                    (keyword)
+                    (arguments
+                      (argument
+                        (scalar_variable
+                          (variable_name)))))))))))
+      (keyword_definition
+        (name)
+        (body
+          (keyword_setting
+            (arguments
+              (argument
+                (text_chunk))))
+          (statement
+            (for_statement
+              left: (variable_list
+                (scalar_variable
+                  (variable_name)))
+              right: (in_range
+                (argument
+                  (text_chunk))
+                (argument
+                  (text_chunk))
+                (argument
+                  (text_chunk)))
+              body: (block
+                (statement
+                  (keyword_invocation
+                    (keyword)
+                    (arguments
                       (argument
                         (scalar_variable
                           (variable_name))))))))))))))

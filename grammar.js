@@ -363,12 +363,31 @@ module.exports = grammar({
       ),
       $._separator,
       field("right", choice(
-        seq("IN", $.arguments),
+        alias($._for_in, $.in),
+        alias($._for_in_range, $.in_range),
       )),
       $._line_break,
       field("body", $.block),
       $._indentation,
       "END"
+    ),
+
+    _for_in: $ => seq(
+      seq("IN", $.arguments),
+    ),
+
+    _for_in_range: $ => seq(
+      "IN RANGE",
+      $._separator,
+      $.argument,
+      optional(seq(
+        $._separator,
+        $.argument,
+        optional(seq(
+          $._separator,
+          $.argument,
+        ))
+      ))
     ),
 
     //
