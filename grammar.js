@@ -231,6 +231,7 @@ module.exports = grammar({
         $.if_statement,
         $.inline_if_statement,
         $.try_statement,
+        $.while_statement,
       ),
     ),
 
@@ -350,6 +351,16 @@ module.exports = grammar({
       $._line_break,
       optional($.block),
     )),
+
+    while_statement: $ => seq(
+      "WHILE",
+      $._separator,
+      field("condition", alias($.arguments_without_continuation, $.arguments)),
+      $._line_break,
+      field("body", optional($.block)),
+      $._indentation,
+      "END",
+    ),
 
     //
     // Reusable rules

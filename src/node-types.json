@@ -561,6 +561,10 @@
         {
           "type": "variable_assignment",
           "named": true
+        },
+        {
+          "type": "while_statement",
+          "named": true
         }
       ]
     }
@@ -707,6 +711,32 @@
     }
   },
   {
+    "type": "while_statement",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "block",
+            "named": true
+          }
+        ]
+      },
+      "condition": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "arguments",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": " ",
     "named": false
   },
@@ -756,6 +786,10 @@
   },
   {
     "type": "TRY",
+    "named": false
+  },
+  {
+    "type": "WHILE",
     "named": false
   },
   {

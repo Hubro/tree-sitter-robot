@@ -1354,6 +1354,10 @@
             {
               "type": "SYMBOL",
               "name": "try_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "while_statement"
             }
           ]
         }
@@ -1904,6 +1908,60 @@
           }
         ]
       }
+    },
+    "while_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "WHILE"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_separator"
+        },
+        {
+          "type": "FIELD",
+          "name": "condition",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "arguments_without_continuation"
+            },
+            "named": true,
+            "value": "arguments"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_line_break"
+        },
+        {
+          "type": "FIELD",
+          "name": "body",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "block"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_indentation"
+        },
+        {
+          "type": "STRING",
+          "value": "END"
+        }
+      ]
     },
     "arguments": {
       "type": "SEQ",
