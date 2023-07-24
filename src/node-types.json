@@ -211,7 +211,15 @@
             "named": true
           },
           {
+            "type": "in_enumerate",
+            "named": true
+          },
+          {
             "type": "in_range",
+            "named": true
+          },
+          {
+            "type": "in_zip",
             "named": true
           }
         ]
@@ -274,6 +282,21 @@
     }
   },
   {
+    "type": "in_enumerate",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arguments",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "in_range",
     "named": true,
     "fields": {},
@@ -283,6 +306,21 @@
       "types": [
         {
           "type": "argument",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "in_zip",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arguments",
           "named": true
         }
       ]
@@ -883,6 +921,10 @@
   },
   {
     "type": "IN RANGE",
+    "named": false
+  },
+  {
+    "type": "IN ZIP",
     "named": false
   },
   {

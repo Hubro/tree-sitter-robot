@@ -1983,7 +1983,16 @@
                   "name": "_for_in_enumerate"
                 },
                 "named": true,
-                "value": "in"
+                "value": "in_enumerate"
+              },
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_for_in_zip"
+                },
+                "named": true,
+                "value": "in_zip"
               }
             ]
           }
@@ -2096,6 +2105,24 @@
             {
               "type": "STRING",
               "value": "IN ENUMERATE"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "arguments"
+            }
+          ]
+        }
+      ]
+    },
+    "_for_in_zip": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "IN ZIP"
             },
             {
               "type": "SYMBOL",

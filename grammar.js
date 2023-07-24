@@ -366,6 +366,7 @@ module.exports = grammar({
         alias($._for_in, $.in),
         alias($._for_in_range, $.in_range),
         alias($._for_in_enumerate, $.in_enumerate),
+        alias($._for_in_zip, $.in_zip),
       )),
       $._line_break,
       field("body", $.block),
@@ -393,6 +394,10 @@ module.exports = grammar({
 
     _for_in_enumerate: $ => seq(
       seq("IN ENUMERATE", $.arguments),
+    ),
+
+    _for_in_zip: $ => seq(
+      seq("IN ZIP", $.arguments),
     ),
 
     //
