@@ -647,6 +647,14 @@
       "required": true,
       "types": [
         {
+          "type": "break_statement",
+          "named": true
+        },
+        {
+          "type": "continue_statement",
+          "named": true
+        },
+        {
           "type": "for_statement",
           "named": true
         },
@@ -940,7 +948,15 @@
     "named": false
   },
   {
+    "type": "break_statement",
+    "named": true
+  },
+  {
     "type": "comment",
+    "named": true
+  },
+  {
+    "type": "continue_statement",
     "named": true
   },
   {

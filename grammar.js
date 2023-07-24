@@ -229,6 +229,8 @@ module.exports = grammar({
         $.try_statement,
         $.while_statement,
         $.for_statement,
+        $.continue_statement,
+        $.break_statement,
       ),
     ),
 
@@ -399,6 +401,10 @@ module.exports = grammar({
     _for_in_zip: $ => seq(
       seq("IN ZIP", $.arguments),
     ),
+
+    continue_statement: $ => "CONTINUE",
+
+    break_statement: $ => "BREAK",
 
     //
     // Reusable rules
