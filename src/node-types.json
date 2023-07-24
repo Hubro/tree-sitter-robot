@@ -878,6 +878,10 @@
     "named": false
   },
   {
+    "type": "IN ENUMERATE",
+    "named": false
+  },
+  {
     "type": "IN RANGE",
     "named": false
   },

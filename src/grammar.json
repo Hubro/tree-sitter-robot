@@ -1975,6 +1975,15 @@
                 },
                 "named": true,
                 "value": "in_range"
+              },
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_for_in_enumerate"
+                },
+                "named": true,
+                "value": "in"
               }
             ]
           }
@@ -2073,6 +2082,24 @@
             },
             {
               "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_for_in_enumerate": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "IN ENUMERATE"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "arguments"
             }
           ]
         }
