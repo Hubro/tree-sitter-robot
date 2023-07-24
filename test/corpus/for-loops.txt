@@ -1,0 +1,328 @@
+================================================================================
+Simple FOR loops
+================================================================================
+
+*** Test Cases ***
+Example
+    FOR    ${animal}    IN    cat    dog
+        Log    ${animal}
+        Log    2nd keyword
+    END
+    Log    Outside loop
+
+Second Example
+    FOR    ${var}    IN    one    two    ${3}    four    ${five}
+    ...    kuusi    7    eight    nine    ${last}
+        Log    ${var}
+    END
+
+Example
+    FOR    ${element}    IN    @{ELEMENTS}
+        Start Element    ${element}
+    END
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (test_cases_section
+      (section_header)
+      (test_case_definition
+        (name)
+        (body
+          (statement
+            (for_statement
+              left: (variable_list
+                (scalar_variable
+                  (variable_name)))
+              right: (arguments
+                (argument
+                  (text_chunk))
+                (argument
+                  (text_chunk)))
+              body: (block
+                (statement
+                  (keyword_invocation
+                    (keyword)
+                    (arguments
+                      (argument
+                        (scalar_variable
+                          (variable_name))))))
+                (statement
+                  (keyword_invocation
+                    (keyword)
+                    (arguments
+                      (argument
+                        (text_chunk))))))))
+          (statement
+            (keyword_invocation
+              (keyword)
+              (arguments
+                (argument
+                  (text_chunk)))))))
+      (test_case_definition
+        (name)
+        (body
+          (statement
+            (for_statement
+              left: (variable_list
+                (scalar_variable
+                  (variable_name)))
+              right: (arguments
+                (argument
+                  (text_chunk))
+                (argument
+                  (text_chunk))
+                (argument
+                  (scalar_variable
+                    (variable_name)))
+                (argument
+                  (text_chunk))
+                (argument
+                  (scalar_variable
+                    (variable_name)))
+                (continuation
+                  (ellipses)
+                  (argument
+                    (text_chunk))
+                  (argument
+                    (text_chunk))
+                  (argument
+                    (text_chunk))
+                  (argument
+                    (text_chunk))
+                  (argument
+                    (scalar_variable
+                      (variable_name)))))
+              body: (block
+                (statement
+                  (keyword_invocation
+                    (keyword)
+                    (arguments
+                      (argument
+                        (scalar_variable
+                          (variable_name)))))))))))
+      (test_case_definition
+        (name)
+        (body
+          (statement
+            (for_statement
+              left: (variable_list
+                (scalar_variable
+                  (variable_name)))
+              right: (arguments
+                (argument
+                  (list_variable
+                    (variable_name))))
+              body: (block
+                (statement
+                  (keyword_invocation
+                    (keyword)
+                    (arguments
+                      (argument
+                        (scalar_variable
+                          (variable_name))))))))))))))
+
+================================================================================
+Nested FOR loops
+================================================================================
+
+*** Test Cases ***
+Multiple nesting levels
+    FOR    ${root}    IN    r1    r2
+        FOR    ${child}    IN    c1   c2    c3
+            FOR    ${grandchild}    IN    g1    g2
+                Log Many    ${root}    ${child}    ${grandchild}
+            END
+        END
+        FOR    ${sibling}    IN    s1    s2    s3
+            IF    '${sibling}' != 's2'
+                Log Many    ${root}    ${sibling}
+            END
+        END
+    END
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (test_cases_section
+      (section_header)
+      (test_case_definition
+        (name)
+        (body
+          (statement
+            (for_statement
+              left: (variable_list
+                (scalar_variable
+                  (variable_name)))
+              right: (arguments
+                (argument
+                  (text_chunk))
+                (argument
+                  (text_chunk)))
+              body: (block
+                (statement
+                  (for_statement
+                    left: (variable_list
+                      (scalar_variable
+                        (variable_name)))
+                    right: (arguments
+                      (argument
+                        (text_chunk))
+                      (argument
+                        (text_chunk))
+                      (argument
+                        (text_chunk)))
+                    body: (block
+                      (statement
+                        (for_statement
+                          left: (variable_list
+                            (scalar_variable
+                              (variable_name)))
+                          right: (arguments
+                            (argument
+                              (text_chunk))
+                            (argument
+                              (text_chunk)))
+                          body: (block
+                            (statement
+                              (keyword_invocation
+                                (keyword)
+                                (arguments
+                                  (argument
+                                    (scalar_variable
+                                      (variable_name)))
+                                  (argument
+                                    (scalar_variable
+                                      (variable_name)))
+                                  (argument
+                                    (scalar_variable
+                                      (variable_name))))))))))))
+                (statement
+                  (for_statement
+                    left: (variable_list
+                      (scalar_variable
+                        (variable_name)))
+                    right: (arguments
+                      (argument
+                        (text_chunk))
+                      (argument
+                        (text_chunk))
+                      (argument
+                        (text_chunk)))
+                    body: (block
+                      (statement
+                        (if_statement
+                          condition: (argument
+                            (text_chunk)
+                            (scalar_variable
+                              (variable_name))
+                            (text_chunk))
+                          consequence: (block
+                            (statement
+                              (keyword_invocation
+                                (keyword)
+                                (arguments
+                                  (argument
+                                    (scalar_variable
+                                      (variable_name)))
+                                  (argument
+                                    (scalar_variable
+                                      (variable_name))))))))))))))))))))
+
+================================================================================
+Several loop variables
+================================================================================
+
+*** Test Cases ***
+Multiple loop variables
+    FOR    ${index}    ${english}    ${finnish}    IN
+    ...    1           cat           kissa
+    ...    2           dog           koira
+    ...    3           horse         hevonen
+        Add Translation    ${english}    ${finnish}    ${index}
+    END
+    FOR    ${name}    ${id}    IN    @{EMPLOYERS}
+        Create    ${name}    ${id}
+    END
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (test_cases_section
+      (section_header)
+      (test_case_definition
+        (name)
+        (body
+          (statement
+            (for_statement
+              left: (variable_list
+                (scalar_variable
+                  (variable_name))
+                (scalar_variable
+                  (variable_name))
+                (scalar_variable
+                  (variable_name)))
+              right: (arguments
+                (continuation
+                  (ellipses)
+                  (argument
+                    (text_chunk))
+                  (argument
+                    (text_chunk))
+                  (argument
+                    (text_chunk)))
+                (continuation
+                  (ellipses)
+                  (argument
+                    (text_chunk))
+                  (argument
+                    (text_chunk))
+                  (argument
+                    (text_chunk)))
+                (continuation
+                  (ellipses)
+                  (argument
+                    (text_chunk))
+                  (argument
+                    (text_chunk))
+                  (argument
+                    (text_chunk))))
+              body: (block
+                (statement
+                  (keyword_invocation
+                    (keyword)
+                    (arguments
+                      (argument
+                        (scalar_variable
+                          (variable_name)))
+                      (argument
+                        (scalar_variable
+                          (variable_name)))
+                      (argument
+                        (scalar_variable
+                          (variable_name)))))))))
+          (statement
+            (for_statement
+              left: (variable_list
+                (scalar_variable
+                  (variable_name))
+                (scalar_variable
+                  (variable_name)))
+              right: (arguments
+                (argument
+                  (list_variable
+                    (variable_name))))
+              body: (block
+                (statement
+                  (keyword_invocation
+                    (keyword)
+                    (arguments
+                      (argument
+                        (scalar_variable
+                          (variable_name)))
+                      (argument
+                        (scalar_variable
+                          (variable_name))))))))))))))

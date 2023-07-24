@@ -228,6 +228,7 @@ module.exports = grammar({
         $.inline_if_statement,
         $.try_statement,
         $.while_statement,
+        $.for_statement,
       ),
     ),
 
@@ -349,6 +350,25 @@ module.exports = grammar({
       field("body", optional($.block)),
       $._indentation,
       "END",
+    ),
+
+    for_statement: $ => seq(
+      "FOR",
+      field("left", alias(
+        repeat1(seq(
+          $._separator,
+          $.scalar_variable,
+        )),
+        $.variable_list),
+      ),
+      $._separator,
+      field("right", choice(
+        seq("IN", $.arguments),
+      )),
+      $._line_break,
+      field("body", $.block),
+      $._indentation,
+      "END"
     ),
 
     //

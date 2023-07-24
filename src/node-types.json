@@ -179,6 +179,46 @@
     }
   },
   {
+    "type": "for_statement",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "block",
+            "named": true
+          }
+        ]
+      },
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "variable_list",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "IN",
+            "named": false
+          },
+          {
+            "type": "arguments",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "if_statement",
     "named": true,
     "fields": {
@@ -539,6 +579,10 @@
       "required": true,
       "types": [
         {
+          "type": "for_statement",
+          "named": true
+        },
+        {
           "type": "if_statement",
           "named": true
         },
@@ -688,6 +732,21 @@
     }
   },
   {
+    "type": "variable_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "scalar_variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "variables_section",
     "named": true,
     "fields": {},
@@ -777,7 +836,15 @@
     "named": false
   },
   {
+    "type": "FOR",
+    "named": false
+  },
+  {
     "type": "IF",
+    "named": false
+  },
+  {
+    "type": "IN",
     "named": false
   },
   {
