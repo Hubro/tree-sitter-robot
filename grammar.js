@@ -74,6 +74,7 @@ module.exports = grammar({
     [$.continuation],
     [$.block],
     [$.except_statement],
+    [$.except_statement, $.continuation],
   ],
 
   rules: {
@@ -102,7 +103,6 @@ module.exports = grammar({
     ),
     setting_statement: $ => seq(
       choice(...SETTINGS_KEYWORDS.map(caseInsensitive)),
-      $._separator,
       $.arguments,
       $._line_break,
     ),
@@ -123,7 +123,6 @@ module.exports = grammar({
       optional(
         choice("=", " =")
       ),
-      $._separator,
       $.arguments,
       $._line_break,
     ),
@@ -162,7 +161,6 @@ module.exports = grammar({
         setting("Teardown"),
         setting("Timeout"),
       ),
-      $._separator,
       $.arguments,
     ),
 
@@ -182,7 +180,6 @@ module.exports = grammar({
       choice(
         // Data-driven tests have arguments
         seq(
-          $._separator,
           alias($.arguments_without_continuation, $.arguments),
           $._line_break,
         ),
@@ -212,7 +209,6 @@ module.exports = grammar({
         setting("Template"),
         setting("Timeout"),
       ),
-      $._separator,
       $.arguments,
     ),
 
@@ -250,18 +246,12 @@ module.exports = grammar({
       optional(
         choice("=", " =")
       ),
-      optional(seq(
-        $._separator,
-        $.arguments,
-      )),
+      optional($.arguments),
     ),
 
     keyword_invocation: $ => seq(
       alias($.text_chunk, $.keyword),
-      optional(seq(
-        $._separator,
-        $.arguments,
-      )),
+      optional($.arguments),
     ),
 
     if_statement: $ => seq(
@@ -347,14 +337,13 @@ module.exports = grammar({
     except_statement: $ => prec.dynamic(100, seq(
       $._indentation,
       "EXCEPT",
-      optional(seq($._separator, $.arguments)),
+      optional($.arguments),
       $._line_break,
       optional($.block),
     )),
 
     while_statement: $ => seq(
       "WHILE",
-      $._separator,
       field("condition", alias($.arguments_without_continuation, $.arguments)),
       $._line_break,
       field("body", optional($.block)),
@@ -366,22 +355,24 @@ module.exports = grammar({
     // Reusable rules
     //
 
+    // NB: Arguments includes the preceding separator
     arguments: $ => seq(
-      $.argument,
-      repeat(seq(
-        $._separator,
-        $.argument,
-      )),
-      repeat($.continuation),
+      choice(
+        seq(
+          repeat1(seq(
+            $._separator,
+            $.argument,
+          )),
+          repeat($.continuation),
+        ),
+        repeat1($.continuation)
+      )
     ),
 
-    arguments_without_continuation: $ => seq(
+    arguments_without_continuation: $ => repeat1(seq(
+      $._separator,
       $.argument,
-      repeat(seq(
-        $._separator,
-        $.argument,
-      )),
-    ),
+    )),
 
     // Conflicts with parent structures because of $._line_break
     continuation: $ => prec.dynamic(100, seq(
