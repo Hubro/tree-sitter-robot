@@ -463,12 +463,14 @@ module.exports = grammar({
         $.scalar_variable,
         $.list_variable,
         $.dictionary_variable,
+        $.inline_python_expression,
       ),
       repeat(seq(
         optional(" "),
         choice(
           $.text_chunk,
           $.scalar_variable,
+          $.inline_python_expression,
         )
       ))
     ),
@@ -496,6 +498,12 @@ module.exports = grammar({
       optional(" "),
       "}"
     ),
+
+    inline_python_expression: $ => prec.left(seq(
+      "${{",
+      alias(repeat(choice("}", /[^\r\n}]+/)), $.python_expression),
+      "}}",
+    )),
 
     variable_name: $ => /[^{}]+/,
 

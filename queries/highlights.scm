@@ -19,6 +19,7 @@
 (argument (scalar_variable) @variable)
 (argument (list_variable) @variable)
 (argument (dictionary_variable) @variable)
+(argument (inline_python_expression) @string.special)
 
 (ellipses) @punctuation.delimiter
 

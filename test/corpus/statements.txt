@@ -202,3 +202,29 @@ Test Keyword
               (arguments
                 (argument
                   (text_chunk))))))))))
+
+================================================================================
+Inline Python evaluation
+================================================================================
+
+*** Keywords ***
+
+Test Keyword
+  Some Keyword   ${{len(${items})}}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (keywords_section
+      (section_header)
+      (keyword_definition
+        (name)
+        (body
+          (statement
+            (keyword_invocation
+              (keyword)
+              (arguments
+                (argument
+                  (inline_python_expression
+                    (python_expression)))))))))))
