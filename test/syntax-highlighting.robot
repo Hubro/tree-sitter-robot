@@ -106,20 +106,18 @@ Simple Keyword
         Error Handler 3
     END
 
-    # Not yet supported: ELSE/FINALLY
-    #
-    # TRY
-    #     Use Connection
-    # FINALLY
-    #     Close Connection
-    # END
-    #
-    # TRY
-    #     Some keyword
-    # EXCEPT
-    #     Log    Error occurred!
-    # ELSE
-    #     Log    No error occurred.
-    # FINALLY
-    #     Log    Always executed.
-    # END
+    TRY
+        Use Connection
+    FINALLY
+        Close Connection
+    END
+    
+    TRY
+        Some keyword
+    EXCEPT
+        Log    Error occurred!
+    ELSE
+        Log    No error occurred.
+    FINALLY
+        Log    Always executed.
+    END

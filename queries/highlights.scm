@@ -48,3 +48,5 @@
   "TRY" @exception
   "END" @exception)
 (try_statement (except_statement "EXCEPT" @exception))
+(try_statement (else_statement "ELSE" @exception))
+(try_statement (finally_statement "FINALLY" @exception))
