@@ -75,6 +75,7 @@ module.exports = grammar({
     [$.block],
     [$.except_statement],
     [$.except_statement, $.continuation],
+    [$.finally_statement],
   ],
 
   rules: {
@@ -333,6 +334,8 @@ module.exports = grammar({
       $._line_break,
       optional($.block),
       repeat($.except_statement),
+      prec.dynamic(200, optional($.else_statement)),
+      optional($.finally_statement),
       $._indentation,
       "END",
     ),
@@ -341,6 +344,13 @@ module.exports = grammar({
       $._indentation,
       "EXCEPT",
       optional($.arguments),
+      $._line_break,
+      optional($.block),
+    )),
+
+    finally_statement: $ => prec.dynamic(100, seq(
+      $._indentation,
+      "FINALLY",
       $._line_break,
       optional($.block),
     )),

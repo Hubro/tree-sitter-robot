@@ -179,6 +179,21 @@
     }
   },
   {
+    "type": "finally_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "for_statement",
     "named": true,
     "fields": {
@@ -763,7 +778,15 @@
           "named": true
         },
         {
+          "type": "else_statement",
+          "named": true
+        },
+        {
           "type": "except_statement",
+          "named": true
+        },
+        {
+          "type": "finally_statement",
           "named": true
         }
       ]
@@ -909,6 +932,10 @@
   },
   {
     "type": "EXCEPT",
+    "named": false
+  },
+  {
+    "type": "FINALLY",
     "named": false
   },
   {

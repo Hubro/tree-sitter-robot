@@ -1820,6 +1820,34 @@
           }
         },
         {
+          "type": "PREC_DYNAMIC",
+          "value": 200,
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "else_statement"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "finally_statement"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "SYMBOL",
           "name": "_indentation"
         },
@@ -1854,6 +1882,39 @@
                 "type": "BLANK"
               }
             ]
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_line_break"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "block"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "finally_statement": {
+      "type": "PREC_DYNAMIC",
+      "value": 100,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_indentation"
+          },
+          {
+            "type": "STRING",
+            "value": "FINALLY"
           },
           {
             "type": "SYMBOL",
@@ -2663,6 +2724,9 @@
     [
       "except_statement",
       "continuation"
+    ],
+    [
+      "finally_statement"
     ]
   ],
   "precedences": [],
