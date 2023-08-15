@@ -1,4 +1,3 @@
-
 (comment) @comment
 
 (section_header) @keyword
@@ -17,6 +16,35 @@
 (ellipses) @punctuation.delimiter
 
 (argument (text_chunk) @string)
-(argument (scalar_variable)* @variable)
-(argument (list_variable)* @variable)
-(argument (dictionary_variable)* @variable)
+(argument (scalar_variable) @variable)
+(argument (list_variable) @variable)
+(argument (dictionary_variable) @variable)
+
+(ellipses) @punctuation.delimiter
+
+; Control structures
+(for_statement
+  "FOR" @repeat
+  "END" @repeat)
+(for_statement (in "IN" @repeat))
+(for_statement (in_range "IN RANGE" @repeat))
+(for_statement (in_enumerate "IN ENUMERATE" @repeat))
+(for_statement (in_zip "IN ZIP" @repeat))
+
+(while_statement
+  "WHILE" @repeat
+  "END" @repeat)
+
+(break_statement) @repeat
+(continue_statement) @repeat
+
+(if_statement
+  "IF" @conditional
+  "END" @conditional)
+(if_statement (elseif_statement "ELSE IF" @conditional))
+(if_statement (else_statement "ELSE" @conditional))
+
+(try_statement
+  "TRY" @exception
+  "END" @exception)
+(try_statement (except_statement "EXCEPT" @exception))
