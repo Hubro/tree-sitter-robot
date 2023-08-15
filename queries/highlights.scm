@@ -12,7 +12,7 @@
 
 (test_case_definition (name) @property)
 
-(keyword_invocation (keyword) @function)
+(keyword_invocation (keyword) @function.call)
 (ellipses) @punctuation.delimiter
 
 (argument (text_chunk) @string)
