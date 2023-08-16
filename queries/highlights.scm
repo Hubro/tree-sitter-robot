@@ -6,15 +6,13 @@
 [
   (section_header)
   (setting_statement)
+  (keyword_setting)
+  (test_case_setting)
 ] @keyword
 
 (variable_definition (variable_name) @variable)
-
 (keyword_definition (name) @function)
-(keyword_definition (body (keyword_setting) @keyword))
-
 (test_case_definition (name) @function)
-(test_case_definition (body (test_case_setting) @keyword))
 
 (keyword_invocation (keyword) @function.call)
 (ellipses) @punctuation.delimiter
@@ -35,11 +33,12 @@
   "IN RANGE"
   "IN ENUMERATE"
   "IN ZIP"
-  "WHILE"
   (break_statement)
   (continue_statement)
 ] @repeat
 (for_statement "END" @repeat)
+
+"WHILE" @repeat
 (while_statement "END" @repeat)
 
 [
