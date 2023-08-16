@@ -1,4 +1,3 @@
-(section_header) @indent.zero
 (keyword_definition) @indent.begin
 (test_case_definition) @indent.begin
 
