@@ -10,6 +10,9 @@ ${foo} =    Some value
 *** Keywords ***
 
 Simple Keyword
+    [Documentation]     Hello
+    ...                 World
+
     Simple Keyword Invocation
 
     Keyword Invocation      With    Arguments
@@ -21,6 +24,8 @@ Keyword Testing A Bunch Of Things
     ${bar} =    Something
 
     # FOR loops
+
+    Log To Console      ELSE IF
 
     FOR  ${x}  IN  @{zoom}
         Do stuff
@@ -129,3 +134,10 @@ Keyword Testing A Bunch Of Things
     FINALLY
         Log    Always executed.
     END
+
+*** Test Cases ***
+
+Test Foo
+    [Documentation]     Hello, world!
+
+    Expect Equals       1       2
