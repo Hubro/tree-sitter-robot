@@ -10,6 +10,14 @@ ${foo} =    Some value
 *** Keywords ***
 
 Simple Keyword
+    Simple Keyword Invocation
+
+    Keyword Invocation      With    Arguments
+    ...                     On      Multiple lines
+
+    ${foo} =    Bar
+
+Keyword Testing A Bunch Of Things
     ${bar} =    Something
 
     # FOR loops
@@ -111,7 +119,7 @@ Simple Keyword
     FINALLY
         Close Connection
     END
-    
+
     TRY
         Some keyword
     EXCEPT
