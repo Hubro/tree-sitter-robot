@@ -20,6 +20,7 @@ Documentation       I am just text, # not a comment   # But I am a comment
       (section_header)
       (extra_text)
       (setting_statement
+        (setting_name)
         (arguments
           (argument
             (text_chunk))

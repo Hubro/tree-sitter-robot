@@ -103,10 +103,11 @@ module.exports = grammar({
       )),
     ),
     setting_statement: $ => seq(
-      choice(...SETTINGS_KEYWORDS.map(caseInsensitive)),
+      field("name", $.setting_name),
       $.arguments,
       $._line_break,
     ),
+    setting_name: $ => choice(...SETTINGS_KEYWORDS.map(caseInsensitive)),
 
     //
     // Variables section
@@ -154,15 +155,16 @@ module.exports = grammar({
     )),
     // Ref: http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#keyword-section-1
     keyword_setting: $ => seq(
-      choice(
-        setting("Documentation"),
-        setting("Tags"),
-        setting("Arguments"),
-        setting("Return"),
-        setting("Teardown"),
-        setting("Timeout"),
-      ),
+      field("name", $.keyword_setting_name),
       $.arguments,
+    ),
+    keyword_setting_name: $ => choice(
+      setting("Documentation"),
+      setting("Tags"),
+      setting("Arguments"),
+      setting("Return"),
+      setting("Teardown"),
+      setting("Timeout"),
     ),
 
     //
@@ -202,15 +204,16 @@ module.exports = grammar({
     )),
     // Ref: http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#test-case-section
     test_case_setting: $ => seq(
-      choice(
-        setting("Documentation"),
-        setting("Tags"),
-        setting("Setup"),
-        setting("Teardown"),
-        setting("Template"),
-        setting("Timeout"),
-      ),
+      field("name", $.test_case_setting_name),
       $.arguments,
+    ),
+    test_case_setting_name: $ => choice(
+      setting("Documentation"),
+      setting("Tags"),
+      setting("Setup"),
+      setting("Teardown"),
+      setting("Template"),
+      setting("Timeout"),
     ),
 
     //

@@ -378,6 +378,7 @@ Also step given
         (name)
         (body
           (keyword_setting
+            name: (keyword_setting_name)
             (arguments
               (argument
                 (text_chunk))))
@@ -401,6 +402,7 @@ Also step given
         (name)
         (body
           (keyword_setting
+            name: (keyword_setting_name)
             (arguments
               (argument
                 (text_chunk))))
@@ -426,6 +428,7 @@ Also step given
         (name)
         (body
           (keyword_setting
+            name: (keyword_setting_name)
             (arguments
               (argument
                 (text_chunk))))
@@ -666,6 +669,7 @@ LONGEST mode with custom fill value
         (name)
         (body
           (keyword_setting
+            name: (keyword_setting_name)
             (arguments
               (argument
                 (text_chunk))

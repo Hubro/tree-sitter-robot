@@ -101,6 +101,7 @@ I Am A User Defined Keyword
         (name)
         (body
           (keyword_setting
+            (keyword_setting_name)
             (arguments
               (argument
                 (text_chunk))
@@ -111,12 +112,14 @@ I Am A User Defined Keyword
                 (argument
                   (text_chunk)))))
           (keyword_setting
+            (keyword_setting_name)
             (arguments
               (argument
                 (text_chunk))
               (argument
                 (text_chunk))))
           (keyword_setting
+            (keyword_setting_name)
             (arguments
               (argument
                 (scalar_variable
@@ -129,11 +132,13 @@ I Am A User Defined Keyword
                   (variable_name))
                 (text_chunk))))
           (keyword_setting
+            (keyword_setting_name)
             (arguments
               (argument
                 (scalar_variable
                   (variable_name)))))
           (keyword_setting
+            (keyword_setting_name)
             (arguments
               (argument
                 (text_chunk))
@@ -142,6 +147,7 @@ I Am A User Defined Keyword
               (argument
                 (text_chunk))))
           (keyword_setting
+            (keyword_setting_name)
             (arguments
               (argument
                 (text_chunk))))

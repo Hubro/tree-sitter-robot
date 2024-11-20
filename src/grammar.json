@@ -146,77 +146,12 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "PATTERN",
-              "value": "[lL][iI][bB][rR][aA][rR][yY]"
-            },
-            {
-              "type": "PATTERN",
-              "value": "[rR][eE][sS][oO][uU][rR][cC][eE]"
-            },
-            {
-              "type": "PATTERN",
-              "value": "[vV][aA][rR][iI][aA][bB][lL][eE][sS]"
-            },
-            {
-              "type": "PATTERN",
-              "value": "[dD][oO][cC][uU][mM][eE][nN][tT][aA][tT][iI][oO][nN]"
-            },
-            {
-              "type": "PATTERN",
-              "value": "[mM][eE][tT][aA][dD][aA][tT][aA]"
-            },
-            {
-              "type": "PATTERN",
-              "value": "[sS][uU][iI][tT][eE][  ][sS][eE][tT][uU][pP]"
-            },
-            {
-              "type": "PATTERN",
-              "value": "[sS][uU][iI][tT][eE][  ][tT][eE][aA][rR][dD][oO][wW][nN]"
-            },
-            {
-              "type": "PATTERN",
-              "value": "[fF][oO][rR][cC][eE][  ][tT][aA][gG][sS]"
-            },
-            {
-              "type": "PATTERN",
-              "value": "[dD][eE][fF][aA][uU][lL][tT][  ][tT][aA][gG][sS]"
-            },
-            {
-              "type": "PATTERN",
-              "value": "[tT][eE][sS][tT][  ][sS][eE][tT][uU][pP]"
-            },
-            {
-              "type": "PATTERN",
-              "value": "[tT][eE][sS][tT][  ][tT][eE][aA][rR][dD][oO][wW][nN]"
-            },
-            {
-              "type": "PATTERN",
-              "value": "[tT][eE][sS][tT][  ][tT][eE][mM][pP][lL][aA][tT][eE]"
-            },
-            {
-              "type": "PATTERN",
-              "value": "[tT][eE][sS][tT][  ][tT][iI][mM][eE][oO][uU][tT]"
-            },
-            {
-              "type": "PATTERN",
-              "value": "[tT][aA][sS][kK][  ][sS][eE][tT][uU][pP]"
-            },
-            {
-              "type": "PATTERN",
-              "value": "[tT][aA][sS][kK][  ][tT][eE][aA][rR][dD][oO][wW][nN]"
-            },
-            {
-              "type": "PATTERN",
-              "value": "[tT][aA][sS][kK][  ][tT][eE][mM][pP][lL][aA][tT][eE]"
-            },
-            {
-              "type": "PATTERN",
-              "value": "[tT][aA][sS][kK][  ][tT][iI][mM][eE][oO][uU][tT]"
-            }
-          ]
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "setting_name"
+          }
         },
         {
           "type": "SYMBOL",
@@ -225,6 +160,79 @@
         {
           "type": "SYMBOL",
           "name": "_line_break"
+        }
+      ]
+    },
+    "setting_name": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[lL][iI][bB][rR][aA][rR][yY]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[rR][eE][sS][oO][uU][rR][cC][eE]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[vV][aA][rR][iI][aA][bB][lL][eE][sS]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[dD][oO][cC][uU][mM][eE][nN][tT][aA][tT][iI][oO][nN]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[mM][eE][tT][aA][dD][aA][tT][aA]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[sS][uU][iI][tT][eE][  ][sS][eE][tT][uU][pP]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[sS][uU][iI][tT][eE][  ][tT][eE][aA][rR][dD][oO][wW][nN]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[fF][oO][rR][cC][eE][  ][tT][aA][gG][sS]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[dD][eE][fF][aA][uU][lL][tT][  ][tT][aA][gG][sS]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[tT][eE][sS][tT][  ][sS][eE][tT][uU][pP]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[tT][eE][sS][tT][  ][tT][eE][aA][rR][dD][oO][wW][nN]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[tT][eE][sS][tT][  ][tT][eE][mM][pP][lL][aA][tT][eE]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[tT][eE][sS][tT][  ][tT][iI][mM][eE][oO][uU][tT]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[tT][aA][sS][kK][  ][sS][eE][tT][uU][pP]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[tT][aA][sS][kK][  ][tT][eE][aA][rR][dD][oO][wW][nN]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[tT][aA][sS][kK][  ][tT][eE][mM][pP][lL][aA][tT][eE]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[tT][aA][sS][kK][  ][tT][iI][mM][eE][oO][uU][tT]"
         }
       ]
     },
@@ -552,277 +560,285 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "TOKEN",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "["
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": " "
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "PATTERN",
-                    "value": "[dD][oO][cC][uU][mM][eE][nN][tT][aA][tT][iI][oO][nN]"
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": " "
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "]"
-                  }
-                ]
-              }
-            },
-            {
-              "type": "TOKEN",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "["
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": " "
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "PATTERN",
-                    "value": "[tT][aA][gG][sS]"
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": " "
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "]"
-                  }
-                ]
-              }
-            },
-            {
-              "type": "TOKEN",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "["
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": " "
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "PATTERN",
-                    "value": "[aA][rR][gG][uU][mM][eE][nN][tT][sS]"
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": " "
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "]"
-                  }
-                ]
-              }
-            },
-            {
-              "type": "TOKEN",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "["
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": " "
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "PATTERN",
-                    "value": "[rR][eE][tT][uU][rR][nN]"
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": " "
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "]"
-                  }
-                ]
-              }
-            },
-            {
-              "type": "TOKEN",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "["
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": " "
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "PATTERN",
-                    "value": "[tT][eE][aA][rR][dD][oO][wW][nN]"
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": " "
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "]"
-                  }
-                ]
-              }
-            },
-            {
-              "type": "TOKEN",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "["
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": " "
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "PATTERN",
-                    "value": "[tT][iI][mM][eE][oO][uU][tT]"
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": " "
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "]"
-                  }
-                ]
-              }
-            }
-          ]
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "keyword_setting_name"
+          }
         },
         {
           "type": "SYMBOL",
           "name": "arguments"
+        }
+      ]
+    },
+    "keyword_setting_name": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "["
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": " "
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "PATTERN",
+                "value": "[dD][oO][cC][uU][mM][eE][nN][tT][aA][tT][iI][oO][nN]"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": " "
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "STRING",
+                "value": "]"
+              }
+            ]
+          }
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "["
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": " "
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "PATTERN",
+                "value": "[tT][aA][gG][sS]"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": " "
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "STRING",
+                "value": "]"
+              }
+            ]
+          }
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "["
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": " "
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "PATTERN",
+                "value": "[aA][rR][gG][uU][mM][eE][nN][tT][sS]"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": " "
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "STRING",
+                "value": "]"
+              }
+            ]
+          }
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "["
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": " "
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "PATTERN",
+                "value": "[rR][eE][tT][uU][rR][nN]"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": " "
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "STRING",
+                "value": "]"
+              }
+            ]
+          }
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "["
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": " "
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "PATTERN",
+                "value": "[tT][eE][aA][rR][dD][oO][wW][nN]"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": " "
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "STRING",
+                "value": "]"
+              }
+            ]
+          }
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "["
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": " "
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "PATTERN",
+                "value": "[tT][iI][mM][eE][oO][uU][tT]"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": " "
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "STRING",
+                "value": "]"
+              }
+            ]
+          }
         }
       ]
     },
@@ -1031,277 +1047,285 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "TOKEN",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "["
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": " "
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "PATTERN",
-                    "value": "[dD][oO][cC][uU][mM][eE][nN][tT][aA][tT][iI][oO][nN]"
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": " "
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "]"
-                  }
-                ]
-              }
-            },
-            {
-              "type": "TOKEN",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "["
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": " "
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "PATTERN",
-                    "value": "[tT][aA][gG][sS]"
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": " "
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "]"
-                  }
-                ]
-              }
-            },
-            {
-              "type": "TOKEN",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "["
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": " "
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "PATTERN",
-                    "value": "[sS][eE][tT][uU][pP]"
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": " "
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "]"
-                  }
-                ]
-              }
-            },
-            {
-              "type": "TOKEN",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "["
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": " "
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "PATTERN",
-                    "value": "[tT][eE][aA][rR][dD][oO][wW][nN]"
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": " "
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "]"
-                  }
-                ]
-              }
-            },
-            {
-              "type": "TOKEN",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "["
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": " "
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "PATTERN",
-                    "value": "[tT][eE][mM][pP][lL][aA][tT][eE]"
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": " "
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "]"
-                  }
-                ]
-              }
-            },
-            {
-              "type": "TOKEN",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "["
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": " "
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "PATTERN",
-                    "value": "[tT][iI][mM][eE][oO][uU][tT]"
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": " "
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "]"
-                  }
-                ]
-              }
-            }
-          ]
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "test_case_setting_name"
+          }
         },
         {
           "type": "SYMBOL",
           "name": "arguments"
+        }
+      ]
+    },
+    "test_case_setting_name": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "["
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": " "
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "PATTERN",
+                "value": "[dD][oO][cC][uU][mM][eE][nN][tT][aA][tT][iI][oO][nN]"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": " "
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "STRING",
+                "value": "]"
+              }
+            ]
+          }
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "["
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": " "
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "PATTERN",
+                "value": "[tT][aA][gG][sS]"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": " "
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "STRING",
+                "value": "]"
+              }
+            ]
+          }
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "["
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": " "
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "PATTERN",
+                "value": "[sS][eE][tT][uU][pP]"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": " "
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "STRING",
+                "value": "]"
+              }
+            ]
+          }
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "["
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": " "
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "PATTERN",
+                "value": "[tT][eE][aA][rR][dD][oO][wW][nN]"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": " "
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "STRING",
+                "value": "]"
+              }
+            ]
+          }
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "["
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": " "
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "PATTERN",
+                "value": "[tT][eE][mM][pP][lL][aA][tT][eE]"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": " "
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "STRING",
+                "value": "]"
+              }
+            ]
+          }
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "["
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": " "
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "PATTERN",
+                "value": "[tT][iI][mM][eE][oO][uU][tT]"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": " "
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "STRING",
+                "value": "]"
+              }
+            ]
+          }
         }
       ]
     },

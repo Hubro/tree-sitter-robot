@@ -42,78 +42,95 @@ Task Timeout      5 minutes
     (settings_section
       (section_header)
       (setting_statement
+        (setting_name)
         (arguments
           (argument
             (text_chunk))
           (argument
             (text_chunk))))
       (setting_statement
+        (setting_name)
         (arguments
           (argument
             (text_chunk))))
       (setting_statement
+        (setting_name)
         (arguments
           (argument
             (text_chunk))))
       (setting_statement
+        (setting_name)
         (arguments
           (argument
             (text_chunk))))
       (setting_statement
-        (arguments
-          (argument
-            (text_chunk))
-          (argument
-            (text_chunk))))
-      (setting_statement
-        (arguments
-          (argument
-            (text_chunk))))
-      (setting_statement
-        (arguments
-          (argument
-            (text_chunk))))
-      (setting_statement
+        (setting_name)
         (arguments
           (argument
             (text_chunk))
           (argument
             (text_chunk))))
       (setting_statement
+        (setting_name)
+        (arguments
+          (argument
+            (text_chunk))))
+      (setting_statement
+        (setting_name)
+        (arguments
+          (argument
+            (text_chunk))))
+      (setting_statement
+        (setting_name)
         (arguments
           (argument
             (text_chunk))
           (argument
             (text_chunk))))
       (setting_statement
+        (setting_name)
+        (arguments
+          (argument
+            (text_chunk))
+          (argument
+            (text_chunk))))
+      (setting_statement
+        (setting_name)
         (arguments
           (argument
             (text_chunk))))
       (setting_statement
+        (setting_name)
         (arguments
           (argument
             (text_chunk))))
       (setting_statement
+        (setting_name)
         (arguments
           (argument
             (text_chunk))))
       (setting_statement
+        (setting_name)
         (arguments
           (argument
             (text_chunk))))
       (setting_statement
+        (setting_name)
         (arguments
           (argument
             (text_chunk))))
       (setting_statement
+        (setting_name)
         (arguments
           (argument
             (text_chunk))))
       (setting_statement
+        (setting_name)
         (arguments
           (argument
             (text_chunk))))
       (setting_statement
+        (setting_name)
         (arguments
           (argument
             (text_chunk)))))))
@@ -138,6 +155,7 @@ Documentation     This is some documentation text
     (settings_section
       (section_header)
       (setting_statement
+        (setting_name)
         (arguments
           (argument
             (text_chunk))
@@ -150,6 +168,7 @@ Documentation     This is some documentation text
             (argument
               (text_chunk)))))
       (setting_statement
+        (setting_name)
         (arguments
           (argument
             (text_chunk))
