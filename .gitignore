@@ -6,5 +6,8 @@
 /Cargo.toml
 /node_modules/
 
-# Local config
-/.envrc
+# Direnv / Devenv
+.direnv
+.devenv*
+devenv.local.nix
+.pre-commit-config.yaml
