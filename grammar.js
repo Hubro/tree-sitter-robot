@@ -52,15 +52,6 @@ function section_header($, name) {
   );
 }
 
-/**
- * Shortcut for defining a setting token
- */
-function setting(name) {
-  return token(
-    seq("[", optional(" "), caseInsensitive(name), optional(" "), "]"),
-  );
-}
-
 module.exports = grammar({
   name: "robot",
 
@@ -150,15 +141,22 @@ module.exports = grammar({
       ),
     // Ref: http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#keyword-section-1
     keyword_setting: ($) =>
-      seq(field("name", $.keyword_setting_name), $.arguments),
+      seq(
+        "[",
+        optional(" "),
+        field("name", $.keyword_setting_name),
+        optional(" "),
+        "]",
+        $.arguments,
+      ),
     keyword_setting_name: ($) =>
       choice(
-        setting("Documentation"),
-        setting("Tags"),
-        setting("Arguments"),
-        setting("Return"),
-        setting("Teardown"),
-        setting("Timeout"),
+        caseInsensitive("Documentation"),
+        caseInsensitive("Tags"),
+        caseInsensitive("Arguments"),
+        caseInsensitive("Return"),
+        caseInsensitive("Teardown"),
+        caseInsensitive("Timeout"),
       ),
 
     //
@@ -197,15 +195,22 @@ module.exports = grammar({
       ),
     // Ref: http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#test-case-section
     test_case_setting: ($) =>
-      seq(field("name", $.test_case_setting_name), $.arguments),
+      seq(
+        "[",
+        optional(" "),
+        field("name", $.test_case_setting_name),
+        optional(" "),
+        "]",
+        $.arguments,
+      ),
     test_case_setting_name: ($) =>
       choice(
-        setting("Documentation"),
-        setting("Tags"),
-        setting("Setup"),
-        setting("Teardown"),
-        setting("Template"),
-        setting("Timeout"),
+        caseInsensitive("Documentation"),
+        caseInsensitive("Tags"),
+        caseInsensitive("Setup"),
+        caseInsensitive("Teardown"),
+        caseInsensitive("Template"),
+        caseInsensitive("Timeout"),
       ),
 
     //
@@ -246,8 +251,9 @@ module.exports = grammar({
         optional($.arguments),
       ),
 
-    keyword_invocation: ($) =>
-      seq(alias($.text_chunk, $.keyword), optional($.arguments)),
+    keyword_invocation: ($) => seq($.keyword, optional($.arguments)),
+
+    keyword: ($) => /[^\[][a-zA-Z0-9]*( [a-zA-Z0-9]+)*/,
 
     if_statement: ($) =>
       seq(
