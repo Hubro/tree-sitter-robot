@@ -3,15 +3,20 @@
   "version": "1.0.0",
   "description": "Tree-sitter parser for Robot Framework files",
   "main": "bindings/node",
+  "types": "bindings/node",
   "scripts": {
-    "build": "tree-sitter generate",
-    "test": "tree-sitter test"
+    "install": "node-gyp-build",
+    "prestart": "tree-sitter build --wasm",
+    "start": "tree-sitter playground",
+    "test": "node --test bindings/node/*_test.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Hubro/tree-sitter-robot.git"
   },
   "keywords": [
+    "incremental",
+    "parsing",
     "tree-sitter",
     "robot"
   ],
@@ -21,20 +26,30 @@
     "url": "https://github.com/Hubro/tree-sitter-robot/issues"
   },
   "homepage": "https://github.com/Hubro/tree-sitter-robot#readme",
+  "files": [
+    "grammar.js",
+    "tree-sitter.json",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**",
+    "*.wasm"
+  ],
   "dependencies": {
-    "nan": "^2.17.0"
+    "node-addon-api": "^8.2.2",
+    "node-gyp-build": "^4.8.4"
   },
   "devDependencies": {
-    "prettier": "^2.6.2",
-    "tree-sitter-cli": "^0.20.8"
+    "prebuildify": "^6.0.1",
+    "tree-sitter-cli": "^0.24.7"
   },
-  "tree-sitter": [
-    {
-      "scope": "source.robot",
-      "file-types": [
-        "robot",
-        "resource"
-      ]
+  "peerDependencies": {
+    "tree-sitter": "^0.22.4"
+  },
+  "peerDependenciesMeta": {
+    "tree-sitter": {
+      "optional": true
     }
-  ]
+  }
 }
