@@ -1,0 +1,42 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "robot",
+      "camelcase": "Robot",
+      "title": "Robot",
+      "scope": "source.robot",
+      "file-types": [
+        "robot"
+      ],
+      "highlights": [
+        "queries/highlights.scm"
+      ],
+      "injection-regex": "^robot$",
+      "class-name": "TreeSitterRobot"
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "license": "ISC",
+    "description": "Tree-sitter parser for Robot Framework files",
+    "authors": [
+      {
+        "name": "Tomas Sandven",
+        "url": "https://github.com/Hubro/tree-sitter-robot"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/Hubro/tree-sitter-robot"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true,
+    "zig": false
+  }
+}
