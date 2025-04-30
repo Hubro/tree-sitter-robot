@@ -1081,7 +1081,7 @@
     },
     "keyword": {
       "type": "PATTERN",
-      "value": "[^\\[][a-zA-Z0-9]*( [a-zA-Z0-9]+)*"
+      "value": "[^\\[{][a-zA-Z0-9_:]*( [a-zA-Z0-9_:]+)*"
     },
     "if_statement": {
       "type": "SEQ",
