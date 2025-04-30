@@ -253,7 +253,7 @@ module.exports = grammar({
 
     keyword_invocation: ($) => seq($.keyword, optional($.arguments)),
 
-    keyword: ($) => /[^\[][a-zA-Z0-9]*( [a-zA-Z0-9]+)*/,
+    keyword: ($) => /[^\[{][a-zA-Z0-9_:]*( [a-zA-Z0-9_:]+)*/,
 
     if_statement: ($) =>
       seq(
