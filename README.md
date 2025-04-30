@@ -1,5 +1,5 @@
 
-[![Tree-sitter tests](https://github.com/Hubro/tree-sitter-robot/actions/workflows/test.yaml/badge.svg)](https://github.com/Hubro/tree-sitter-robot/actions/workflows/test.yaml)
+[![CI](https://github.com/Hubro/tree-sitter-robot/actions/workflows/ci.yaml/badge.svg)](https://github.com/Hubro/tree-sitter-robot/actions/workflows/ci.yaml)
 
 # tree-sitter-robot
 
