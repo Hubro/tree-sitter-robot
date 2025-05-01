@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
 
 project(tree-sitter-robot
-        VERSION "1.0.0"
+        VERSION "1.1.1"
         DESCRIPTION "Tree-sitter parser for Robot Framework files"
         HOMEPAGE_URL "https://github.com/hubro/tree-sitter-robot"
         LANGUAGES C)
