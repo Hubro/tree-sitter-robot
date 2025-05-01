@@ -4,7 +4,7 @@ endif
 
 LANGUAGE_NAME := tree-sitter-robot
 HOMEPAGE_URL := https://github.com/hubro/tree-sitter-robot
-VERSION := 1.0.0
+VERSION := 1.1.1
 
 # repository
 SRC_DIR := src
