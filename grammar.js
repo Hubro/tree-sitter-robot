@@ -72,15 +72,17 @@ module.exports = grammar({
     source_file: ($) =>
       seq(
         optional(/\s+/), // Allows whitespace before the first section
-        repeat($.section),
+        repeat(
+          field("section", $.section)
+        ),
       ),
 
     section: ($) =>
       choice(
-        $.settings_section,
-        $.variables_section,
-        $.keywords_section,
-        $.test_cases_section,
+        field("settings", $.settings_section),
+        field("variables", $.variables_section),
+        field("keywords", $.keywords_section),
+        field("test_cases", $.test_cases_section),
       ),
 
     //
@@ -90,10 +92,19 @@ module.exports = grammar({
     settings_section: ($) =>
       seq(
         section_header($, "Settings"),
-        repeat(choice($.setting_statement, $._empty_line)),
+        repeat(
+          choice(
+            field("setting", $.setting_statement),
+            $._empty_line
+          )
+        ),
       ),
     setting_statement: ($) =>
-      seq(field("name", $.setting_name), $.arguments, $._line_break),
+      seq(
+        field("name", $.setting_name),
+        field("values", $.arguments),
+        $._line_break
+      ),
     setting_name: ($) => choice(...SETTINGS_KEYWORDS.map(caseInsensitive)),
 
     //
@@ -107,9 +118,13 @@ module.exports = grammar({
       ),
     variable_definition: ($) =>
       seq(
-        seq("${", $.variable_name, "}"),
+        seq(
+          "${",
+          field("name", $.variable_name),
+          "}"
+        ),
         optional(choice("=", " =")),
-        $.arguments,
+        field("values", $.arguments),
         $._line_break,
       ),
 
@@ -120,21 +135,31 @@ module.exports = grammar({
     keywords_section: ($) =>
       seq(
         section_header($, "Keywords"),
-        repeat(choice($.keyword_definition, $._empty_line)),
+        repeat(
+          choice(field("keyword", $.keyword_definition), $._empty_line)
+        ),
       ),
     keyword_definition: ($) =>
       seq(
-        alias($.text_chunk, $.name),
+        field('name', alias($.text_chunk, $.name)),
         $._line_break,
-        alias($.keyword_definition_body, $.body),
+        field('body', alias($.keyword_definition_body, $.body)),
       ),
     // prec.right is needed to capture $._empty_line more strongly than $.keywords_section
     keyword_definition_body: ($) =>
       prec.right(
         repeat1(
           choice(
-            seq($._indentation, $.keyword_setting, $._line_break),
-            seq($._indentation, $.statement, $._line_break),
+            seq(
+              $._indentation,
+              field("setting", $.keyword_setting),
+              $._line_break
+            ),
+            seq(
+              $._indentation,
+              field("statement", $.statement),
+              $._line_break
+            ),
             $._empty_line,
           ),
         ),
@@ -147,7 +172,7 @@ module.exports = grammar({
         field("name", $.keyword_setting_name),
         optional(" "),
         "]",
-        $.arguments,
+        field("values", $.arguments),
       ),
     keyword_setting_name: ($) =>
       choice(
@@ -166,20 +191,28 @@ module.exports = grammar({
     test_cases_section: ($) =>
       seq(
         section_header($, "Test Cases"),
-        repeat(choice($.test_case_definition, $._empty_line)),
+        repeat(
+          choice(
+            field("test_case", $.test_case_definition),
+            $._empty_line
+          )
+        ),
       ),
     test_case_definition: ($) =>
       seq(
-        alias($.text_chunk, $.name),
+        field("name", alias($.text_chunk, $.name)),
         choice(
           // Data-driven tests have arguments
           seq(
-            alias($.arguments_without_continuation, $.arguments),
+            field("arguments", alias($.arguments_without_continuation, $.arguments)),
             $._line_break,
           ),
 
           // Regular tests have bodies
-          seq($._line_break, alias($.test_case_definition_body, $.body)),
+          seq(
+            $._line_break,
+            field("body", alias($.test_case_definition_body, $.body))
+          ),
         ),
       ),
     // prec.right is needed to capture $._empty_line more strongly than $.test_case_section
@@ -187,8 +220,16 @@ module.exports = grammar({
       prec.right(
         repeat1(
           choice(
-            seq($._indentation, $.test_case_setting, $._line_break),
-            seq($._indentation, $.statement, $._line_break),
+            seq(
+              $._indentation,
+              field("setting", $.test_case_setting),
+              $._line_break
+            ),
+            seq(
+              $._indentation,
+              field("statement", $.statement),
+              $._line_break
+            ),
             $._empty_line,
           ),
         ),
@@ -201,7 +242,7 @@ module.exports = grammar({
         field("name", $.test_case_setting_name),
         optional(" "),
         "]",
-        $.arguments,
+        field("values", $.arguments),
       ),
     test_case_setting_name: ($) =>
       choice(
@@ -240,18 +281,34 @@ module.exports = grammar({
       prec.right(
         seq(
           "RETURN",
-          optional(seq($._separator, alias($.argument, $.return_value))),
+          optional(
+            seq(
+              $._separator,
+              field("value", alias($.argument, $.return_value))
+            )
+          ),
         ),
       ),
 
     variable_assignment: ($) =>
       seq(
-        seq("${", $.variable_name, "}"),
+        seq(
+          "${",
+          field("name", $.variable_name),
+          "}"
+        ),
         optional(choice("=", " =")),
-        optional($.arguments),
+        optional(
+          field("values", $.arguments)
+        ),
       ),
 
-    keyword_invocation: ($) => seq($.keyword, optional($.arguments)),
+    keyword_invocation: ($) => seq(
+      field("keyword", $.keyword),
+      optional(
+        field("values", $.arguments)
+      )
+    ),
 
     keyword: ($) => /[^\[{][a-zA-Z0-9_:]*( [a-zA-Z0-9_:]+)*/,
 
@@ -301,11 +358,21 @@ module.exports = grammar({
       seq(
         "IF",
         $._separator,
-        $.argument,
+        field("condition", $.argument),
         $._separator,
-        $.inline_statement,
-        repeat(seq($._separator, $.inline_elseif_statement)),
-        optional(seq($._separator, $.inline_else_statement)),
+        field("statement", $.inline_statement),
+        repeat(
+          seq(
+            $._separator,
+            field("alternative", $.inline_elseif_statement)
+          )
+        ),
+        optional(
+          seq(
+            $._separator,
+            field("alternative", $.inline_else_statement)
+          )
+        ),
       ),
 
     block: ($) =>
@@ -441,8 +508,16 @@ module.exports = grammar({
     arguments: ($) =>
       seq(
         choice(
-          seq(repeat1(seq($._separator, $.argument)), repeat($.continuation)),
-          repeat1($.continuation),
+          seq(
+            repeat1(
+              seq(
+                $._separator,
+                field("value", $.argument)
+              )
+            ),
+            repeat(field("continuation", $.continuation))
+          ),
+          repeat1(field("continuation", $.continuation)),
         ),
       ),
 
@@ -457,7 +532,12 @@ module.exports = grammar({
           $._line_break,
           optional($._indentation),
           $.ellipses,
-          repeat(seq($._separator, $.argument)),
+          repeat(
+            seq(
+              $._separator,
+              field("value", $.argument)
+            )
+          ),
         ),
       ),
 
