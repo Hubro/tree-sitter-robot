@@ -29,13 +29,13 @@ Test
 --------------------------------------------------------------------------------
 
 (source_file
-  (section
-    (keywords_section
+  section: (section
+    keywords: (keywords_section
       (section_header)
-      (keyword_definition
-        (name)
-        (body
-          (statement
+      keyword: (keyword_definition
+        name: (name)
+        body: (body
+          statement: (statement
             (if_statement
               condition: (argument
                 (scalar_variable
@@ -44,11 +44,11 @@ Test
               consequence: (block
                 (statement
                   (keyword_invocation
-                    (keyword)))
+                    keyword: (keyword)))
                 (statement
                   (keyword_invocation
-                    (keyword))))))
-          (statement
+                    keyword: (keyword))))))
+          statement: (statement
             (if_statement
               condition: (argument
                 (scalar_variable
@@ -57,41 +57,41 @@ Test
               consequence: (block
                 (statement
                   (keyword_invocation
-                    (keyword))))
+                    keyword: (keyword))))
               alternative: (else_statement
                 consequence: (block
                   (statement
                     (keyword_invocation
-                      (keyword)))))))
-          (statement
+                      keyword: (keyword)))))))
+          statement: (statement
             (if_statement
               condition: (argument
                 (text_chunk))
               consequence: (block
                 (statement
                   (keyword_invocation
-                    (keyword))))
+                    keyword: (keyword))))
               alternative: (elseif_statement
                 condition: (argument
                   (text_chunk))
                 consequence: (block
                   (statement
                     (keyword_invocation
-                      (keyword)))))
+                      keyword: (keyword)))))
               alternative: (elseif_statement
                 condition: (argument
                   (text_chunk))
                 consequence: (block
                   (statement
                     (keyword_invocation
-                      (keyword)))))
+                      keyword: (keyword)))))
               alternative: (else_statement
                 consequence: (block
                   (statement
                     (keyword_invocation
-                      (keyword)
-                      (arguments
-                        (argument
+                      keyword: (keyword)
+                      values: (arguments
+                        value: (argument
                           (text_chunk)
                           (scalar_variable
                             (variable_name)))))))))))))))
@@ -124,13 +124,13 @@ Test
 --------------------------------------------------------------------------------
 
 (source_file
-  (section
-    (keywords_section
+  section: (section
+    keywords: (keywords_section
       (section_header)
-      (keyword_definition
-        (name)
-        (body
-          (statement
+      keyword: (keyword_definition
+        name: (name)
+        body: (body
+          statement: (statement
             (if_statement
               condition: (argument
                 (text_chunk)
@@ -139,9 +139,9 @@ Test
               consequence: (block
                 (statement
                   (keyword_invocation
-                    (keyword)
-                    (arguments
-                      (argument
+                    keyword: (keyword)
+                    values: (arguments
+                      value: (argument
                         (text_chunk))))))
               alternative: (elseif_statement
                 condition: (argument
@@ -158,9 +158,9 @@ Test
                       consequence: (block
                         (statement
                           (keyword_invocation
-                            (keyword)
-                            (arguments
-                              (argument
+                            keyword: (keyword)
+                            values: (arguments
+                              value: (argument
                                 (text_chunk)
                                 (scalar_variable
                                   (variable_name))
@@ -169,17 +169,17 @@ Test
                         consequence: (block
                           (statement
                             (keyword_invocation
-                              (keyword)
-                              (arguments
-                                (argument
+                              keyword: (keyword)
+                              values: (arguments
+                                value: (argument
                                   (text_chunk)))))))))))
               alternative: (else_statement
                 consequence: (block
                   (statement
                     (keyword_invocation
-                      (keyword)
-                      (arguments
-                        (argument
+                      keyword: (keyword)
+                      values: (arguments
+                        value: (argument
                           (text_chunk)))))
                   (statement
                     (if_statement
@@ -195,9 +195,9 @@ Test
                             consequence: (block
                               (statement
                                 (keyword_invocation
-                                  (keyword)
-                                  (arguments
-                                    (argument
+                                  keyword: (keyword)
+                                  values: (arguments
+                                    value: (argument
                                       (text_chunk)
                                       (scalar_variable
                                         (variable_name))

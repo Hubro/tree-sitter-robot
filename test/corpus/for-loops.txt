@@ -28,105 +28,105 @@ Example
 --------------------------------------------------------------------------------
 
 (source_file
-  (section
-    (test_cases_section
+  section: (section
+    test_cases: (test_cases_section
       (section_header)
-      (test_case_definition
-        (name)
-        (body
-          (statement
+      test_case: (test_case_definition
+        name: (name)
+        body: (body
+          statement: (statement
             (for_statement
               left: (variable_list
                 (scalar_variable
                   (variable_name)))
               right: (in
                 (arguments
-                  (argument
+                  value: (argument
                     (text_chunk))
-                  (argument
+                  value: (argument
                     (text_chunk))))
               body: (block
                 (statement
                   (keyword_invocation
-                    (keyword)
-                    (arguments
-                      (argument
+                    keyword: (keyword)
+                    values: (arguments
+                      value: (argument
                         (scalar_variable
                           (variable_name))))))
                 (statement
                   (keyword_invocation
-                    (keyword)
-                    (arguments
-                      (argument
+                    keyword: (keyword)
+                    values: (arguments
+                      value: (argument
                         (text_chunk))))))))
-          (statement
+          statement: (statement
             (keyword_invocation
-              (keyword)
-              (arguments
-                (argument
+              keyword: (keyword)
+              values: (arguments
+                value: (argument
                   (text_chunk)))))))
-      (test_case_definition
-        (name)
-        (body
-          (statement
+      test_case: (test_case_definition
+        name: (name)
+        body: (body
+          statement: (statement
             (for_statement
               left: (variable_list
                 (scalar_variable
                   (variable_name)))
               right: (in
                 (arguments
-                  (argument
+                  value: (argument
                     (text_chunk))
-                  (argument
+                  value: (argument
                     (text_chunk))
-                  (argument
+                  value: (argument
                     (scalar_variable
                       (variable_name)))
-                  (argument
+                  value: (argument
                     (text_chunk))
-                  (argument
+                  value: (argument
                     (scalar_variable
                       (variable_name)))
-                  (continuation
+                  continuation: (continuation
                     (ellipses)
-                    (argument
+                    value: (argument
                       (text_chunk))
-                    (argument
+                    value: (argument
                       (text_chunk))
-                    (argument
+                    value: (argument
                       (text_chunk))
-                    (argument
+                    value: (argument
                       (text_chunk))
-                    (argument
+                    value: (argument
                       (scalar_variable
                         (variable_name))))))
               body: (block
                 (statement
                   (keyword_invocation
-                    (keyword)
-                    (arguments
-                      (argument
+                    keyword: (keyword)
+                    values: (arguments
+                      value: (argument
                         (scalar_variable
                           (variable_name)))))))))))
-      (test_case_definition
-        (name)
-        (body
-          (statement
+      test_case: (test_case_definition
+        name: (name)
+        body: (body
+          statement: (statement
             (for_statement
               left: (variable_list
                 (scalar_variable
                   (variable_name)))
               right: (in
                 (arguments
-                  (argument
+                  value: (argument
                     (list_variable
                       (variable_name)))))
               body: (block
                 (statement
                   (keyword_invocation
-                    (keyword)
-                    (arguments
-                      (argument
+                    keyword: (keyword)
+                    values: (arguments
+                      value: (argument
                         (scalar_variable
                           (variable_name))))))
                 (statement
@@ -156,22 +156,22 @@ Multiple nesting levels
 --------------------------------------------------------------------------------
 
 (source_file
-  (section
-    (test_cases_section
+  section: (section
+    test_cases: (test_cases_section
       (section_header)
-      (test_case_definition
-        (name)
-        (body
-          (statement
+      test_case: (test_case_definition
+        name: (name)
+        body: (body
+          statement: (statement
             (for_statement
               left: (variable_list
                 (scalar_variable
                   (variable_name)))
               right: (in
                 (arguments
-                  (argument
+                  value: (argument
                     (text_chunk))
-                  (argument
+                  value: (argument
                     (text_chunk))))
               body: (block
                 (statement
@@ -181,11 +181,11 @@ Multiple nesting levels
                         (variable_name)))
                     right: (in
                       (arguments
-                        (argument
+                        value: (argument
                           (text_chunk))
-                        (argument
+                        value: (argument
                           (text_chunk))
-                        (argument
+                        value: (argument
                           (text_chunk))))
                     body: (block
                       (statement
@@ -195,22 +195,22 @@ Multiple nesting levels
                               (variable_name)))
                           right: (in
                             (arguments
-                              (argument
+                              value: (argument
                                 (text_chunk))
-                              (argument
+                              value: (argument
                                 (text_chunk))))
                           body: (block
                             (statement
                               (keyword_invocation
-                                (keyword)
-                                (arguments
-                                  (argument
+                                keyword: (keyword)
+                                values: (arguments
+                                  value: (argument
                                     (scalar_variable
                                       (variable_name)))
-                                  (argument
+                                  value: (argument
                                     (scalar_variable
                                       (variable_name)))
-                                  (argument
+                                  value: (argument
                                     (scalar_variable
                                       (variable_name))))))))))))
                 (statement
@@ -220,11 +220,11 @@ Multiple nesting levels
                         (variable_name)))
                     right: (in
                       (arguments
-                        (argument
+                        value: (argument
                           (text_chunk))
-                        (argument
+                        value: (argument
                           (text_chunk))
-                        (argument
+                        value: (argument
                           (text_chunk))))
                     body: (block
                       (statement
@@ -237,12 +237,12 @@ Multiple nesting levels
                           consequence: (block
                             (statement
                               (keyword_invocation
-                                (keyword)
-                                (arguments
-                                  (argument
+                                keyword: (keyword)
+                                values: (arguments
+                                  value: (argument
                                     (scalar_variable
                                       (variable_name)))
-                                  (argument
+                                  value: (argument
                                     (scalar_variable
                                       (variable_name))))))))))))))))))))
 
@@ -265,13 +265,13 @@ Multiple loop variables
 --------------------------------------------------------------------------------
 
 (source_file
-  (section
-    (test_cases_section
+  section: (section
+    test_cases: (test_cases_section
       (section_header)
-      (test_case_definition
-        (name)
-        (body
-          (statement
+      test_case: (test_case_definition
+        name: (name)
+        body: (body
+          statement: (statement
             (for_statement
               left: (variable_list
                 (scalar_variable
@@ -282,45 +282,45 @@ Multiple loop variables
                   (variable_name)))
               right: (in
                 (arguments
-                  (continuation
+                  continuation: (continuation
                     (ellipses)
-                    (argument
+                    value: (argument
                       (text_chunk))
-                    (argument
+                    value: (argument
                       (text_chunk))
-                    (argument
+                    value: (argument
                       (text_chunk)))
-                  (continuation
+                  continuation: (continuation
                     (ellipses)
-                    (argument
+                    value: (argument
                       (text_chunk))
-                    (argument
+                    value: (argument
                       (text_chunk))
-                    (argument
+                    value: (argument
                       (text_chunk)))
-                  (continuation
+                  continuation: (continuation
                     (ellipses)
-                    (argument
+                    value: (argument
                       (text_chunk))
-                    (argument
+                    value: (argument
                       (text_chunk))
-                    (argument
+                    value: (argument
                       (text_chunk)))))
               body: (block
                 (statement
                   (keyword_invocation
-                    (keyword)
-                    (arguments
-                      (argument
+                    keyword: (keyword)
+                    values: (arguments
+                      value: (argument
                         (scalar_variable
                           (variable_name)))
-                      (argument
+                      value: (argument
                         (scalar_variable
                           (variable_name)))
-                      (argument
+                      value: (argument
                         (scalar_variable
                           (variable_name)))))))))
-          (statement
+          statement: (statement
             (for_statement
               left: (variable_list
                 (scalar_variable
@@ -329,18 +329,18 @@ Multiple loop variables
                   (variable_name)))
               right: (in
                 (arguments
-                  (argument
+                  value: (argument
                     (list_variable
                       (variable_name)))))
               body: (block
                 (statement
                   (keyword_invocation
-                    (keyword)
-                    (arguments
-                      (argument
+                    keyword: (keyword)
+                    values: (arguments
+                      value: (argument
                         (scalar_variable
                           (variable_name)))
-                      (argument
+                      value: (argument
                         (scalar_variable
                           (variable_name))))))))))))))
 
@@ -371,18 +371,18 @@ Also step given
 --------------------------------------------------------------------------------
 
 (source_file
-  (section
-    (keywords_section
+  section: (section
+    keywords: (keywords_section
       (section_header)
-      (keyword_definition
-        (name)
-        (body
-          (keyword_setting
+      keyword: (keyword_definition
+        name: (name)
+        body: (body
+          setting: (keyword_setting
             name: (keyword_setting_name)
-            (arguments
-              (argument
+            values: (arguments
+              value: (argument
                 (text_chunk))))
-          (statement
+          statement: (statement
             (for_statement
               left: (variable_list
                 (scalar_variable
@@ -393,20 +393,20 @@ Also step given
               body: (block
                 (statement
                   (keyword_invocation
-                    (keyword)
-                    (arguments
-                      (argument
+                    keyword: (keyword)
+                    values: (arguments
+                      value: (argument
                         (scalar_variable
                           (variable_name)))))))))))
-      (keyword_definition
-        (name)
-        (body
-          (keyword_setting
+      keyword: (keyword_definition
+        name: (name)
+        body: (body
+          setting: (keyword_setting
             name: (keyword_setting_name)
-            (arguments
-              (argument
+            values: (arguments
+              value: (argument
                 (text_chunk))))
-          (statement
+          statement: (statement
             (for_statement
               left: (variable_list
                 (scalar_variable
@@ -419,20 +419,20 @@ Also step given
               body: (block
                 (statement
                   (keyword_invocation
-                    (keyword)
-                    (arguments
-                      (argument
+                    keyword: (keyword)
+                    values: (arguments
+                      value: (argument
                         (scalar_variable
                           (variable_name)))))))))))
-      (keyword_definition
-        (name)
-        (body
-          (keyword_setting
+      keyword: (keyword_definition
+        name: (name)
+        body: (body
+          setting: (keyword_setting
             name: (keyword_setting_name)
-            (arguments
-              (argument
+            values: (arguments
+              value: (argument
                 (text_chunk))))
-          (statement
+          statement: (statement
             (for_statement
               left: (variable_list
                 (scalar_variable
@@ -447,9 +447,9 @@ Also step given
               body: (block
                 (statement
                   (keyword_invocation
-                    (keyword)
-                    (arguments
-                      (argument
+                    keyword: (keyword)
+                    values: (arguments
+                      value: (argument
                         (scalar_variable
                           (variable_name))))))))))))))
 
@@ -475,13 +475,13 @@ FOR-IN-ENUMERATE with two values per iteration
 --------------------------------------------------------------------------------
 
 (source_file
-  (section
-    (keywords_section
+  section: (section
+    keywords: (keywords_section
       (section_header)
-      (keyword_definition
-        (name)
-        (body
-          (statement
+      keyword: (keyword_definition
+        name: (name)
+        body: (body
+          statement: (statement
             (for_statement
               left: (variable_list
                 (scalar_variable
@@ -490,24 +490,24 @@ FOR-IN-ENUMERATE with two values per iteration
                   (variable_name)))
               right: (in_enumerate
                 (arguments
-                  (argument
+                  value: (argument
                     (list_variable
                       (variable_name)))))
               body: (block
                 (statement
                   (keyword_invocation
-                    (keyword)
-                    (arguments
-                      (argument
+                    keyword: (keyword)
+                    values: (arguments
+                      value: (argument
                         (scalar_variable
                           (variable_name)))
-                      (argument
+                      value: (argument
                         (scalar_variable
                           (variable_name)))))))))))
-      (keyword_definition
-        (name)
-        (body
-          (statement
+      keyword: (keyword_definition
+        name: (name)
+        body: (body
+          statement: (statement
             (for_statement
               left: (variable_list
                 (scalar_variable
@@ -518,30 +518,30 @@ FOR-IN-ENUMERATE with two values per iteration
                   (variable_name)))
               right: (in_enumerate
                 (arguments
-                  (continuation
+                  continuation: (continuation
                     (ellipses)
-                    (argument
+                    value: (argument
                       (text_chunk))
-                    (argument
+                    value: (argument
                       (text_chunk)))
-                  (continuation
+                  continuation: (continuation
                     (ellipses)
-                    (argument
+                    value: (argument
                       (text_chunk))
-                    (argument
+                    value: (argument
                       (text_chunk)))
-                  (continuation
+                  continuation: (continuation
                     (ellipses)
-                    (argument
+                    value: (argument
                       (text_chunk))
-                    (argument
+                    value: (argument
                       (text_chunk)))))
               body: (block
                 (statement
                   (keyword_invocation
-                    (keyword)
-                    (arguments
-                      (argument
+                    keyword: (keyword)
+                    values: (arguments
+                      value: (argument
                         (text_chunk)
                         (scalar_variable
                           (variable_name))
@@ -580,13 +580,13 @@ LONGEST mode with custom fill value
 --------------------------------------------------------------------------------
 
 (source_file
-  (section
-    (keywords_section
+  section: (section
+    keywords: (keywords_section
       (section_header)
-      (keyword_definition
-        (name)
-        (body
-          (statement
+      keyword: (keyword_definition
+        name: (name)
+        body: (body
+          statement: (statement
             (for_statement
               left: (variable_list
                 (scalar_variable
@@ -597,90 +597,90 @@ LONGEST mode with custom fill value
                   (variable_name)))
               right: (in_zip
                 (arguments
-                  (argument
+                  value: (argument
                     (scalar_variable
                       (variable_name)))
-                  (argument
+                  value: (argument
                     (scalar_variable
                       (variable_name)))
-                  (argument
+                  value: (argument
                     (scalar_variable
                       (variable_name)))))
               body: (block
                 (statement
                   (keyword_invocation
-                    (keyword)
-                    (arguments
-                      (argument
+                    keyword: (keyword)
+                    values: (arguments
+                      value: (argument
                         (scalar_variable
                           (variable_name)))
-                      (argument
+                      value: (argument
                         (scalar_variable
                           (variable_name)))
-                      (argument
+                      value: (argument
                         (scalar_variable
                           (variable_name)))))))))))
-      (keyword_definition
-        (name)
-        (body
-          (statement
+      keyword: (keyword_definition
+        name: (name)
+        body: (body
+          statement: (statement
             (for_statement
               left: (variable_list
                 (scalar_variable
                   (variable_name)))
               right: (in_zip
                 (arguments
-                  (argument
+                  value: (argument
                     (scalar_variable
                       (variable_name)))
-                  (argument
+                  value: (argument
                     (scalar_variable
                       (variable_name)))
-                  (argument
+                  value: (argument
                     (scalar_variable
                       (variable_name)))))
               body: (block
                 (statement
                   (keyword_invocation
-                    (keyword)
-                    (arguments
-                      (argument
+                    keyword: (keyword)
+                    values: (arguments
+                      value: (argument
                         (scalar_variable
                           (variable_name)))
-                      (argument
+                      value: (argument
                         (text_chunk)))))
                 (statement
                   (keyword_invocation
-                    (keyword)
-                    (arguments
-                      (argument
+                    keyword: (keyword)
+                    values: (arguments
+                      value: (argument
                         (scalar_variable
                           (variable_name))
                         (text_chunk))
-                      (argument
+                      value: (argument
                         (scalar_variable
                           (variable_name))
                         (text_chunk))
-                      (argument
+                      value: (argument
                         (scalar_variable
                           (variable_name))
                         (text_chunk))))))))))
-      (keyword_definition
-        (name)
-        (body
-          (keyword_setting
+      keyword: (keyword_definition
+        name: (name)
+        body: (body
+          setting: (keyword_setting
             name: (keyword_setting_name)
-            (arguments
-              (argument
+            values: (arguments
+              value: (argument
                 (text_chunk))
-              (continuation
+              continuation: (continuation
                 (ellipses)
-                (argument
+                value: (argument
                   (text_chunk)
                   (scalar_variable
                     (variable_name))
                   (text_chunk)))))
-          (statement
+          statement: (statement
             (for_statement
               left: (variable_list
                 (scalar_variable
@@ -689,22 +689,22 @@ LONGEST mode with custom fill value
                   (variable_name)))
               right: (in_zip
                 (arguments
-                  (argument
+                  value: (argument
                     (scalar_variable
                       (variable_name)))
-                  (argument
+                  value: (argument
                     (scalar_variable
                       (variable_name)))
-                  (argument
+                  value: (argument
                     (text_chunk))
-                  (argument
+                  value: (argument
                     (text_chunk))))
               body: (block
                 (statement
                   (keyword_invocation
-                    (keyword)
-                    (arguments
-                      (argument
+                    keyword: (keyword)
+                    values: (arguments
+                      value: (argument
                         (scalar_variable
                           (variable_name))
                         (text_chunk)

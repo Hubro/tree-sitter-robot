@@ -12,21 +12,21 @@ Example
 --------------------------------------------------------------------------------
 
 (source_file
-  (section
-    (test_cases_section
+  section: (section
+    test_cases: (test_cases_section
       (section_header)
-      (test_case_definition
-        (name)
-        (body
-          (statement
+      test_case: (test_case_definition
+        name: (name)
+        body: (body
+          statement: (statement
             (variable_assignment
-              (variable_name)
-              (arguments
-                (argument
+              name: (variable_name)
+              values: (arguments
+                value: (argument
                   (text_chunk))
-                (argument
+                value: (argument
                   (text_chunk)))))
-          (statement
+          statement: (statement
             (while_statement
               condition: (arguments
                 (argument
@@ -36,9 +36,9 @@ Example
               body: (block
                 (statement
                   (variable_assignment
-                    (variable_name)
-                    (arguments
-                      (argument
+                    name: (variable_name)
+                    values: (arguments
+                      value: (argument
                         (text_chunk)))))))))))))
 
 ================================================================================
