@@ -15,7 +15,7 @@ classifiers = [
 ]
 authors = [{ name = "Tomas Sandven" }]
 requires-python = ">=3.10"
-license.text = "ISC"
+license = "ISC"
 readme = "README.md"
 
 [project.urls]
