@@ -25,7 +25,8 @@ First example
               (block
                 (statement
                   (keyword_invocation
-                    (keyword))))
+                    (keyword
+                      (text_chunk)))))
               (except_statement
                 (arguments
                   (argument
@@ -33,10 +34,12 @@ First example
                 (block
                   (statement
                     (keyword_invocation
-                      (keyword)))))))
+                      (keyword
+                        (text_chunk))))))))
           (statement
             (keyword_invocation
-              (keyword))))))))
+              (keyword
+                (text_chunk)))))))))
 
 ================================================================================
 Multiple except branches
@@ -75,7 +78,8 @@ Multiple messages with one EXCEPT
               (block
                 (statement
                   (keyword_invocation
-                    (keyword))))
+                    (keyword
+                      (text_chunk)))))
               (except_statement
                 (arguments
                   (argument
@@ -84,7 +88,8 @@ Multiple messages with one EXCEPT
                 (block
                   (statement
                     (keyword_invocation
-                      (keyword)))))
+                      (keyword
+                        (text_chunk))))))
               (except_statement
                 (arguments
                   (argument
@@ -93,7 +98,8 @@ Multiple messages with one EXCEPT
                 (block
                   (statement
                     (keyword_invocation
-                      (keyword)))))
+                      (keyword
+                        (text_chunk))))))
               (except_statement
                 (arguments
                   (argument
@@ -103,7 +109,8 @@ Multiple messages with one EXCEPT
                 (block
                   (statement
                     (keyword_invocation
-                      (keyword)))))))))
+                      (keyword
+                        (text_chunk))))))))))
       (test_case_definition
         (name)
         (body
@@ -112,7 +119,8 @@ Multiple messages with one EXCEPT
               (block
                 (statement
                   (keyword_invocation
-                    (keyword))))
+                    (keyword
+                      (text_chunk)))))
               (except_statement
                 (arguments
                   (argument
@@ -126,7 +134,8 @@ Multiple messages with one EXCEPT
                 (block
                   (statement
                     (keyword_invocation
-                      (keyword))))))))))))
+                      (keyword
+                        (text_chunk)))))))))))))
 
 ================================================================================
 Without matching any messages
@@ -163,13 +172,15 @@ Match any after testing more specific errors
               (block
                 (statement
                   (keyword_invocation
-                    (keyword))))
+                    (keyword
+                      (text_chunk)))))
               (except_statement
                 (comment)
                 (block
                   (statement
                     (keyword_invocation
-                      (keyword)))))))))
+                      (keyword
+                        (text_chunk))))))))))
       (test_case_definition
         (name)
         (body
@@ -178,7 +189,8 @@ Match any after testing more specific errors
               (block
                 (statement
                   (keyword_invocation
-                    (keyword))))
+                    (keyword
+                      (text_chunk)))))
               (except_statement
                 (arguments
                   (argument
@@ -187,13 +199,15 @@ Match any after testing more specific errors
                 (block
                   (statement
                     (keyword_invocation
-                      (keyword)))))
+                      (keyword
+                        (text_chunk))))))
               (except_statement
                 (comment)
                 (block
                   (statement
                     (keyword_invocation
-                      (keyword))))))))))))
+                      (keyword
+                        (text_chunk)))))))))))))
 
 ================================================================================
 TRY/EXCEPT/ELSE statement
@@ -223,7 +237,8 @@ ELSE branch
               (block
                 (statement
                   (keyword_invocation
-                    (keyword))))
+                    (keyword
+                      (text_chunk)))))
               (except_statement
                 (arguments
                   (argument
@@ -231,7 +246,8 @@ ELSE branch
                 (block
                   (statement
                     (keyword_invocation
-                      (keyword)
+                      (keyword
+                        (text_chunk))
                       (arguments
                         (argument
                           (text_chunk)))))))
@@ -239,7 +255,8 @@ ELSE branch
                 (block
                   (statement
                     (keyword_invocation
-                      (keyword)
+                      (keyword
+                        (text_chunk))
                       (arguments
                         (argument
                           (text_chunk))))))))))))))
@@ -268,18 +285,21 @@ TRY/FINALLY
         (body
           (statement
             (keyword_invocation
-              (keyword)))
+              (keyword
+                (text_chunk))))
           (statement
             (try_statement
               (block
                 (statement
                   (keyword_invocation
-                    (keyword))))
+                    (keyword
+                      (text_chunk)))))
               (finally_statement
                 (block
                   (statement
                     (keyword_invocation
-                      (keyword))))))))))))
+                      (keyword
+                        (text_chunk)))))))))))))
 
 ================================================================================
 All together now
@@ -315,7 +335,8 @@ TRY/EXCEPT/ELSE/FINALLY
               (block
                 (statement
                   (keyword_invocation
-                    (keyword))))
+                    (keyword
+                      (text_chunk)))))
               (except_statement
                 (arguments
                   (argument
@@ -323,7 +344,8 @@ TRY/EXCEPT/ELSE/FINALLY
                 (block
                   (statement
                     (keyword_invocation
-                      (keyword)
+                      (keyword
+                        (text_chunk))
                       (arguments
                         (argument
                           (text_chunk)))))))
@@ -334,7 +356,8 @@ TRY/EXCEPT/ELSE/FINALLY
                 (block
                   (statement
                     (keyword_invocation
-                      (keyword)
+                      (keyword
+                        (text_chunk))
                       (arguments
                         (argument
                           (text_chunk)))))))
@@ -345,7 +368,8 @@ TRY/EXCEPT/ELSE/FINALLY
                 (block
                   (statement
                     (keyword_invocation
-                      (keyword)
+                      (keyword
+                        (text_chunk))
                       (arguments
                         (argument
                           (text_chunk)))))))
@@ -353,7 +377,8 @@ TRY/EXCEPT/ELSE/FINALLY
                 (block
                   (statement
                     (keyword_invocation
-                      (keyword)
+                      (keyword
+                        (text_chunk))
                       (arguments
                         (argument
                           (text_chunk)))))))
@@ -361,7 +386,8 @@ TRY/EXCEPT/ELSE/FINALLY
                 (block
                   (statement
                     (keyword_invocation
-                      (keyword)
+                      (keyword
+                        (text_chunk))
                       (arguments
                         (argument
                           (text_chunk))))))))))))))

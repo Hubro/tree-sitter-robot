@@ -1080,8 +1080,46 @@
       ]
     },
     "keyword": {
-      "type": "PATTERN",
-      "value": "[^\\[{][a-zA-Z0-9_:]*( [a-zA-Z0-9_:]+)*"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[^\\[{]"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": " "
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "text_chunk"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "scalar_variable"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
     },
     "if_statement": {
       "type": "SEQ",

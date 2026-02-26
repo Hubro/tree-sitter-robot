@@ -32,10 +32,12 @@ I Am Another User Defined Keyword
         (body
           (statement
             (keyword_invocation
-              (keyword)))
+              (keyword
+                (text_chunk))))
           (statement
             (keyword_invocation
-              (keyword)
+              (keyword
+                (text_chunk))
               (arguments
                 (argument
                   (text_chunk))
@@ -45,13 +47,15 @@ I Am Another User Defined Keyword
                     (text_chunk))))))
           (statement
             (keyword_invocation
-              (keyword)
+              (keyword
+                (text_chunk))
               (arguments
                 (argument
                   (text_chunk)))))
           (statement
             (keyword_invocation
-              (keyword)))
+              (keyword
+                (text_chunk))))
           (statement
             (return_statement
               (return_value
@@ -61,7 +65,8 @@ I Am Another User Defined Keyword
         (body
           (statement
             (keyword_invocation
-              (keyword)
+              (keyword
+                (text_chunk))
               (arguments
                 (argument
                   (text_chunk))
@@ -71,7 +76,8 @@ I Am Another User Defined Keyword
                     (text_chunk))))))
           (statement
             (keyword_invocation
-              (keyword))))))))
+              (keyword
+                (text_chunk)))))))))
 
 ================================================================================
 Keyword settings
@@ -153,7 +159,8 @@ I Am A User Defined Keyword
                 (text_chunk))))
           (statement
             (keyword_invocation
-              (keyword)
+              (keyword
+                (text_chunk))
               (arguments
                 (argument
                   (text_chunk))))))))))

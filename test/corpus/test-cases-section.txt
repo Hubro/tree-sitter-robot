@@ -21,13 +21,16 @@ Test That Something Works
         (body
           (statement
             (keyword_invocation
-              (keyword)))
+              (keyword
+                (text_chunk))))
           (statement
             (keyword_invocation
-              (keyword)))
+              (keyword
+                (text_chunk))))
           (statement
             (keyword_invocation
-              (keyword)
+              (keyword
+                (text_chunk))
               (arguments
                 (argument
                   (text_chunk))))))))))
@@ -175,7 +178,8 @@ Test That Something Works
                 (text_chunk))))
           (statement
             (keyword_invocation
-              (keyword)
+              (keyword
+                (text_chunk))
               (arguments
                 (argument
                   (text_chunk))))))))))

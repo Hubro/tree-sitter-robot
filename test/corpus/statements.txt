@@ -18,7 +18,8 @@ Test Keyword
         (body
           (statement
             (keyword_invocation
-              (keyword))))))))
+              (keyword
+                (text_chunk)))))))))
 
 ================================================================================
 Keyword invocations with arguments
@@ -40,7 +41,8 @@ Test Keyword
         (body
           (statement
             (keyword_invocation
-              (keyword)
+              (keyword
+                (text_chunk))
               (arguments
                 (argument
                   (text_chunk))
@@ -69,7 +71,8 @@ Test Keyword
         (body
           (statement
             (keyword_invocation
-              (keyword)
+              (keyword
+                (text_chunk))
               (arguments
                 (argument
                   (text_chunk))
@@ -106,7 +109,8 @@ Test Keyword
         (body
           (statement
             (keyword_invocation
-              (keyword)
+              (keyword
+                (text_chunk))
               (arguments
                 (argument
                   (scalar_variable
@@ -142,14 +146,16 @@ Test Keyword
         (body
           (statement
             (keyword_invocation
-              (keyword)
+              (keyword
+                (text_chunk))
               (arguments
                 (argument
                   (scalar_variable
                     (variable_name))))))
           (statement
             (keyword_invocation
-              (keyword)
+              (keyword
+                (text_chunk))
               (arguments
                 (argument
                   (text_chunk)
@@ -158,7 +164,8 @@ Test Keyword
                   (text_chunk)))))
           (statement
             (keyword_invocation
-              (keyword)
+              (keyword
+                (text_chunk))
               (arguments
                 (argument
                   (text_chunk)
@@ -223,8 +230,35 @@ Test Keyword
         (body
           (statement
             (keyword_invocation
-              (keyword)
+              (keyword
+                (text_chunk))
               (arguments
                 (argument
                   (inline_python_expression
                     (python_expression)))))))))))
+
+================================================================================
+Embedded
+================================================================================
+
+*** Keywords ***
+
+Test Keyword
+  Some ${EMBEDDED} Argument Inside A Keyword
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (keywords_section
+      (section_header)
+      (keyword_definition
+        (name)
+        (body
+          (statement
+            (keyword_invocation
+              (keyword
+                (text_chunk)
+                (scalar_variable
+                  (variable_name))
+                (text_chunk)))))))))

@@ -445,6 +445,25 @@
     }
   },
   {
+    "type": "keyword",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "scalar_variable",
+          "named": true
+        },
+        {
+          "type": "text_chunk",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "keyword_definition",
     "named": true,
     "fields": {},
@@ -1081,10 +1100,6 @@
   },
   {
     "type": "extra_text",
-    "named": true
-  },
-  {
-    "type": "keyword",
     "named": true
   },
   {
