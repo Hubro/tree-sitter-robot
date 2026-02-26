@@ -571,6 +571,25 @@
     }
   },
   {
+    "type": "name",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "scalar_variable",
+          "named": true
+        },
+        {
+          "type": "text_chunk",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "python_expression",
     "named": true,
     "fields": {}
@@ -1100,10 +1119,6 @@
   },
   {
     "type": "extra_text",
-    "named": true
-  },
-  {
-    "type": "name",
     "named": true
   },
   {

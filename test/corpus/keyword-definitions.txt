@@ -28,7 +28,8 @@ I Am Another User Defined Keyword
     (keywords_section
       (section_header)
       (keyword_definition
-        (name)
+        (name
+          (text_chunk))
         (body
           (statement
             (keyword_invocation
@@ -61,7 +62,8 @@ I Am Another User Defined Keyword
               (return_value
                 (text_chunk))))))
       (keyword_definition
-        (name)
+        (name
+          (text_chunk))
         (body
           (statement
             (keyword_invocation
@@ -104,7 +106,8 @@ I Am A User Defined Keyword
     (keywords_section
       (section_header)
       (keyword_definition
-        (name)
+        (name
+          (text_chunk))
         (body
           (keyword_setting
             (keyword_setting_name)
@@ -164,3 +167,35 @@ I Am A User Defined Keyword
               (arguments
                 (argument
                   (text_chunk))))))))))
+
+================================================================================
+Keywords with embedded parameters
+================================================================================
+
+*** Keywords ***
+
+Numbers ${A} + ${B} Should Equal ${C}
+    Foo Bar
+
+-------
+
+(source_file
+  (section
+    (keywords_section
+      (section_header)
+      (keyword_definition
+        (name
+          (text_chunk)
+          (scalar_variable
+            (variable_name))
+          (text_chunk)
+          (scalar_variable
+            (variable_name))
+          (text_chunk)
+          (scalar_variable
+            (variable_name)))
+        (body
+          (statement
+            (keyword_invocation
+              (keyword
+                (text_chunk)))))))))

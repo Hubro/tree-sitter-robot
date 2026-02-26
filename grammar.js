@@ -124,10 +124,16 @@ module.exports = grammar({
       ),
     keyword_definition: ($) =>
       seq(
-        alias($.text_chunk, $.name),
+        alias($.keyword_name, $.name),
         $._line_break,
         alias($.keyword_definition_body, $.body),
       ),
+    keyword_name: ($) =>
+      seq(
+        $.text_chunk,
+        repeat(seq(optional(" "), choice($.text_chunk, $.scalar_variable))),
+      ),
+
     // prec.right is needed to capture $._empty_line more strongly than $.keywords_section
     keyword_definition_body: ($) =>
       prec.right(
@@ -253,7 +259,6 @@ module.exports = grammar({
 
     keyword_invocation: ($) => seq($.keyword, optional($.arguments)),
 
-    // keyword: ($) => /[^\[{][a-zA-Z0-9_:]*( [a-zA-Z0-9_:]+)*/,
     keyword: ($) =>
       seq(
         /[^\[{]/,
