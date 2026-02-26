@@ -172,9 +172,10 @@ module.exports = grammar({
 
     test_cases_section: ($) =>
       seq(
-        section_header($, "Test Cases"),
+        choice(section_header($, "Test Cases"), section_header($, "Tasks")),
         repeat(choice($.test_case_definition, $._empty_line)),
       ),
+
     test_case_definition: ($) =>
       seq(
         alias($.text_chunk, $.name),
