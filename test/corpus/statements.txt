@@ -179,6 +179,39 @@ Test Keyword
                   (text_chunk))))))))))
 
 ================================================================================
+Challenging keyword invocation arguments
+================================================================================
+
+*** Keywords ***
+
+Test Keyword
+  Host Should Be Up   https://example.com:8080/foo?q=123
+
+  Host https://example.com:8080/foo?q=123 Should Be Up   
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (keywords_section
+      (section_header)
+      (keyword_definition
+        (name
+          (text_chunk))
+        (body
+          (statement
+            (keyword_invocation
+              (keyword
+                (text_chunk))
+              (arguments
+                (argument
+                  (text_chunk)))))
+          (statement
+            (keyword_invocation
+              (keyword
+                (text_chunk)))))))))
+
+================================================================================
 Simple variable assignment
 ================================================================================
 
@@ -245,13 +278,13 @@ Test Keyword
                     (python_expression)))))))))))
 
 ================================================================================
-Embedded
+Scalar variables embedded in the keyword name
 ================================================================================
 
 *** Keywords ***
 
 Test Keyword
-  Some ${EMBEDDED} Argument Inside A Keyword
+  Some ${EMBEDDED} Argument ${Inside} A Keyword
 
 --------------------------------------------------------------------------------
 
@@ -266,6 +299,9 @@ Test Keyword
           (statement
             (keyword_invocation
               (keyword
+                (text_chunk)
+                (scalar_variable
+                  (variable_name))
                 (text_chunk)
                 (scalar_variable
                   (variable_name))
