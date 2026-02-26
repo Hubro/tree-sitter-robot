@@ -130,9 +130,10 @@ module.exports = grammar({
       ),
     keyword_name: ($) =>
       seq(
-        $.text_chunk,
-        repeat(seq(optional(" "), choice($.text_chunk, $.scalar_variable))),
+        $.name_chunk,
+        repeat(seq(optional(" "), choice($.name_chunk, $.scalar_variable))),
       ),
+    name_chunk: ($) => $._text_chunk,
 
     // prec.right is needed to capture $._empty_line more strongly than $.keywords_section
     keyword_definition_body: ($) =>
@@ -262,7 +263,7 @@ module.exports = grammar({
     keyword: ($) =>
       seq(
         /[^\[{]/,
-        repeat(seq(optional(" "), choice($.text_chunk, $.scalar_variable))),
+        repeat(seq(optional(" "), choice($.name_chunk, $.scalar_variable))),
       ),
 
     if_statement: ($) =>
@@ -512,7 +513,9 @@ module.exports = grammar({
 
     variable_name: ($) => /[^{}]+/,
 
-    text_chunk: ($) =>
+    text_chunk: ($) => $._text_chunk,
+
+    _text_chunk: ($) =>
       token(
         seq(
           choice(

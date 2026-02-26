@@ -15,12 +15,12 @@ Test Keyword
       (section_header)
       (keyword_definition
         (name
-          (text_chunk))
+          (name_chunk))
         (body
           (statement
             (keyword_invocation
               (keyword
-                (text_chunk)))))))))
+                (name_chunk)))))))))
 
 ================================================================================
 Keyword invocations with arguments
@@ -39,12 +39,12 @@ Test Keyword
       (section_header)
       (keyword_definition
         (name
-          (text_chunk))
+          (name_chunk))
         (body
           (statement
             (keyword_invocation
               (keyword
-                (text_chunk))
+                (name_chunk))
               (arguments
                 (argument
                   (text_chunk))
@@ -70,12 +70,12 @@ Test Keyword
       (section_header)
       (keyword_definition
         (name
-          (text_chunk))
+          (name_chunk))
         (body
           (statement
             (keyword_invocation
               (keyword
-                (text_chunk))
+                (name_chunk))
               (arguments
                 (argument
                   (text_chunk))
@@ -109,12 +109,12 @@ Test Keyword
       (section_header)
       (keyword_definition
         (name
-          (text_chunk))
+          (name_chunk))
         (body
           (statement
             (keyword_invocation
               (keyword
-                (text_chunk))
+                (name_chunk))
               (arguments
                 (argument
                   (scalar_variable
@@ -147,12 +147,12 @@ Test Keyword
       (section_header)
       (keyword_definition
         (name
-          (text_chunk))
+          (name_chunk))
         (body
           (statement
             (keyword_invocation
               (keyword
-                (text_chunk))
+                (name_chunk))
               (arguments
                 (argument
                   (scalar_variable
@@ -160,7 +160,7 @@ Test Keyword
           (statement
             (keyword_invocation
               (keyword
-                (text_chunk))
+                (name_chunk))
               (arguments
                 (argument
                   (text_chunk)
@@ -170,7 +170,7 @@ Test Keyword
           (statement
             (keyword_invocation
               (keyword
-                (text_chunk))
+                (name_chunk))
               (arguments
                 (argument
                   (text_chunk)
@@ -197,19 +197,19 @@ Test Keyword
       (section_header)
       (keyword_definition
         (name
-          (text_chunk))
+          (name_chunk))
         (body
           (statement
             (keyword_invocation
               (keyword
-                (text_chunk))
+                (name_chunk))
               (arguments
                 (argument
                   (text_chunk)))))
           (statement
             (keyword_invocation
               (keyword
-                (text_chunk)))))))))
+                (name_chunk)))))))))
 
 ================================================================================
 Simple variable assignment
@@ -229,7 +229,7 @@ Test Keyword
       (section_header)
       (keyword_definition
         (name
-          (text_chunk))
+          (name_chunk))
         (body
           (statement
             (variable_assignment
@@ -266,12 +266,12 @@ Test Keyword
       (section_header)
       (keyword_definition
         (name
-          (text_chunk))
+          (name_chunk))
         (body
           (statement
             (keyword_invocation
               (keyword
-                (text_chunk))
+                (name_chunk))
               (arguments
                 (argument
                   (inline_python_expression
@@ -294,15 +294,15 @@ Test Keyword
       (section_header)
       (keyword_definition
         (name
-          (text_chunk))
+          (name_chunk))
         (body
           (statement
             (keyword_invocation
               (keyword
-                (text_chunk)
+                (name_chunk)
                 (scalar_variable
                   (variable_name))
-                (text_chunk)
+                (name_chunk)
                 (scalar_variable
                   (variable_name))
-                (text_chunk)))))))))
+                (name_chunk)))))))))

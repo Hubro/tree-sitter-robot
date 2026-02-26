@@ -76,21 +76,21 @@ Continue when time limit is reached
                 (statement
                   (keyword_invocation
                     (keyword
-                      (text_chunk))
+                      (name_chunk))
                     (arguments
                       (argument
                         (text_chunk)))))
                 (statement
                   (keyword_invocation
                     (keyword
-                      (text_chunk))
+                      (name_chunk))
                     (arguments
                       (argument
                         (text_chunk))))))))
           (statement
             (keyword_invocation
               (keyword
-                (text_chunk))
+                (name_chunk))
               (arguments
                 (argument
                   (text_chunk))))))))))

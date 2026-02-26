@@ -453,11 +453,11 @@
       "required": false,
       "types": [
         {
-          "type": "scalar_variable",
+          "type": "name_chunk",
           "named": true
         },
         {
-          "type": "text_chunk",
+          "type": "scalar_variable",
           "named": true
         }
       ]
@@ -579,15 +579,20 @@
       "required": false,
       "types": [
         {
-          "type": "scalar_variable",
+          "type": "name_chunk",
           "named": true
         },
         {
-          "type": "text_chunk",
+          "type": "scalar_variable",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "name_chunk",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "python_expression",
@@ -881,6 +886,11 @@
     }
   },
   {
+    "type": "text_chunk",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "try_statement",
     "named": true,
     "fields": {},
@@ -1123,10 +1133,6 @@
   },
   {
     "type": "section_header",
-    "named": true
-  },
-  {
-    "type": "text_chunk",
     "named": true
   },
   {

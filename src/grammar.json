@@ -512,7 +512,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "text_chunk"
+          "name": "name_chunk"
         },
         {
           "type": "REPEAT",
@@ -536,7 +536,7 @@
                 "members": [
                   {
                     "type": "SYMBOL",
-                    "name": "text_chunk"
+                    "name": "name_chunk"
                   },
                   {
                     "type": "SYMBOL",
@@ -548,6 +548,10 @@
           }
         }
       ]
+    },
+    "name_chunk": {
+      "type": "SYMBOL",
+      "name": "_text_chunk"
     },
     "keyword_definition_body": {
       "type": "PREC_RIGHT",
@@ -1150,7 +1154,7 @@
                 "members": [
                   {
                     "type": "SYMBOL",
-                    "name": "text_chunk"
+                    "name": "name_chunk"
                   },
                   {
                     "type": "SYMBOL",
@@ -2268,6 +2272,10 @@
       "value": "[^{}]+"
     },
     "text_chunk": {
+      "type": "SYMBOL",
+      "name": "_text_chunk"
+    },
+    "_text_chunk": {
       "type": "TOKEN",
       "content": {
         "type": "SEQ",
