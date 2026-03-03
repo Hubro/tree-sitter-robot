@@ -949,7 +949,15 @@
           "named": true
         },
         {
-          "type": "variable_name",
+          "type": "dictionary_variable",
+          "named": true
+        },
+        {
+          "type": "list_variable",
+          "named": true
+        },
+        {
+          "type": "scalar_variable",
           "named": true
         }
       ]

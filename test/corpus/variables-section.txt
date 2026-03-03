@@ -29,28 +29,32 @@ ${Name / with $ symbols} =  I am a string!    I am another string!
     (variables_section
       (section_header)
       (variable_definition
-        (variable_name)
+        (scalar_variable
+          (variable_name))
         (arguments
           (argument
             (text_chunk))
           (argument
             (text_chunk))))
       (variable_definition
-        (variable_name)
+        (scalar_variable
+          (variable_name))
         (arguments
           (argument
             (text_chunk))
           (argument
             (text_chunk))))
       (variable_definition
-        (variable_name)
+        (scalar_variable
+          (variable_name))
         (arguments
           (argument
             (text_chunk))
           (argument
             (text_chunk))))
       (variable_definition
-        (variable_name)
+        (scalar_variable
+          (variable_name))
         (arguments
           (argument
             (text_chunk))
@@ -79,7 +83,8 @@ ${FOO} =    I am a very long text string
     (variables_section
       (section_header)
       (variable_definition
-        (variable_name)
+        (scalar_variable
+          (variable_name))
         (arguments
           (argument
             (text_chunk))
@@ -109,3 +114,42 @@ ${FOO} =    I am a very long text string
             (ellipses)
             (argument
               (text_chunk))))))))
+
+================================================================================
+All types variable definitions
+================================================================================
+
+*** Variables ***
+
+${SCALAR} =    I'm a scalar variable
+@{LIST} =      first element    second element
+&{DICT} =      key1=value1    key2=value2
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (variables_section
+      (section_header)
+      (variable_definition
+        (scalar_variable
+          (variable_name))
+        (arguments
+          (argument
+            (text_chunk))))
+      (variable_definition
+        (list_variable
+          (variable_name))
+        (arguments
+          (argument
+            (text_chunk))
+          (argument
+            (text_chunk))))
+      (variable_definition
+        (dictionary_variable
+          (variable_name))
+        (arguments
+          (argument
+            (text_chunk))
+          (argument
+            (text_chunk)))))))

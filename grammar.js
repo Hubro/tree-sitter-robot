@@ -107,7 +107,7 @@ module.exports = grammar({
       ),
     variable_definition: ($) =>
       seq(
-        seq("${", $.variable_name, "}"),
+        choice($.scalar_variable, $.dictionary_variable, $.list_variable),
         optional(choice("=", " =")),
         $.arguments,
         $._line_break,

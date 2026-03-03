@@ -337,19 +337,19 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SEQ",
+          "type": "CHOICE",
           "members": [
             {
-              "type": "STRING",
-              "value": "${"
+              "type": "SYMBOL",
+              "name": "scalar_variable"
             },
             {
               "type": "SYMBOL",
-              "name": "variable_name"
+              "name": "dictionary_variable"
             },
             {
-              "type": "STRING",
-              "value": "}"
+              "type": "SYMBOL",
+              "name": "list_variable"
             }
           ]
         },
