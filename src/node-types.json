@@ -115,7 +115,7 @@
       "required": true,
       "types": [
         {
-          "type": "variable_name",
+          "type": "variable_content",
           "named": true
         }
       ]
@@ -564,7 +564,7 @@
       "required": true,
       "types": [
         {
-          "type": "variable_name",
+          "type": "variable_content",
           "named": true
         }
       ]
@@ -654,7 +654,7 @@
       "required": true,
       "types": [
         {
-          "type": "variable_name",
+          "type": "variable_content",
           "named": true
         }
       ]
@@ -930,7 +930,26 @@
           "named": true
         },
         {
-          "type": "variable_name",
+          "type": "variable_content",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "variable_content",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "scalar_variable",
+          "named": true
+        },
+        {
+          "type": "variable_content",
           "named": true
         }
       ]
@@ -1145,8 +1164,8 @@
     "named": true
   },
   {
-    "type": "variable_name",
-    "named": true
+    "type": "{",
+    "named": false
   },
   {
     "type": "}",

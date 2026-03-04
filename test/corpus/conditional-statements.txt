@@ -40,7 +40,7 @@ Test
             (if_statement
               condition: (argument
                 (scalar_variable
-                  (variable_name))
+                  (variable_content))
                 (text_chunk))
               consequence: (block
                 (statement
@@ -55,7 +55,7 @@ Test
             (if_statement
               condition: (argument
                 (scalar_variable
-                  (variable_name))
+                  (variable_content))
                 (text_chunk))
               consequence: (block
                 (statement
@@ -103,7 +103,7 @@ Test
                         (argument
                           (text_chunk)
                           (scalar_variable
-                            (variable_name)))))))))))))))
+                            (variable_content)))))))))))))))
 
 ================================================================================
 Nested conditional statements
@@ -145,7 +145,7 @@ Test
               condition: (argument
                 (text_chunk)
                 (scalar_variable
-                  (variable_name)))
+                  (variable_content)))
               consequence: (block
                 (statement
                   (keyword_invocation
@@ -158,14 +158,14 @@ Test
                 condition: (argument
                   (text_chunk)
                   (scalar_variable
-                    (variable_name))
+                    (variable_content))
                   (text_chunk))
                 consequence: (block
                   (statement
                     (if_statement
                       condition: (argument
                         (scalar_variable
-                          (variable_name)))
+                          (variable_content)))
                       consequence: (block
                         (statement
                           (keyword_invocation
@@ -175,7 +175,7 @@ Test
                               (argument
                                 (text_chunk)
                                 (scalar_variable
-                                  (variable_name))
+                                  (variable_content))
                                 (text_chunk))))))
                       alternative: (else_statement
                         consequence: (block
@@ -199,13 +199,13 @@ Test
                     (if_statement
                       condition: (argument
                         (scalar_variable
-                          (variable_name)))
+                          (variable_content)))
                       consequence: (block
                         (statement
                           (if_statement
                             condition: (argument
                               (scalar_variable
-                                (variable_name)))
+                                (variable_content)))
                             consequence: (block
                               (statement
                                 (keyword_invocation
@@ -215,10 +215,10 @@ Test
                                     (argument
                                       (text_chunk)
                                       (scalar_variable
-                                        (variable_name))
+                                        (variable_content))
                                       (text_chunk)
                                       (scalar_variable
-                                        (variable_name)))))))))))))))))))))
+                                        (variable_content)))))))))))))))))))))
 
 ================================================================================
 Inline conditional statements
@@ -323,7 +323,7 @@ Inline IF/ELSE with assignment
         (body
           (statement
             (variable_assignment
-              (variable_name)
+              (variable_content)
               (arguments
                 (argument
                   (text_chunk))

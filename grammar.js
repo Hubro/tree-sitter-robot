@@ -254,7 +254,7 @@ module.exports = grammar({
 
     variable_assignment: ($) =>
       seq(
-        seq("${", $.variable_name, "}"),
+        seq("${", $.variable_content, "}"),
         optional(choice("=", " =")),
         optional($.arguments),
       ),
@@ -495,13 +495,13 @@ module.exports = grammar({
       ),
 
     scalar_variable: ($) =>
-      seq("${", optional(" "), $.variable_name, optional(" "), "}"),
+      seq("${", optional(" "), $.variable_content, optional(" "), "}"),
 
     list_variable: ($) =>
-      seq("@{", optional(" "), $.variable_name, optional(" "), "}"),
+      seq("@{", optional(" "), $.variable_content, optional(" "), "}"),
 
     dictionary_variable: ($) =>
-      seq("&{", optional(" "), $.variable_name, optional(" "), "}"),
+      seq("&{", optional(" "), $.variable_content, optional(" "), "}"),
 
     inline_python_expression: ($) =>
       prec.left(
@@ -512,7 +512,25 @@ module.exports = grammar({
         ),
       ),
 
-    variable_name: ($) => /[^{}]+/,
+    // This is the engine that handles everything inside the { }
+    variable_content: ($) =>
+      repeat1(
+        choice(
+          $.scalar_variable, // Nested ${var}
+          $._balanced_braces, // Literal balanced braces like {key}
+          $._variable_text, // Normal text
+          $._sigil, // Literal $, @, &, %
+        ),
+      ),
+
+    // Literal braces
+    _balanced_braces: ($) => seq("{", optional($.variable_content), "}"),
+
+    // Text that is "safe" (contains no sigils and no braces)
+    _variable_text: ($) => /[^${}@&%]+/,
+
+    // Literal sigils that don't start a variable
+    _sigil: ($) => /[$@&%]/,
 
     text_chunk: ($) => $._text_chunk,
 

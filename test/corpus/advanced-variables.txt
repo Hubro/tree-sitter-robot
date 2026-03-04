@@ -1,0 +1,144 @@
+================================================================================
+Dynamic variables
+================================================================================
+
+*** Variables ***
+${X}        Y
+${${X}}     Z
+@{LIST_${X}}    item1    item2
+&{DICT ${X}}    key=value
+${V}        1
+${W ${DICT ${X}}[key]}    W
+${W ${LIST_${X}}[${V}]}    W
+
+*** Test Cases ***
+Dynamically created name
+    Should Be Equal    ${Y}    Z
+    Should Be Equal    ${W value}    W
+    Should Be Equal    ${W item2}    W
+
+Logging
+    Log Many    @{LIST_Y}
+    Log Many    &{DICT Y}
+
+---
+
+(source_file
+  (section
+    (variables_section
+      (section_header)
+      (variable_definition
+        (scalar_variable
+          (variable_content))
+        (arguments
+          (argument
+            (text_chunk))))
+      (variable_definition
+        (scalar_variable
+          (variable_content
+            (scalar_variable
+              (variable_content))))
+        (arguments
+          (argument
+            (text_chunk))))
+      (variable_definition
+        (list_variable
+          (variable_content
+            (scalar_variable
+              (variable_content))))
+        (arguments
+          (argument
+            (text_chunk))
+          (argument
+            (text_chunk))))
+      (variable_definition
+        (dictionary_variable
+          (variable_content
+            (scalar_variable
+              (variable_content))))
+        (arguments
+          (argument
+            (text_chunk))))
+      (variable_definition
+        (scalar_variable
+          (variable_content))
+        (arguments
+          (argument
+            (text_chunk))))
+      (variable_definition
+        (scalar_variable
+          (variable_content
+            (scalar_variable
+              (variable_content
+                (scalar_variable
+                  (variable_content))))))
+        (arguments
+          (argument
+            (text_chunk))))
+      (variable_definition
+        (scalar_variable
+          (variable_content
+            (scalar_variable
+              (variable_content
+                (scalar_variable
+                  (variable_content))))
+            (scalar_variable
+              (variable_content))))
+        (arguments
+          (argument
+            (text_chunk))))))
+  (section
+    (test_cases_section
+      (section_header)
+      (test_case_definition
+        (name)
+        (body
+          (statement
+            (keyword_invocation
+              (keyword
+                (name_chunk))
+              (arguments
+                (argument
+                  (scalar_variable
+                    (variable_content)))
+                (argument
+                  (text_chunk)))))
+          (statement
+            (keyword_invocation
+              (keyword
+                (name_chunk))
+              (arguments
+                (argument
+                  (scalar_variable
+                    (variable_content)))
+                (argument
+                  (text_chunk)))))
+          (statement
+            (keyword_invocation
+              (keyword
+                (name_chunk))
+              (arguments
+                (argument
+                  (scalar_variable
+                    (variable_content)))
+                (argument
+                  (text_chunk)))))))
+      (test_case_definition
+        (name)
+        (body
+          (statement
+            (keyword_invocation
+              (keyword
+                (name_chunk))
+              (arguments
+                (argument
+                  (list_variable
+                    (variable_content))))))
+          (statement
+            (keyword_invocation
+              (keyword
+                (name_chunk))
+              (arguments
+                (argument
+                  (dictionary_variable
+                    (variable_content)))))))))))

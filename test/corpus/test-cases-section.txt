@@ -61,13 +61,13 @@ Empty User Name and Password      ${EMPTY}         ${EMPTY}
             (text_chunk))
           (argument
             (scalar_variable
-              (variable_name)))))
+              (variable_content)))))
       (test_case_definition
         (name)
         (arguments
           (argument
             (scalar_variable
-              (variable_name)))
+              (variable_content)))
           (argument
             (text_chunk))))
       (test_case_definition
@@ -82,28 +82,28 @@ Empty User Name and Password      ${EMPTY}         ${EMPTY}
         (arguments
           (argument
             (scalar_variable
-              (variable_name)))
+              (variable_content)))
           (argument
             (scalar_variable
-              (variable_name)))))
+              (variable_content)))))
       (test_case_definition
         (name)
         (arguments
           (argument
             (scalar_variable
-              (variable_name)))
+              (variable_content)))
           (argument
             (scalar_variable
-              (variable_name)))))
+              (variable_content)))))
       (test_case_definition
         (name)
         (arguments
           (argument
             (scalar_variable
-              (variable_name)))
+              (variable_content)))
           (argument
             (scalar_variable
-              (variable_name))))))))
+              (variable_content))))))))
 
 ================================================================================
 Test case options
