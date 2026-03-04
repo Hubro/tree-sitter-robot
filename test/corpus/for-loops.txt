@@ -38,7 +38,7 @@ Example
             (for_statement
               left: (variable_list
                 (scalar_variable
-                  (variable_name)))
+                  (variable_content)))
               right: (in
                 (arguments
                   (argument
@@ -53,7 +53,7 @@ Example
                     (arguments
                       (argument
                         (scalar_variable
-                          (variable_name))))))
+                          (variable_content))))))
                 (statement
                   (keyword_invocation
                     (keyword
@@ -75,7 +75,7 @@ Example
             (for_statement
               left: (variable_list
                 (scalar_variable
-                  (variable_name)))
+                  (variable_content)))
               right: (in
                 (arguments
                   (argument
@@ -84,12 +84,12 @@ Example
                     (text_chunk))
                   (argument
                     (scalar_variable
-                      (variable_name)))
+                      (variable_content)))
                   (argument
                     (text_chunk))
                   (argument
                     (scalar_variable
-                      (variable_name)))
+                      (variable_content)))
                   (continuation
                     (ellipses)
                     (argument
@@ -102,7 +102,7 @@ Example
                       (text_chunk))
                     (argument
                       (scalar_variable
-                        (variable_name))))))
+                        (variable_content))))))
               body: (block
                 (statement
                   (keyword_invocation
@@ -111,7 +111,7 @@ Example
                     (arguments
                       (argument
                         (scalar_variable
-                          (variable_name)))))))))))
+                          (variable_content)))))))))))
       (test_case_definition
         (name)
         (body
@@ -119,12 +119,12 @@ Example
             (for_statement
               left: (variable_list
                 (scalar_variable
-                  (variable_name)))
+                  (variable_content)))
               right: (in
                 (arguments
                   (argument
                     (list_variable
-                      (variable_name)))))
+                      (variable_content)))))
               body: (block
                 (statement
                   (keyword_invocation
@@ -133,7 +133,7 @@ Example
                     (arguments
                       (argument
                         (scalar_variable
-                          (variable_name))))))
+                          (variable_content))))))
                 (statement
                   (continue_statement))
                 (statement
@@ -171,7 +171,7 @@ Multiple nesting levels
             (for_statement
               left: (variable_list
                 (scalar_variable
-                  (variable_name)))
+                  (variable_content)))
               right: (in
                 (arguments
                   (argument
@@ -183,7 +183,7 @@ Multiple nesting levels
                   (for_statement
                     left: (variable_list
                       (scalar_variable
-                        (variable_name)))
+                        (variable_content)))
                     right: (in
                       (arguments
                         (argument
@@ -197,7 +197,7 @@ Multiple nesting levels
                         (for_statement
                           left: (variable_list
                             (scalar_variable
-                              (variable_name)))
+                              (variable_content)))
                           right: (in
                             (arguments
                               (argument
@@ -212,18 +212,18 @@ Multiple nesting levels
                                 (arguments
                                   (argument
                                     (scalar_variable
-                                      (variable_name)))
+                                      (variable_content)))
                                   (argument
                                     (scalar_variable
-                                      (variable_name)))
+                                      (variable_content)))
                                   (argument
                                     (scalar_variable
-                                      (variable_name))))))))))))
+                                      (variable_content))))))))))))
                 (statement
                   (for_statement
                     left: (variable_list
                       (scalar_variable
-                        (variable_name)))
+                        (variable_content)))
                     right: (in
                       (arguments
                         (argument
@@ -238,7 +238,7 @@ Multiple nesting levels
                           condition: (argument
                             (text_chunk)
                             (scalar_variable
-                              (variable_name))
+                              (variable_content))
                             (text_chunk))
                           consequence: (block
                             (statement
@@ -248,10 +248,10 @@ Multiple nesting levels
                                 (arguments
                                   (argument
                                     (scalar_variable
-                                      (variable_name)))
+                                      (variable_content)))
                                   (argument
                                     (scalar_variable
-                                      (variable_name))))))))))))))))))))
+                                      (variable_content))))))))))))))))))))
 
 ================================================================================
 Several loop variables
@@ -282,11 +282,11 @@ Multiple loop variables
             (for_statement
               left: (variable_list
                 (scalar_variable
-                  (variable_name))
+                  (variable_content))
                 (scalar_variable
-                  (variable_name))
+                  (variable_content))
                 (scalar_variable
-                  (variable_name)))
+                  (variable_content)))
               right: (in
                 (arguments
                   (continuation
@@ -321,25 +321,25 @@ Multiple loop variables
                     (arguments
                       (argument
                         (scalar_variable
-                          (variable_name)))
+                          (variable_content)))
                       (argument
                         (scalar_variable
-                          (variable_name)))
+                          (variable_content)))
                       (argument
                         (scalar_variable
-                          (variable_name)))))))))
+                          (variable_content)))))))))
           (statement
             (for_statement
               left: (variable_list
                 (scalar_variable
-                  (variable_name))
+                  (variable_content))
                 (scalar_variable
-                  (variable_name)))
+                  (variable_content)))
               right: (in
                 (arguments
                   (argument
                     (list_variable
-                      (variable_name)))))
+                      (variable_content)))))
               body: (block
                 (statement
                   (keyword_invocation
@@ -348,10 +348,10 @@ Multiple loop variables
                     (arguments
                       (argument
                         (scalar_variable
-                          (variable_name)))
+                          (variable_content)))
                       (argument
                         (scalar_variable
-                          (variable_name))))))))))))))
+                          (variable_content))))))))))))))
 
 ================================================================================
 FOR ... IN RANGE syntax
@@ -396,7 +396,7 @@ Also step given
             (for_statement
               left: (variable_list
                 (scalar_variable
-                  (variable_name)))
+                  (variable_content)))
               right: (in_range
                 (argument
                   (text_chunk)))
@@ -408,7 +408,7 @@ Also step given
                     (arguments
                       (argument
                         (scalar_variable
-                          (variable_name)))))))))))
+                          (variable_content)))))))))))
       (keyword_definition
         (name
           (name_chunk))
@@ -422,7 +422,7 @@ Also step given
             (for_statement
               left: (variable_list
                 (scalar_variable
-                  (variable_name)))
+                  (variable_content)))
               right: (in_range
                 (argument
                   (text_chunk))
@@ -436,7 +436,7 @@ Also step given
                     (arguments
                       (argument
                         (scalar_variable
-                          (variable_name)))))))))))
+                          (variable_content)))))))))))
       (keyword_definition
         (name
           (name_chunk))
@@ -450,7 +450,7 @@ Also step given
             (for_statement
               left: (variable_list
                 (scalar_variable
-                  (variable_name)))
+                  (variable_content)))
               right: (in_range
                 (argument
                   (text_chunk))
@@ -466,7 +466,7 @@ Also step given
                     (arguments
                       (argument
                         (scalar_variable
-                          (variable_name))))))))))))))
+                          (variable_content))))))))))))))
 
 ================================================================================
 FOR ... IN ENUMERATE syntax
@@ -501,14 +501,14 @@ FOR-IN-ENUMERATE with two values per iteration
             (for_statement
               left: (variable_list
                 (scalar_variable
-                  (variable_name))
+                  (variable_content))
                 (scalar_variable
-                  (variable_name)))
+                  (variable_content)))
               right: (in_enumerate
                 (arguments
                   (argument
                     (list_variable
-                      (variable_name)))))
+                      (variable_content)))))
               body: (block
                 (statement
                   (keyword_invocation
@@ -517,10 +517,10 @@ FOR-IN-ENUMERATE with two values per iteration
                     (arguments
                       (argument
                         (scalar_variable
-                          (variable_name)))
+                          (variable_content)))
                       (argument
                         (scalar_variable
-                          (variable_name)))))))))))
+                          (variable_content)))))))))))
       (keyword_definition
         (name
           (name_chunk))
@@ -529,11 +529,11 @@ FOR-IN-ENUMERATE with two values per iteration
             (for_statement
               left: (variable_list
                 (scalar_variable
-                  (variable_name))
+                  (variable_content))
                 (scalar_variable
-                  (variable_name))
+                  (variable_content))
                 (scalar_variable
-                  (variable_name)))
+                  (variable_content)))
               right: (in_enumerate
                 (arguments
                   (continuation
@@ -563,13 +563,13 @@ FOR-IN-ENUMERATE with two values per iteration
                       (argument
                         (text_chunk)
                         (scalar_variable
-                          (variable_name))
+                          (variable_content))
                         (text_chunk)
                         (scalar_variable
-                          (variable_name))
+                          (variable_content))
                         (text_chunk)
                         (scalar_variable
-                          (variable_name))
+                          (variable_content))
                         (text_chunk)))))))))))))
 
 ================================================================================
@@ -610,22 +610,22 @@ LONGEST mode with custom fill value
             (for_statement
               left: (variable_list
                 (scalar_variable
-                  (variable_name))
+                  (variable_content))
                 (scalar_variable
-                  (variable_name))
+                  (variable_content))
                 (scalar_variable
-                  (variable_name)))
+                  (variable_content)))
               right: (in_zip
                 (arguments
                   (argument
                     (scalar_variable
-                      (variable_name)))
+                      (variable_content)))
                   (argument
                     (scalar_variable
-                      (variable_name)))
+                      (variable_content)))
                   (argument
                     (scalar_variable
-                      (variable_name)))))
+                      (variable_content)))))
               body: (block
                 (statement
                   (keyword_invocation
@@ -634,13 +634,13 @@ LONGEST mode with custom fill value
                     (arguments
                       (argument
                         (scalar_variable
-                          (variable_name)))
+                          (variable_content)))
                       (argument
                         (scalar_variable
-                          (variable_name)))
+                          (variable_content)))
                       (argument
                         (scalar_variable
-                          (variable_name)))))))))))
+                          (variable_content)))))))))))
       (keyword_definition
         (name
           (name_chunk))
@@ -649,18 +649,18 @@ LONGEST mode with custom fill value
             (for_statement
               left: (variable_list
                 (scalar_variable
-                  (variable_name)))
+                  (variable_content)))
               right: (in_zip
                 (arguments
                   (argument
                     (scalar_variable
-                      (variable_name)))
+                      (variable_content)))
                   (argument
                     (scalar_variable
-                      (variable_name)))
+                      (variable_content)))
                   (argument
                     (scalar_variable
-                      (variable_name)))))
+                      (variable_content)))))
               body: (block
                 (statement
                   (keyword_invocation
@@ -669,7 +669,7 @@ LONGEST mode with custom fill value
                     (arguments
                       (argument
                         (scalar_variable
-                          (variable_name)))
+                          (variable_content)))
                       (argument
                         (text_chunk)))))
                 (statement
@@ -679,15 +679,15 @@ LONGEST mode with custom fill value
                     (arguments
                       (argument
                         (scalar_variable
-                          (variable_name))
+                          (variable_content))
                         (text_chunk))
                       (argument
                         (scalar_variable
-                          (variable_name))
+                          (variable_content))
                         (text_chunk))
                       (argument
                         (scalar_variable
-                          (variable_name))
+                          (variable_content))
                         (text_chunk))))))))))
       (keyword_definition
         (name
@@ -703,23 +703,23 @@ LONGEST mode with custom fill value
                 (argument
                   (text_chunk)
                   (scalar_variable
-                    (variable_name))
+                    (variable_content))
                   (text_chunk)))))
           (statement
             (for_statement
               left: (variable_list
                 (scalar_variable
-                  (variable_name))
+                  (variable_content))
                 (scalar_variable
-                  (variable_name)))
+                  (variable_content)))
               right: (in_zip
                 (arguments
                   (argument
                     (scalar_variable
-                      (variable_name)))
+                      (variable_content)))
                   (argument
                     (scalar_variable
-                      (variable_name)))
+                      (variable_content)))
                   (argument
                     (text_chunk))
                   (argument
@@ -732,7 +732,7 @@ LONGEST mode with custom fill value
                     (arguments
                       (argument
                         (scalar_variable
-                          (variable_name))
+                          (variable_content))
                         (text_chunk)
                         (scalar_variable
-                          (variable_name))))))))))))))
+                          (variable_content))))))))))))))

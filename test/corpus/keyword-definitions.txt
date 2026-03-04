@@ -132,20 +132,20 @@ I Am A User Defined Keyword
             (arguments
               (argument
                 (scalar_variable
-                  (variable_name)))
+                  (variable_content)))
               (argument
                 (scalar_variable
-                  (variable_name)))
+                  (variable_content)))
               (argument
                 (scalar_variable
-                  (variable_name))
+                  (variable_content))
                 (text_chunk))))
           (keyword_setting
             (keyword_setting_name)
             (arguments
               (argument
                 (scalar_variable
-                  (variable_name)))))
+                  (variable_content)))))
           (keyword_setting
             (keyword_setting_name)
             (arguments
@@ -187,13 +187,13 @@ Numbers ${A} + ${B} Should Equal ${C}
         (name
           (name_chunk)
           (scalar_variable
-            (variable_name))
+            (variable_content))
           (name_chunk)
           (scalar_variable
-            (variable_name))
+            (variable_content))
           (name_chunk)
           (scalar_variable
-            (variable_name)))
+            (variable_content)))
         (body
           (statement
             (keyword_invocation

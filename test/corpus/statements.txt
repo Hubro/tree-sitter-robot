@@ -118,13 +118,13 @@ Test Keyword
               (arguments
                 (argument
                   (scalar_variable
-                    (variable_name)))
+                    (variable_content)))
                 (argument
                   (list_variable
-                    (variable_name)))
+                    (variable_content)))
                 (argument
                   (dictionary_variable
-                    (variable_name)))))))))))
+                    (variable_content)))))))))))
 
 ================================================================================
 Scalar variable interpolation
@@ -156,7 +156,7 @@ Test Keyword
               (arguments
                 (argument
                   (scalar_variable
-                    (variable_name))))))
+                    (variable_content))))))
           (statement
             (keyword_invocation
               (keyword
@@ -165,7 +165,7 @@ Test Keyword
                 (argument
                   (text_chunk)
                   (scalar_variable
-                    (variable_name))
+                    (variable_content))
                   (text_chunk)))))
           (statement
             (keyword_invocation
@@ -175,7 +175,7 @@ Test Keyword
                 (argument
                   (text_chunk)
                   (scalar_variable
-                    (variable_name))
+                    (variable_content))
                   (text_chunk))))))))))
 
 ================================================================================
@@ -233,7 +233,7 @@ Test Keyword
         (body
           (statement
             (variable_assignment
-              (variable_name)
+              (variable_content)
               (arguments
                 (argument
                   (text_chunk))
@@ -241,10 +241,10 @@ Test Keyword
                   (text_chunk))
                 (argument
                   (scalar_variable
-                    (variable_name))))))
+                    (variable_content))))))
           (statement
             (variable_assignment
-              (variable_name)
+              (variable_content)
               (arguments
                 (argument
                   (text_chunk))))))))))
@@ -301,8 +301,8 @@ Test Keyword
               (keyword
                 (name_chunk)
                 (scalar_variable
-                  (variable_name))
+                  (variable_content))
                 (name_chunk)
                 (scalar_variable
-                  (variable_name))
+                  (variable_content))
                 (name_chunk)))))))))

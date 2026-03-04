@@ -30,7 +30,7 @@ ${Name / with $ symbols} =  I am a string!    I am another string!
       (section_header)
       (variable_definition
         (scalar_variable
-          (variable_name))
+          (variable_content))
         (arguments
           (argument
             (text_chunk))
@@ -38,7 +38,7 @@ ${Name / with $ symbols} =  I am a string!    I am another string!
             (text_chunk))))
       (variable_definition
         (scalar_variable
-          (variable_name))
+          (variable_content))
         (arguments
           (argument
             (text_chunk))
@@ -46,7 +46,7 @@ ${Name / with $ symbols} =  I am a string!    I am another string!
             (text_chunk))))
       (variable_definition
         (scalar_variable
-          (variable_name))
+          (variable_content))
         (arguments
           (argument
             (text_chunk))
@@ -54,7 +54,7 @@ ${Name / with $ symbols} =  I am a string!    I am another string!
             (text_chunk))))
       (variable_definition
         (scalar_variable
-          (variable_name))
+          (variable_content))
         (arguments
           (argument
             (text_chunk))
@@ -84,7 +84,7 @@ ${FOO} =    I am a very long text string
       (section_header)
       (variable_definition
         (scalar_variable
-          (variable_name))
+          (variable_content))
         (arguments
           (argument
             (text_chunk))
@@ -133,13 +133,13 @@ ${SCALAR} =    I'm a scalar variable
       (section_header)
       (variable_definition
         (scalar_variable
-          (variable_name))
+          (variable_content))
         (arguments
           (argument
             (text_chunk))))
       (variable_definition
         (list_variable
-          (variable_name))
+          (variable_content))
         (arguments
           (argument
             (text_chunk))
@@ -147,7 +147,7 @@ ${SCALAR} =    I'm a scalar variable
             (text_chunk))))
       (variable_definition
         (dictionary_variable
-          (variable_name))
+          (variable_content))
         (arguments
           (argument
             (text_chunk))

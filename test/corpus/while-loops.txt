@@ -20,7 +20,7 @@ Example
         (body
           (statement
             (variable_assignment
-              (variable_name)
+              (variable_content)
               (arguments
                 (argument
                   (text_chunk))
@@ -31,12 +31,12 @@ Example
               condition: (arguments
                 (argument
                   (scalar_variable
-                    (variable_name))
+                    (variable_content))
                   (text_chunk)))
               body: (block
                 (statement
                   (variable_assignment
-                    (variable_name)
+                    (variable_content)
                     (arguments
                       (argument
                         (text_chunk)))))))))))))
@@ -125,7 +125,7 @@ Nesting WHILE
         (body
           (statement
             (variable_assignment
-              (variable_name)
+              (variable_content)
               (arguments
                 (argument
                   (text_chunk))
@@ -136,62 +136,62 @@ Nesting WHILE
               (arguments
                 (argument
                   (scalar_variable
-                    (variable_name))
+                    (variable_content))
                   (text_chunk)))
               (block
                 (statement
                   (variable_assignment
-                    (variable_name)
+                    (variable_content)
                     (arguments
                       (argument
                         (text_chunk))
                       (argument
                         (scalar_variable
-                          (variable_name))))))
+                          (variable_content))))))
                 (statement
                   (while_statement
                     (arguments
                       (argument
                         (scalar_variable
-                          (variable_name))
+                          (variable_content))
                         (text_chunk)))
                     (block
                       (statement
                         (variable_assignment
-                          (variable_name)
+                          (variable_content)
                           (arguments
                             (argument
                               (text_chunk))
                             (argument
                               (scalar_variable
-                                (variable_name))
+                                (variable_content))
                               (text_chunk))))))))
                 (statement
                   (if_statement
                     (argument
                       (scalar_variable
-                        (variable_name))
+                        (variable_content))
                       (text_chunk))
                     (block
                       (statement
                         (variable_assignment
-                          (variable_name)
+                          (variable_content)
                           (arguments
                             (argument
                               (text_chunk))
                             (argument
                               (scalar_variable
-                                (variable_name))
+                                (variable_content))
                               (text_chunk))))))
                     (else_statement
                       (block
                         (statement
                           (variable_assignment
-                            (variable_name)
+                            (variable_content)
                             (arguments
                               (argument
                                 (text_chunk))
                               (argument
                                 (scalar_variable
-                                  (variable_name))
+                                  (variable_content))
                                 (text_chunk)))))))))))))))))

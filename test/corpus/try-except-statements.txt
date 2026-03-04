@@ -104,7 +104,7 @@ Multiple messages with one EXCEPT
                 (arguments
                   (argument
                     (scalar_variable
-                      (variable_name))))
+                      (variable_content))))
                 (comment)
                 (block
                   (statement
@@ -129,7 +129,7 @@ Multiple messages with one EXCEPT
                     (text_chunk))
                   (argument
                     (scalar_variable
-                      (variable_name))))
+                      (variable_content))))
                 (comment)
                 (block
                   (statement
