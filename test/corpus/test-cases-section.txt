@@ -183,3 +183,43 @@ Test That Something Works
               (arguments
                 (argument
                   (text_chunk))))))))))
+
+================================================================================
+Test cases with curly braces in arguments
+================================================================================
+
+*** Test Cases ***
+
+Test With JSON Arguments
+    [Documentation]   {"type": "integration", "level": "smoke"}
+    [Tags]            {tag1}    {tag2}
+    Log Message    {"event": "test", "status": "pass"}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (test_cases_section
+      (section_header)
+      (test_case_definition
+        (name)
+        (body
+          (test_case_setting
+            (test_case_setting_name)
+            (arguments
+              (argument
+                (text_chunk))))
+          (test_case_setting
+            (test_case_setting_name)
+            (arguments
+              (argument
+                (text_chunk))
+              (argument
+                (text_chunk))))
+          (statement
+            (keyword_invocation
+              (keyword
+                (name_chunk))
+              (arguments
+                (argument
+                  (text_chunk))))))))))

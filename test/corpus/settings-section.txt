@@ -182,3 +182,39 @@ Documentation     This is some documentation text
             (ellipses)
             (argument
               (text_chunk))))))))
+
+================================================================================
+Settings with curly braces
+================================================================================
+
+*** Settings ***
+
+Documentation     {"title": "Test Suite", "version": "1.0"}
+Metadata          json_data    {"key": "value", "nested": {"a": 1}}
+Library           MyLibrary    config={"debug": true, "timeout": 30}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (settings_section
+      (section_header)
+      (setting_statement
+        (setting_name)
+        (arguments
+          (argument
+            (text_chunk))))
+      (setting_statement
+        (setting_name)
+        (arguments
+          (argument
+            (text_chunk))
+          (argument
+            (text_chunk))))
+      (setting_statement
+        (setting_name)
+        (arguments
+          (argument
+            (text_chunk))
+          (argument
+            (text_chunk)))))))

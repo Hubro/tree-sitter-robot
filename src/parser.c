@@ -1652,7 +1652,6 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
         '$', 125,
         '&', 121,
         '@', 123,
-        '{', 124,
         0x0b, 14,
         '\f', 14,
       );
@@ -1696,7 +1695,6 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
         ' ', 368,
         '#', 543,
         '$', 125,
-        '{', 124,
         '&', 325,
         '@', 325,
         0x0b, 14,
@@ -1711,8 +1709,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == '$') ADVANCE(125);
       if (lookahead == '&' ||
           lookahead == '@') ADVANCE(325);
-      if (('\n' <= lookahead && lookahead <= '\r') ||
-          lookahead == '{') ADVANCE(124);
+      if (('\n' <= lookahead && lookahead <= '\r')) ADVANCE(124);
       if (lookahead != 0) ADVANCE(450);
       END_STATE();
     case 9:
@@ -3168,7 +3165,6 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
         ' ', 552,
         '#', 543,
         '*', 440,
-        '{', 124,
         0x0b, 14,
         '\f', 14,
         '$', 325,
@@ -3217,7 +3213,6 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
         '\r', 14,
         '#', 543,
         '*', 440,
-        '{', 124,
         '\t', 554,
         ' ', 554,
         0x0b, 14,
