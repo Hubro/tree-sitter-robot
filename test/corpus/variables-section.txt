@@ -153,3 +153,49 @@ ${SCALAR} =    I'm a scalar variable
             (text_chunk))
           (argument
             (text_chunk)))))))
+
+================================================================================
+Variable values with curly braces
+================================================================================
+
+*** Variables ***
+
+${JSON} =    {"key": "value"}
+${NESTED} =    {"outer": {"inner": 1}}
+@{LIST} =    {item1}    {item2}
+&{DICT} =    key={"a": 1}    key2={"b": 2}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (variables_section
+      (section_header)
+      (variable_definition
+        (scalar_variable
+          (variable_name))
+        (arguments
+          (argument
+            (text_chunk))))
+      (variable_definition
+        (scalar_variable
+          (variable_name))
+        (arguments
+          (argument
+            (text_chunk))))
+      (variable_definition
+        (list_variable
+          (variable_name))
+        (arguments
+          (argument
+            (text_chunk))
+          (argument
+            (text_chunk))))
+      (variable_definition
+        (dictionary_variable
+          (variable_name))
+        (arguments
+          (argument
+            (text_chunk))
+          (argument
+            (text_chunk)))))))

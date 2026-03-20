@@ -306,3 +306,63 @@ Test Keyword
                 (scalar_variable
                   (variable_name))
                 (name_chunk)))))))))
+
+================================================================================
+Arguments with curly braces
+================================================================================
+
+*** Keywords ***
+
+Test Keyword
+  Log JSON    {"key": "value"}
+  Log Nested JSON    {"outer": {"inner": 1}}
+  Log Multiple Args    {item1}    {item2}    {item3}
+  Log Mixed Args    ${VAR}    {"json": "value"}    text{with}braces
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (keywords_section
+      (section_header)
+      (keyword_definition
+        (name
+          (name_chunk))
+        (body
+          (statement
+            (keyword_invocation
+              (keyword
+                (name_chunk))
+              (arguments
+                (argument
+                  (text_chunk)))))
+          (statement
+            (keyword_invocation
+              (keyword
+                (name_chunk))
+              (arguments
+                (argument
+                  (text_chunk)))))
+          (statement
+            (keyword_invocation
+              (keyword
+                (name_chunk))
+              (arguments
+                (argument
+                  (text_chunk))
+                (argument
+                  (text_chunk))
+                (argument
+                  (text_chunk)))))
+          (statement
+            (keyword_invocation
+              (keyword
+                (name_chunk))
+              (arguments
+                (argument
+                  (scalar_variable
+                    (variable_name)))
+                (argument
+                  (text_chunk))
+                (argument
+                  (text_chunk))))))))))

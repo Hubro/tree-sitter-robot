@@ -520,7 +520,7 @@ module.exports = grammar({
       token(
         seq(
           choice(
-            /[^\s$@&{#]/, // Can't start with a #, since that would be a comment
+            /[^\s$@&#]/, // Can't start with a #, since that would be a comment
             /[$@&][^{]/,
             /[^$@&]\{/,
           ),
