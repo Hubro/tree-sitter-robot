@@ -88,6 +88,29 @@
     }
   },
   {
+    "type": "comments_section",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "extra_text",
+          "named": true
+        },
+        {
+          "type": "section_header",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "continuation",
     "named": true,
     "fields": {},
@@ -668,6 +691,10 @@
       "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "comments_section",
+          "named": true
+        },
         {
           "type": "keywords_section",
           "named": true

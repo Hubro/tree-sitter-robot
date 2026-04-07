@@ -77,10 +77,20 @@ module.exports = grammar({
 
     section: ($) =>
       choice(
+        $.comments_section,
         $.settings_section,
         $.variables_section,
         $.keywords_section,
         $.test_cases_section,
+      ),
+
+    //
+    // Comments section
+    //
+    comments_section: ($) =>
+      seq(
+        section_header($, "Comments"),
+        repeat(choice($.comment, $._empty_line)),
       ),
 
     //
