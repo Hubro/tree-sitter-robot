@@ -20,12 +20,15 @@ Simple, single line settings
 Library           mytestlibrary.MyTestLibrary   foo=bar
 Resource          ../common.resource
 Variables         ../data/variables.py
+Name              My custom test suite name
 Documentation     This is some documentation text
 Metadata          This is some metadata text    This is some more metadata text
 Suite Setup       My Test Suite Setup Keyword
 Suite Teardown    My Test Suite Teardown Keyword
-Force Tags        tag1  tag2
-Default Tags      tag3  tag4
+Test Tags         tag1  tag2
+Force Tags        tag3  tag4
+Default Tags      tag5  tag6
+Keyword Tags      tag7  tag8
 Test Setup        My Test Setup Keyword
 Test Teardown     My Test Teardown Keyword
 Test Template     My Test Template
@@ -67,6 +70,11 @@ Task Timeout      5 minutes
         (setting_name)
         (arguments
           (argument
+            (text_chunk))))
+      (setting_statement
+        (setting_name)
+        (arguments
+          (argument
             (text_chunk))
           (argument
             (text_chunk))))
@@ -78,6 +86,20 @@ Task Timeout      5 minutes
       (setting_statement
         (setting_name)
         (arguments
+          (argument
+            (text_chunk))))
+      (setting_statement
+        (setting_name)
+        (arguments
+          (argument
+            (text_chunk))
+          (argument
+            (text_chunk))))
+      (setting_statement
+        (setting_name)
+        (arguments
+          (argument
+            (text_chunk))
           (argument
             (text_chunk))))
       (setting_statement
