@@ -138,6 +138,7 @@ module.exports = grammar({
     keyword_definition: ($) =>
       seq(
         alias($.keyword_name, $.name),
+        optional(seq($._separator, $.keyword_setting)),
         $._line_break,
         alias($.keyword_definition_body, $.body),
       ),
