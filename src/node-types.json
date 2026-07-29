@@ -782,6 +782,10 @@
       "required": false,
       "types": [
         {
+          "type": "comment",
+          "named": true
+        },
+        {
           "type": "section",
           "named": true
         }

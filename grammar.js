@@ -74,7 +74,7 @@ module.exports = grammar({
   rules: {
     source_file: ($) =>
       seq(
-        optional(/\s+/), // Allows whitespace before the first section
+        repeat(choice($.comment, $._empty_line)),
         repeat($.section),
       ),
 
