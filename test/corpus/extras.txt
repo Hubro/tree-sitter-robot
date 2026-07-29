@@ -32,3 +32,21 @@ Documentation       I am just text, # not a comment   # But I am a comment
       (comment)
       (comment)
       (comment))))
+
+================================================================================
+Copyright header before first section
+================================================================================
+
+# Copyright 2026 Foo Corp
+# All rights reserved.
+
+*** Settings ***
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (comment)
+  (section
+    (settings_section
+      (section_header))))
