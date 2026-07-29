@@ -169,6 +169,49 @@ I Am A User Defined Keyword
                   (text_chunk))))))))))
 
 ================================================================================
+Inline keyword settings
+================================================================================
+
+*** Keywords ***
+
+Log Twice   [Arguments]     ${value}
+    Log     ${value}
+    Log     ${value}
+
+-------
+
+(source_file
+  (section
+    (keywords_section
+      (section_header)
+      (keyword_definition
+        (name
+          (name_chunk))
+        (keyword_setting
+          (keyword_setting_name)
+          (arguments
+            (argument
+              (scalar_variable
+                (variable_name)))))
+        (body
+          (statement
+            (keyword_invocation
+              (keyword
+                (name_chunk))
+              (arguments
+                (argument
+                  (scalar_variable
+                    (variable_name))))))
+          (statement
+            (keyword_invocation
+              (keyword
+                (name_chunk))
+              (arguments
+                (argument
+                  (scalar_variable
+                    (variable_name)))))))))))
+
+================================================================================
 Keywords with embedded parameters
 ================================================================================
 

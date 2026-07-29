@@ -499,6 +499,10 @@
           "named": true
         },
         {
+          "type": "keyword_setting",
+          "named": true
+        },
+        {
           "type": "name",
           "named": true
         }
