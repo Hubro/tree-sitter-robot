@@ -2350,6 +2350,43 @@
           "type": "CHOICE",
           "members": [
             {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "["
+                  },
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "variable_key"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "scalar_variable"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "]"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
               "type": "STRING",
               "value": " "
             },
@@ -2486,7 +2523,11 @@
     },
     "variable_name": {
       "type": "PATTERN",
-      "value": "[^{}]+"
+      "value": "[^{}\\[\\]]+"
+    },
+    "variable_key": {
+      "type": "PATTERN",
+      "value": "[^\\[\\]}$@&]+"
     },
     "text_chunk": {
       "type": "SYMBOL",
