@@ -1,0 +1,155 @@
+================================================================================
+Integer subscript
+================================================================================
+
+*** Keywords ***
+
+Log First Value Of Variable
+    [Arguments]    ${var}
+    Log    ${var[0]}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (keywords_section
+      (section_header)
+      (keyword_definition
+        (name
+          (name_chunk))
+        (body
+          (keyword_setting
+            (keyword_setting_name)
+            (arguments
+              (argument
+                (scalar_variable
+                  (variable_name)))))
+          (statement
+            (keyword_invocation
+              (keyword
+                (name_chunk))
+              (arguments
+                (argument
+                  (scalar_variable
+                    (variable_name)
+                    (variable_key)))))))))))
+
+================================================================================
+String subscript
+================================================================================
+
+*** Keywords ***
+
+Log Foo From Dictionary
+    [Arguments]    ${dict}
+    Log    ${dict["foo"]}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (keywords_section
+      (section_header)
+      (keyword_definition
+        (name
+          (name_chunk))
+        (body
+          (keyword_setting
+            (keyword_setting_name)
+            (arguments
+              (argument
+                (scalar_variable
+                  (variable_name)))))
+          (statement
+            (keyword_invocation
+              (keyword
+                (name_chunk))
+              (arguments
+                (argument
+                  (scalar_variable
+                    (variable_name)
+                    (variable_key)))))))))))
+
+================================================================================
+Multiple subscripts
+================================================================================
+
+*** Keywords ***
+
+Log Foo Bar Baz From Dictionary
+    [Arguments]    ${dict}
+    Log    ${dict["foo"]["bar"]["baz"]}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (keywords_section
+      (section_header)
+      (keyword_definition
+        (name
+          (name_chunk))
+        (body
+          (keyword_setting
+            (keyword_setting_name)
+            (arguments
+              (argument
+                (scalar_variable
+                  (variable_name)))))
+          (statement
+            (keyword_invocation
+              (keyword
+                (name_chunk))
+              (arguments
+                (argument
+                  (scalar_variable
+                    (variable_name)
+                    (variable_key)
+                    (variable_key)
+                    (variable_key)))))))))))
+
+================================================================================
+Nested subscripts
+================================================================================
+
+*** Keywords ***
+
+Log Foo From Nested Dictionaries
+    [Arguments]    ${dict1}    ${dict2}    ${dict3}
+    Log    ${dict1[${dict2[${dict3["foo"]}]}]}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (keywords_section
+      (section_header)
+      (keyword_definition
+        (name
+          (name_chunk))
+        (body
+          (keyword_setting
+            (keyword_setting_name)
+            (arguments
+              (argument
+                (scalar_variable
+                  (variable_name)))
+              (argument
+                (scalar_variable
+                  (variable_name)))
+              (argument
+                (scalar_variable
+                  (variable_name)))))
+          (statement
+            (keyword_invocation
+              (keyword
+                (name_chunk))
+              (arguments
+                (argument
+                  (scalar_variable
+                    (variable_name)
+                    (scalar_variable
+                      (variable_name)
+                      (scalar_variable
+                        (variable_name)
+                        (variable_key)))))))))))))
