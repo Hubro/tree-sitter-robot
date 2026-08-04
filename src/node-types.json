@@ -677,9 +677,17 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "scalar_variable",
+          "named": true
+        },
+        {
+          "type": "variable_key",
+          "named": true
+        },
         {
           "type": "variable_name",
           "named": true
@@ -1177,6 +1185,10 @@
   },
   {
     "type": "section_header",
+    "named": true
+  },
+  {
+    "type": "variable_key",
     "named": true
   },
   {

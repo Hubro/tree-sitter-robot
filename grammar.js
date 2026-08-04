@@ -509,7 +509,22 @@ module.exports = grammar({
       ),
 
     scalar_variable: ($) =>
-      seq("${", optional(" "), $.variable_name, optional(" "), "}"),
+      seq(
+        "${",
+        optional(" "),
+        $.variable_name,
+        optional(
+          repeat(
+            seq(
+              "[",
+              choice($.variable_key, $.scalar_variable),
+              "]"
+            )
+          )
+        ),
+        optional(" "),
+        "}"
+      ),
 
     list_variable: ($) =>
       seq("@{", optional(" "), $.variable_name, optional(" "), "}"),
@@ -526,7 +541,9 @@ module.exports = grammar({
         ),
       ),
 
-    variable_name: ($) => /[^{}]+/,
+    variable_name: ($) => /[^{}\[\]]+/,
+
+    variable_key: ($) => /[^\[\]}$@&]+/,
 
     text_chunk: ($) => $._text_chunk,
 
