@@ -144,10 +144,35 @@
               },
               {
                 "type": "SYMBOL",
+                "name": "_comment_line"
+              },
+              {
+                "type": "SYMBOL",
                 "name": "_empty_line"
               }
             ]
           }
+        }
+      ]
+    },
+    "_comment_line": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PATTERN",
+              "value": "[^*\\s#][^\\r\\n]*|[ \\t]+[^\\s#][^\\r\\n]*"
+            }
+          },
+          "named": true,
+          "value": "comment"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_line_break"
         }
       ]
     },
