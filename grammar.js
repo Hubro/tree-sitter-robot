@@ -93,7 +93,16 @@ module.exports = grammar({
     comments_section: ($) =>
       seq(
         section_header($, "Comments"),
-        repeat(choice($.comment, $._empty_line)),
+        repeat(choice($.comment, $._comment_line, $._empty_line)),
+      ),
+    // Ignore any line that doesn't start a new section
+    _comment_line: ($) =>
+      seq(
+        alias(
+          token(/[^*\s#][^\r\n]*|[ \t]+[^\s#][^\r\n]*/),
+          $.comment,
+        ),
+        $._line_break,
       ),
 
     //

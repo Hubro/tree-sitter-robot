@@ -28,3 +28,33 @@ Only comments section
       (comment)
       (comment)
       (comment))))
+
+================================================================================
+Comments section with free text
+================================================================================
+
+*** Comments ***
+This is free text, ${not} a variable
+    indented text    with    separators
+# a hash comment
+
+*** Settings ***
+Library    OperatingSystem
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    (comments_section
+      (section_header)
+      (comment)
+      (comment)
+      (comment)))
+  (section
+    (settings_section
+      (section_header)
+      (setting_statement
+        name: (setting_name)
+        (arguments
+          (argument
+            (text_chunk)))))))
